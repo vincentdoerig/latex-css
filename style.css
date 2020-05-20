@@ -1,0 +1,273 @@
+@font-face {
+  font-family: "Latin Modern";
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("./fonts/LM-regular.woff2") format("woff2"),
+    url("./fonts/LM-regular.woff") format("woff"),
+    url("./fonts/LM-regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Latin Modern";
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+  src: url("./fonts/LM-italic.woff2") format("woff2"),
+    url("./fonts/LM-italic.woff") format("woff"),
+    url("./fonts/LM-italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Latin Modern";
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url("./fonts/LM-bold.woff2") format("woff2"),
+    url("./fonts/LM-bold.woff") format("woff"),
+    url("./fonts/LM-bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Latin Modern";
+  font-style: italic;
+  font-weight: bold;
+  font-display: swap;
+  src: url("./fonts/LM-bold-italic.woff2") format("woff2"),
+    url("./fonts/LM-bold-italic.woff") format("woff"),
+    url("./fonts/LM-bold-italic.ttf") format("truetype");
+}
+
+:root {
+  --font-family: "Latin Modern", Georgia, Cambria, "Times New Roman", Times,
+    serif;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+dl,
+dd {
+  margin: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  line-height: 1.8;
+
+  max-width: 80ch;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem 0;
+
+  counter-reset: theorem;
+  counter-reset: definition;
+
+  color: hsl(0, 5%, 10%);
+  background-color: hsl(210, 20%, 98%);
+
+  text-rendering: optimizeSpeed;
+}
+
+/* Justify and hyphenate all paragraphs */
+p {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make links red */
+a,
+a:visited {
+  color: #a00;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Styles for inline code or code snippets */
+code,
+pre,
+kbd {
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+  font-size: 85%;
+}
+pre {
+  padding: 1rem 1.4rem;
+  max-width: 100%;
+  overflow: auto;
+  border: 1px solid hsl(210, 15%, 49%);
+  border-radius: 4px;
+  background: hsl(210, 40%, 96%);
+}
+pre code {
+  font-size: 95%;
+  position: relative;
+}
+
+/* Center align the title */
+h1:first-child {
+  text-align: center;
+}
+
+/* Nested ordered list for ToC */
+nav ol {
+  counter-reset: item;
+  padding-left: 2rem;
+}
+nav li {
+  display: block;
+}
+nav li:before {
+  content: counters(item, ".") " ";
+  counter-increment: item;
+  padding-right: 0.85rem;
+}
+
+/* Center definitions (most useful for display equations) */
+dl dd {
+  text-align: center;
+}
+
+/* Theorem */
+.theorem {
+  counter-increment: theorem;
+  display: block;
+  margin: 12px 0;
+  font-style: italic;
+}
+.theorem::before {
+  content: "Theorem " counter(theorem) ". ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Lemma */
+.lemma {
+  counter-increment: theorem;
+  display: block;
+  margin: 12px 0;
+  font-style: italic;
+}
+.lemma::before {
+  content: "Lemma " counter(theorem) ". ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Proof */
+.proof {
+  display: block;
+  margin: 12px 0;
+  font-style: normal;
+  position: relative;
+}
+.proof::before {
+  content: "Proof. " attr(title);
+  font-style: italic;
+}
+.proof:after {
+  content: "◾️";
+  position: absolute;
+  right: -12px;
+  bottom: -2px;
+}
+
+/* Definition */
+.definition {
+  counter-increment: definition;
+  display: block;
+  margin: 12px 0;
+  font-style: normal;
+}
+.definition::before {
+  content: "Definition " counter(definition) ". ";
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Center align author name, use small caps and add vertical spacing  */
+.author {
+  margin: .85rem 0;
+  font-variant-caps: small-caps;
+  text-align: center;
+}
+
+/* Make footnote text smaller and left align it (looks bad with long URLs) */
+.footnotes p {
+  text-align: left;
+  line-height: 1.5;
+  font-size: 85%;
+  margin-bottom: 0.4rem;
+}
+
+/* Center title and paragraph */
+.abstract,
+.abstract p {
+  text-align: center;
+}
+.abstract {
+  margin: 2.25rem 0;
+}
+
+/* Format the LaTeX symbol correctly (a higher up, e lower) */
+.latex span:nth-child(1) {
+  text-transform: uppercase;
+  font-size: 0.75em;
+  vertical-align: 0.25em;
+  margin-left: -0.36em;
+  margin-right: -0.15em;
+  line-height: 1ex;
+}
+
+.latex span:nth-child(2) {
+  text-transform: uppercase;
+  vertical-align: -0.5ex;
+  margin-left: -0.1667em;
+  margin-right: -0.125em;
+  line-height: 1ex;
+}

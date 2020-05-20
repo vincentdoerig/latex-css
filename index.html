@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latex CSS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Latex CSS</h1>
+    <p class="author">Vincent Dörig <br> 19 May 2020</p>
+  </header>
+
+  <div class="abstract">
+    <h4>Abstract</h4>
+    <p>This almost class-less CSS framework turn your HTML document into a website looking like a
+      <span class="latex">L<span>a</span>T<span>e</span>X</span>
+      document. It
+      supports pretty much all HTML tags. The source code can be found on GitHub at <a
+        href="https://github.com/vincentdoerig/latex-css">https://github.com/vincentdoerig/latex-css</a>.</p>
+  </div>
+
+  <nav role="navigation" class="toc">
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#getting-started">Getting Started</a> </li>
+      <li><a href="#cbe">Class-based Elements</a>
+      <li><a href="#tdpl">Theorems, Definitions, Proofs and Lemmas</a>
+        <ol>
+          <li><a href="#proofs-theorems">Proofs & Theorems</a></li>
+          <li><a href="#lemmas">Lemmas</a></li>
+          <li><a href="#definitions">Definitions</a></li>
+      </li>
+    </ol>
+    </li>
+    <li><a href="#!">Something</a></li>
+    <li><a href="#!">Something</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <article>
+      <h2 id="introduction">Introduction</h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam itaque cupiditate in fuga, quisquam ad molestias
+        error blanditiis velit fugiat sed provident porro dolores! Labore perferendis quia impedit optio quod?</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quae odit? Quam quis obcaecati unde dignissimos
+        ratione dicta dolorum similique corporis, eius harum porro impedit minus reiciendis debitis aliquid, nemo,
+        laboriosam hic nihil delectus facilis sed consequatur. Architecto aliquid eaque voluptatibus mollitia veritatis
+        quae tempore animi cumque fugit reiciendis quas nulla culpa repellat voluptate facere consectetur assumenda quia
+        iusto quam beatae modi, ullam reprehenderit nam recusandae! Deleniti incidunt blanditiis, autem dolores possimus
+        laboriosam fugit iste, illo molestias laborum dolor soluta vitae? Dolore minus illum alias neque nobis expedita
+        aliquam accusantium, praesentium quis assumenda voluptatibus officia impedit cumque a, quisquam beatae ad iure
+        corporis, inventore ex quaerat? Veritatis, debitis. Quae et sapiente ad culpa voluptatem hic repudiandae commodi
+        quidem! Consectetur, ratione.</p>
+      <h2 id="getting-started">Getting Started</h2>
+      <ul>
+        <li>Add <code>&lt;link rel="stylesheet" href="https://latex.now.sh/style.css"&gt;</code> to the
+          <code>&lt;head&gt;</code> of your website.</li>
+        <li>(optional) Add classes to any proof, definiton, theorem or lemma.</li>
+        <li>(opitional) Add a paragraph with a class of <code>.author</code> below the title with the date and name of
+          the author.</li>
+        <li>(optional) If you need support for LaTeX math, add the following two scripts to include <a
+            href="https://www.mathjax.org/">MathJax</a> to your website:
+          <pre><code>&lt;script src="https://polyfill.io/v3/polyfill.min.js?features=es6"&gt;&lt;/script&gt;
+&lt;script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"&gt;&lt;/script&gt;</code></pre>
+        </li>
+        <li>Done.</li>
+      </ul>
+      <h2 id="cbe">Class-based Elements</h2>
+      <h3 id="tdpl">Theorems, Definitions and Proofs</h3>
+      <p>Theorems, Definitions, Remarks and Proofs are supported. Just wrap your content in a div and add the
+        corresponding class to the div like in the following example.</p>
+
+      <pre><code>&lt;div class="theorem"&gt;...&lt;/div&gt;
+&lt;div class="definition"&gt;...&lt;/div&gt;
+&lt;div class="lemma"&gt;...&lt;/div&gt;
+&lt;div class="proof"&gt;...&lt;/div&gt;</code></pre>
+      <h3 id="proofs-theorems">Proofs & Theorems</h3>
+      <div class="theorem">The real numbers $\mathbb{R}$ are uncountable.</div>
+      <div class="proof">If $\mathbb{R}$ is countable, then [0, 1] is countable as well. Hence there exists a map
+        C from $\mathbb{N}$ onto [0, 1] with $$C(n)=\sum_{i=1}^{\infty} c_{i}(n) 10^{-i}$$ where $c_{i}(n) \in\{0,1,
+        \ldots, 9\},$
+        are the digits in decimal expansion. Now consider a real
+        number
+        $$x=\sum_{i=1}^{\infty} \bar{c}_{i} 10^{-i} \in[0,1]$$
+        with $\bar{c}_{i} \neq c_{i}(i)$. Obviously $C(n) \neq x$ for all $n \in \mathbb{N} .$ Hence $C$ is not onto. A
+        contradiction.</div>
+      <div class="theorem">If $S$ is both countable and infinite, then there is a bijection between $S$ and
+        $\boldsymbol{N}$ itself.<sup><a href="#fn1" id="ref1">1</a></sup>
+      </div>
+      <div class="proof">For any $s \in S,$ we let $f(s)$ denote the value of $k$ such that $s$ is the $k$ th
+        smallest element of $S .$ This map is well defined for any $s,$ because there are only finitely many natural
+        numbers between 1 and $s .$ It is impossible for two different elements of $S$ to both be the $k$ th smallest
+        element of $S$. Hence $f$ is one-to-one. Also, since $S$ is infinite, $f$ is onto.</div>
+      <h3 id="lemmas">Lemmas</h3>
+      <div class="lemma">An even number plus an even number results in an even number.</div>
+      <h3 id="definitions">Definitions</h3>
+      <div class="definition">A definition is a a statement of the meaning of a word or word group or a sign or
+        symbol.<sup><a href="#fn2" id="ref1">2</a></sup></div>
+      <h3>Definition List</h3>
+      <dl>
+        <dt>Definition Title One</dt>
+        <dd>First definition description</dd>
+        <dt>Binomial theorem</dt>
+        <dd>$$(x+y)^{n}=\sum_{k=0}^{n}\left(\begin{array}{l}n \\ k\end{array}\right) x^{n-k}
+          y^{k}=\sum_{k=0}^{n}\left(\begin{array}{l}n \\ k\end{array}\right) x^{k} y^{n-k}$$</dd>
+      </dl>
+      <h3>Images</h3>
+      <div>
+        <h4>No <code>&lt;figure&gt;</code> element</h4>
+        <img src="https://source.unsplash.com/random?sig=1" loading="lazy" alt="Letter types">
+      </div>
+      <div>
+        <h4>Wrapped in a <code>&lt;figure&gt;</code> element, with a <code>&lt;figcaption&gt;</code></h4>
+        <figure>
+          <img src="https://source.unsplash.com/random?sig=2" loading="lazy" alt="Image alt text" title="">
+          <figcaption>Here is a caption for this image.</figcaption>
+        </figure>
+      </div>
+      <hr>
+      <div class="footnotes">
+        <p id="fn1">1. From <a
+            href="https://www.math.brown.edu/~res/MFS/handout8.pdf">https://www.math.brown.edu/~res/MFS/handout8.pdf</a>.
+          <a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></p>
+        <p id="fn2">2. “Definition.” Merriam-Webster.com Dictionary, Merriam-Webster,
+          <a
+            href="https://www.merriam-webster.com/dictionary/definition">https://www.merriam-webster.com/dictionary/definition</a>.
+          Accessed 18 May. 2020.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></p>
+      </div>
+    </article>
+  </main>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  </script>
+</body>
+
+</html>
