@@ -38,11 +38,6 @@
     url("./fonts/LM-bold-italic.ttf") format("truetype");
 }
 
-:root {
-  --font-family: "Latin Modern", Georgia, Cambria, "Times New Roman", Times,
-    serif;
-}
-
 /* Box sizing rules */
 *,
 *::before,
@@ -67,19 +62,21 @@ dd {
   margin: 0;
 }
 
+/* Make default font-size 1rem and add smooth scrolling to anchors */
 html {
-  font-size: 16px;
+  font-size: 1rem;
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: var(--font-family);
+  font-family: "Latin Modern", Georgia, Cambria, "Times New Roman", Times,
+  serif;
   line-height: 1.8;
 
   max-width: 80ch;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2rem 1.25rem;
 
   counter-reset: theorem;
   counter-reset: definition;
@@ -93,9 +90,9 @@ body {
 /* Justify and hyphenate all paragraphs */
 p {
   text-align: justify;
+  hyphens: auto;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
-  hyphens: auto;
 }
 
 /* A elements that don't have a class get default styles */
@@ -147,6 +144,28 @@ pre {
 pre code {
   font-size: 95%;
   position: relative;
+}
+
+/* Make table 100% width, add borders between rows */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  max-width: 100%;
+}
+th,
+td {
+  text-align: left;
+  padding: 0.5rem;
+}
+td {
+  border-bottom: 1px solid hsl(0, 0%, 85%);
+}
+thead th {
+  border-bottom: 2px solid hsl(0, 0%, 70%);
+}
+tfoot th {
+  border-top: 2px solid hsl(0, 0%, 70%);
 }
 
 /* Center align the title */
@@ -270,4 +289,71 @@ dl dd {
   margin-left: -0.1667em;
   margin-right: -0.125em;
   line-height: 1ex;
+}
+
+/* Heading typography */
+h1 {
+  font-size: 2.5rem;
+  line-height: 3.25rem;
+  margin-bottom: 1.625rem;
+}
+
+h2 {
+  font-size: 1.7rem;
+  line-height: 2rem;
+  margin-top: 3rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-top: 2.75rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+  margin-top: 2.5rem;
+}
+
+h5 {
+  font-size: 1rem;
+  margin-top: 2.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+  margin-top: 4rem;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.625rem;
+}
+
+h1 + h2 {
+  margin-top: 1.625rem;
+}
+
+h2 + h3,
+h3 + h4,
+h4 + h5 {
+  margin-top: 0.8rem;
+}
+
+h5 + h6 {
+  margin-top: -0.8rem;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.8rem;
+}
+
+h6 {
+  font-style: italic;
+  font-weight: normal;
 }
