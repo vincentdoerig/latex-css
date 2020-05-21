@@ -11,15 +11,16 @@
 <body>
   <header>
     <h1>Latex CSS</h1>
-    <p class="author">Vincent Dörig <br> 19 May 2020</p>
+    <p class="author">Vincent Dörig <br>May 2020</p>
   </header>
 
   <div class="abstract">
     <h4>Abstract</h4>
-    <p>This almost class-less CSS framework turn your HTML document into a website looking like a
+    <p>This almost class-less CSS framework turns your HTML document into a website that looks like a
       <span class="latex">L<span>a</span>T<span>e</span>X</span>
-      document. It
-      supports pretty much all HTML tags. The source code can be found on GitHub at <a
+      document. Write semantic HTML, add
+      <code>&lt;link rel="stylesheet" href="https://latex.now.sh/style.css"&gt;</code> to the
+      <code>&lt;head&gt;</code> of your HTML file and you are good to go. The source code can be found on GitHub at <a
         href="https://github.com/vincentdoerig/latex-css">https://github.com/vincentdoerig/latex-css</a>.</p>
   </div>
 
@@ -29,16 +30,16 @@
       <li><a href="#introduction">Introduction</a></li>
       <li><a href="#getting-started">Getting Started</a> </li>
       <li><a href="#cbe">Class-based Elements</a>
-      <li><a href="#tdpl">Theorems, Definitions, Proofs and Lemmas</a>
+      <li><a href="#cbe">Class-based Elements</a>
         <ol>
+          <li><a href="#tdpl">Theorems, Definitions and Proofs</a></li>
           <li><a href="#proofs-theorems">Proofs & Theorems</a></li>
           <li><a href="#lemmas">Lemmas</a></li>
           <li><a href="#definitions">Definitions</a></li>
       </li>
     </ol>
     </li>
-    <li><a href="#!">Something</a></li>
-    <li><a href="#!">Something</a></li>
+    <li><a href="#html-elements">HTML Elements</a></li>
     </ol>
   </nav>
 
@@ -100,7 +101,22 @@
       <div class="lemma">An even number plus an even number results in an even number.</div>
       <h3 id="definitions">Definitions</h3>
       <div class="definition">A definition is a a statement of the meaning of a word or word group or a sign or
-        symbol.<sup><a href="#fn2" id="ref1">2</a></sup></div>
+        symbol.<sup><a href="#fn2" id="ref2">2</a></sup></div>
+      <h2 id="html-elements">HTML Elements</h2>
+      <h3>Text formatting</h3>
+      <p>
+        This sentence is <b>bold</b>. If you like semantics, you might go with
+        <strong>strong</strong> or <em>emphasized</em> text. If not, <i>italic</i> is still
+        around. <small>Small</small> text is for fine print. Your copy can also be
+        <sub>subscripted</sub> and <sup>superscripted</sup>, <ins>inserted</ins>,
+        <del>deleted</del>, or <mark>highlighted</mark>. You would use a
+        <a href="#!">hyperlink</a> to go to a new page.
+      </p>
+      <h3>Blockquotes</h3>
+      <blockquote>
+        Give me six hours to chop down a tree and I will spend the first four sharpening the axe.
+        <cite>— Abraham Lincoln</cite>
+      </blockquote>
       <h3>Definition List</h3>
       <dl>
         <dt>Definition Title One</dt>
@@ -109,18 +125,46 @@
         <dd>$$(x+y)^{n}=\sum_{k=0}^{n}\left(\begin{array}{l}n \\ k\end{array}\right) x^{n-k}
           y^{k}=\sum_{k=0}^{n}\left(\begin{array}{l}n \\ k\end{array}\right) x^{k} y^{n-k}$$</dd>
       </dl>
+      <h3>Tables</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+            <th>Header 3</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Footer 1</th>
+            <th>Footer 2</th>
+            <th>Footer 3</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          <tr>
+            <td>Description 1</td>
+            <td>Description 2</td>
+            <td>Description 3</td>
+          </tr>
+          <tr>
+            <td>Description 1</td>
+            <td>Description 2</td>
+            <td>Description 3</td>
+          </tr>
+          <tr>
+            <td>Description 1</td>
+            <td>Description 2</td>
+            <td>Description 3</td>
+          </tr>
+        </tbody>
+      </table>
       <h3>Images</h3>
-      <div>
-        <h4>No <code>&lt;figure&gt;</code> element</h4>
-        <img src="https://source.unsplash.com/random?sig=1" loading="lazy" alt="Letter types">
-      </div>
-      <div>
-        <h4>Wrapped in a <code>&lt;figure&gt;</code> element, with a <code>&lt;figcaption&gt;</code></h4>
-        <figure>
-          <img src="https://source.unsplash.com/random?sig=2" loading="lazy" alt="Image alt text" title="">
-          <figcaption>Here is a caption for this image.</figcaption>
-        </figure>
-      </div>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&w=1000&q=80"
+          loading="lazy" alt="Mountain landscape" title="">
+        <figcaption>Mountain landscape by <a href="https://unsplash.com/@heytowner">John Towner</a>.</figcaption>
+      </figure>
       <hr>
       <div class="footnotes">
         <p id="fn1">1. From <a
