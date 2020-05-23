@@ -15,8 +15,8 @@
   </header>
 
   <div class="abstract">
-    <h4>Abstract</h4>
-    <p>This almost class-less CSS framework turns your HTML document into a website that looks like a
+    <h5>Abstract</h5>
+    <p>This almost class-less CSS library turns your HTML document into a website that looks like a
       <span class="latex">L<span>a</span>T<span>e</span>X</span>
       document. Write semantic HTML, add
       <code>&lt;link rel="stylesheet" href="https://latex.now.sh/style.css"&gt;</code> to the
@@ -29,7 +29,7 @@
     <h3>Contents</h3>
     <ol>
       <li><a href="#getting-started">Getting Started</a> </li>
-      <li><a href="#cbe">Class-based Elements</a>
+      <li><a href="#class-based-elements">Class-based Elements</a>
         <ol>
           <li><a href="#author-abstract">Author and Abstract</a></li>
           <li><a href="#tdpl">Theorems, Definitions and Proofs
@@ -42,7 +42,15 @@
       </li>
     </ol>
     </li>
-    <li><a href="#html-elements">HTML Elements</a></li>
+    <li><a href="#html-elements">HTML Elements</a>
+      <ol>
+        <li><a href="#text-formatting">Text Formatting</a></li>
+        <li><a href="#blockquotes">Blockquotes</a></li>
+        <li><a href="#definition-lists">Definition Lists</a></li>
+        <li><a href="#tables">Tables</a></li>
+        <li><a href="#images">Images</a></li>
+      </ol>
+    </li>
     </ol>
   </nav>
 
@@ -52,21 +60,22 @@
       <ul>
         <li>Add <code>&lt;link rel="stylesheet" href="https://latex.now.sh/style.css"&gt;</code> to the
           <code>&lt;head&gt;</code> of your website.</li>
-        <li>(opitional) Add any classes to elmenents described in the <a href="#cbe">next section</a>.</li>
+        <li>(opitional) Add any classes to elmenents described in the <a href="#class-based-elements">next section</a>.
+        </li>
         <li>(optional) If you need support for <span class="latex">L<span>a</span>T<span>e</span>X</span> math, add the
           following script to include <a href="https://www.mathjax.org/">MathJax</a>:
           <pre><code>&lt;script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"&gt;&lt;/script&gt;</code></pre>
         </li>
         <li>Done.</li>
       </ul>
-      <h2 id="cbe">Class-based Elements</h2>
+      <h2 id="class-based-elements">Class-based Elements</h2>
       <h3 id="author-abstract">Author and Abstract</h3>
       <p>Use the following code to add an author and abstract to your document. It will look like <a
           href="#top">this</a>.</p>
       <pre><code>&lt;p class="author"&gt;John Doe &lt;br&gt; December 7, 2020&lt;/p&gt;
 
 &lt;div class="abstract"&gt;
-  &lt;h4&gt;Abstract&lt;/h4&gt;
+  &lt;h5&gt;Abstract&lt;/h5&gt;
   &lt;p&gt;...&lt;/p&gt;
 &lt;/div&gt;</code></pre>
 
@@ -104,7 +113,7 @@
       <h2 id="html-elements">HTML Elements</h2>
       <p>For a preview of all HTML elements with LaTeX.css, check out the <a href="/elements">HTML5 elements test
           page</a>.</p>
-      <h3>Text formatting</h3>
+      <h3 id="text-formatting">Text Formatting</h3>
       <p>
         This sentence is <b>bold</b>. If you like semantics, you might go with
         <strong>strong</strong> or <em>emphasized</em> text. If not, <i>italic</i> is still
@@ -114,12 +123,12 @@
         <a href="#!">hyperlink</a> to go to a new page. Keyboard input elements like <kbd>Cmd</kbd> + <kbd>Shift</kbd>
         are used to display textual user input.
       </p>
-      <h3>Blockquotes</h3>
+      <h3 id="blockquotes">Blockquotes</h3>
       <blockquote>
         Give me six hours to chop down a tree and I will spend the first four sharpening the axe.
         <cite>— Abraham Lincoln</cite>
       </blockquote>
-      <h3>Definition List</h3>
+      <h3 id="definition-lists">Definition Lists</h3>
       <dl>
         <dt>Definition Title One</dt>
         <dd>First definition description</dd>
@@ -127,7 +136,7 @@
         <dd>$$(x+y)^{n}=\sum_{k=0}^{n}\left(\begin{array}{l}n \\ k\end{array}\right) x^{n-k}
           y^{k}=\sum_{k=0}^{n}\left(\begin{array}{l}n \\ k\end{array}\right) x^{k} y^{n-k}$$</dd>
       </dl>
-      <h3>Tables</h3>
+      <h3 id="tables">Tables</h3>
       <table>
         <thead>
           <tr>
@@ -161,7 +170,7 @@
           </tr>
         </tbody>
       </table>
-      <h3>Images</h3>
+      <h3 id="images">Images</h3>
       <figure>
         <img src="https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&w=1000&q=80"
           loading="lazy" alt="Mountain landscape" title="">
@@ -174,7 +183,7 @@
         <p id="fn2">2. “Definition.” Merriam-Webster.com Dictionary, Merriam-Webster,
           <a
             href="https://www.merriam-webster.com/dictionary/definition">https://www.merriam-webster.com/dictionary/definition</a>.
-          Accessed 18 May. 2020.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></p>
+          Accessed 18 May. 2020. <a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a></p>
       </div>
     </article>
   </main>
