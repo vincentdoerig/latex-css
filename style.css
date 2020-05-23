@@ -75,6 +75,7 @@ body {
 
   max-width: 80ch;
   min-height: 100vh;
+  overflow-x: hidden;
   margin: 0 auto;
   padding: 2rem 1.25rem;
 
@@ -93,6 +94,7 @@ p {
   hyphens: auto;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
+  margin-top: 1rem;
 }
 
 /* A elements that don't have a class get default styles */
@@ -120,6 +122,11 @@ select {
   font: inherit;
 }
 
+/* Prevent textarea from overflowing */
+textarea{
+  width: 100%;
+}
+
 /* Natural flow and rhythm in articles by default */
 article > * + * {
   margin-top: 1em;
@@ -144,6 +151,13 @@ pre {
 pre code {
   font-size: 95%;
   position: relative;
+}
+kbd {
+  background: hsl(210, 5%, 100%);
+  border: 1px solid hsl(210, 5%, 70%);
+  border-radius: 2px;
+  padding: 2px 4px;
+  font-size: 75%;
 }
 
 /* Make table 100% width, add borders between rows */
@@ -263,6 +277,9 @@ dl dd {
   font-size: 85%;
   margin-bottom: 0.4rem;
 }
+.footnotes {
+  border-top: 1px solid hsl(0, 0%, 39%);
+}
 
 /* Center title and paragraph */
 .abstract,
@@ -306,22 +323,24 @@ h2 {
 
 h3 {
   font-size: 1.4rem;
-  margin-top: 2.75rem;
+  margin-top: 2.5rem;
 }
 
 h4 {
   font-size: 1.2rem;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
 }
 
 h5 {
   font-size: 1rem;
-  margin-top: 2.25rem;
+  margin-top: 1.8rem;
 }
 
 h6 {
   font-size: 1rem;
-  margin-top: 4rem;
+  font-style: italic;
+  font-weight: normal;
+  margin-top: 2.5rem;
 }
 
 h3,
@@ -351,9 +370,4 @@ h4,
 h5,
 h6 {
   margin-bottom: 0.8rem;
-}
-
-h6 {
-  font-style: italic;
-  font-weight: normal;
 }
