@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Latex CSS</title>
+  <title>LaTeX.css — Make your website look like a LaTeX document</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body id="top">
   <header>
-    <h1>Latex CSS</h1>
-    <p class="author">Vincent Dörig <br>May 2020</p>
+    <h1>LaTeX.css</h1>
+    <p class="author">Vincent Dörig <br> May 2020</p>
   </header>
 
   <div class="abstract">
@@ -20,22 +20,25 @@
       <span class="latex">L<span>a</span>T<span>e</span>X</span>
       document. Write semantic HTML, add
       <code>&lt;link rel="stylesheet" href="https://latex.now.sh/style.css"&gt;</code> to the
-      <code>&lt;head&gt;</code> of your HTML file and you are good to go. The source code can be found on GitHub at <a
-        href="https://github.com/vincentdoerig/latex-css">https://github.com/vincentdoerig/latex-css</a>.</p>
+      <code>&lt;head&gt;</code> of your project and you are good to go. The source code can be found on GitHub at <a
+        href="https://github.com/vincentdoerig/latex-css">https://github.com/vincentdoerig/latex-css</a>.
+    </p>
   </div>
 
   <nav role="navigation" class="toc">
     <h3>Contents</h3>
     <ol>
-      <li><a href="#introduction">Introduction</a></li>
       <li><a href="#getting-started">Getting Started</a> </li>
       <li><a href="#cbe">Class-based Elements</a>
-      <li><a href="#cbe">Class-based Elements</a>
         <ol>
-          <li><a href="#tdpl">Theorems, Definitions and Proofs</a></li>
-          <li><a href="#proofs-theorems">Proofs & Theorems</a></li>
-          <li><a href="#lemmas">Lemmas</a></li>
-          <li><a href="#definitions">Definitions</a></li>
+          <li><a href="#author-abstract">Author and Abstract</a></li>
+          <li><a href="#tdpl">Theorems, Definitions and Proofs
+              <ol>
+                <li><a href="#proofs-theorems">Proofs & Theorems</a></li>
+                <li><a href="#lemmas">Lemmas</a></li>
+                <li><a href="#definitions">Definitions</a></li>
+              </ol>
+            </a></li>
       </li>
     </ol>
     </li>
@@ -45,42 +48,38 @@
 
   <main>
     <article>
-      <h2 id="introduction">Introduction</h2>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam itaque cupiditate in fuga, quisquam ad molestias
-        error blanditiis velit fugiat sed provident porro dolores! Labore perferendis quia impedit optio quod?</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quae odit? Quam quis obcaecati unde dignissimos
-        ratione dicta dolorum similique corporis, eius harum porro impedit minus reiciendis debitis aliquid, nemo,
-        laboriosam hic nihil delectus facilis sed consequatur. Architecto aliquid eaque voluptatibus mollitia veritatis
-        quae tempore animi cumque fugit reiciendis quas nulla culpa repellat voluptate facere consectetur assumenda quia
-        iusto quam beatae modi, ullam reprehenderit nam recusandae! Deleniti incidunt blanditiis, autem dolores possimus
-        laboriosam fugit iste, illo molestias laborum dolor soluta vitae? Dolore minus illum alias neque nobis expedita
-        aliquam accusantium, praesentium quis assumenda voluptatibus officia impedit cumque a, quisquam beatae ad iure
-        corporis, inventore ex quaerat? Veritatis, debitis. Quae et sapiente ad culpa voluptatem hic repudiandae commodi
-        quidem! Consectetur, ratione.</p>
       <h2 id="getting-started">Getting Started</h2>
       <ul>
         <li>Add <code>&lt;link rel="stylesheet" href="https://latex.now.sh/style.css"&gt;</code> to the
           <code>&lt;head&gt;</code> of your website.</li>
-        <li>(optional) Add classes to any proof, definiton, theorem or lemma.</li>
-        <li>(opitional) Add a paragraph with a class of <code>.author</code> below the title with the date and name of
-          the author.</li>
-        <li>(optional) If you need support for LaTeX math, add the following two scripts to include <a
-            href="https://www.mathjax.org/">MathJax</a> to your website:
-          <pre><code>&lt;script src="https://polyfill.io/v3/polyfill.min.js?features=es6"&gt;&lt;/script&gt;
-&lt;script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"&gt;&lt;/script&gt;</code></pre>
+        <li>(opitional) Add any classes to elmenents described in the <a href="#cbe">next section</a>.</li>
+        <li>(optional) If you need support for <span class="latex">L<span>a</span>T<span>e</span>X</span> math, add the
+          following script to include <a href="https://www.mathjax.org/">MathJax</a>:
+          <pre><code>&lt;script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"&gt;&lt;/script&gt;</code></pre>
         </li>
         <li>Done.</li>
       </ul>
       <h2 id="cbe">Class-based Elements</h2>
-      <h3 id="tdpl">Theorems, Definitions and Proofs</h3>
-      <p>Theorems, Definitions, Remarks and Proofs are supported. Just wrap your content in a div and add the
-        corresponding class to the div like in the following example.</p>
+      <h3 id="author-abstract">Author and Abstract</h3>
+      <p>Use the following code to add an author and abstract to your document. It will look like <a
+          href="#top">this</a>.</p>
+      <pre><code>&lt;p class="author"&gt;John Doe &lt;br&gt; December 7, 2020&lt;/p&gt;
+
+&lt;div class="abstract"&gt;
+  &lt;h4&gt;Abstract&lt;/h4&gt;
+  &lt;p&gt;...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3 id="tdpl">Theorems, Definitions, Lemmas and Proofs</h3>
+      <p>Theorems, definitions, lemmas and proofs are supported. Just wrap your content in a div and add the
+        corresponding class to the element like in the following example.</p>
 
       <pre><code>&lt;div class="theorem"&gt;...&lt;/div&gt;
 &lt;div class="definition"&gt;...&lt;/div&gt;
 &lt;div class="lemma"&gt;...&lt;/div&gt;
 &lt;div class="proof"&gt;...&lt;/div&gt;</code></pre>
-      <h3 id="proofs-theorems">Proofs & Theorems</h3>
+      <p>Below are some examples.</p>
+      <h4 id="proofs-theorems">Proofs & Theorems</h4>
       <div class="theorem">The real numbers $\mathbb{R}$ are uncountable.</div>
       <div class="proof">If $\mathbb{R}$ is countable, then [0, 1] is countable as well. Hence there exists a map
         C from $\mathbb{N}$ onto [0, 1] with $$C(n)=\sum_{i=1}^{\infty} c_{i}(n) 10^{-i}$$ where $c_{i}(n) \in\{0,1,
@@ -97,12 +96,14 @@
         smallest element of $S .$ This map is well defined for any $s,$ because there are only finitely many natural
         numbers between 1 and $s .$ It is impossible for two different elements of $S$ to both be the $k$ th smallest
         element of $S$. Hence $f$ is one-to-one. Also, since $S$ is infinite, $f$ is onto.</div>
-      <h3 id="lemmas">Lemmas</h3>
+      <h4 id="lemmas">Lemmas</h4>
       <div class="lemma">An even number plus an even number results in an even number.</div>
-      <h3 id="definitions">Definitions</h3>
+      <h4 id="definitions">Definitions</h4>
       <div class="definition">A definition is a a statement of the meaning of a word or word group or a sign or
         symbol.<sup><a href="#fn2" id="ref2">2</a></sup></div>
       <h2 id="html-elements">HTML Elements</h2>
+      <p>For a preview of all HTML elements with LaTeX.css, check out the <a href="/elements">HTML5 elements test
+          page</a>.</p>
       <h3>Text formatting</h3>
       <p>
         This sentence is <b>bold</b>. If you like semantics, you might go with
@@ -110,7 +111,8 @@
         around. <small>Small</small> text is for fine print. Your copy can also be
         <sub>subscripted</sub> and <sup>superscripted</sup>, <ins>inserted</ins>,
         <del>deleted</del>, or <mark>highlighted</mark>. You would use a
-        <a href="#!">hyperlink</a> to go to a new page.
+        <a href="#!">hyperlink</a> to go to a new page. Keyboard input elements like <kbd>Cmd</kbd> + <kbd>Shift</kbd>
+        are used to display textual user input.
       </p>
       <h3>Blockquotes</h3>
       <blockquote>
@@ -165,7 +167,6 @@
           loading="lazy" alt="Mountain landscape" title="">
         <figcaption>Mountain landscape by <a href="https://unsplash.com/@heytowner">John Towner</a>.</figcaption>
       </figure>
-      <hr>
       <div class="footnotes">
         <p id="fn1">1. From <a
             href="https://www.math.brown.edu/~res/MFS/handout8.pdf">https://www.math.brown.edu/~res/MFS/handout8.pdf</a>.
@@ -178,7 +179,6 @@
     </article>
   </main>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script>
     MathJax = {
@@ -186,7 +186,6 @@
         inlineMath: [['$', '$'], ['\\(', '\\)']]
       }
     };
-  </script>
   </script>
 </body>
 
