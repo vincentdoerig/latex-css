@@ -11,13 +11,13 @@
 
 Add the following code in the head of your project.
 
-```css
-<link rel="stylesheet" href="https://latex.now.sh/style.css" />
+```html
+<link rel="stylesheet" href="https://latex.now.sh/style.min.css" />
 ```
 
 or use a CDN like Unpkg:
 
-```css
+```html
 <link rel="stylesheet" href="https://unpkg.com/latex.css/style.min.css" />
 ```
 
