@@ -103,15 +103,6 @@ p {
   margin-top: 1rem;
 }
 
-/* Indent first line of each paragraph after the first one */
-p.noindent {
-  text-indent: 0px !important;
-}
-
-section > p:not(:first-of-type) {
-  text-indent: 20px;
-}
-
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
