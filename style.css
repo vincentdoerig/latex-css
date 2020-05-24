@@ -91,7 +91,7 @@ body {
   color: hsl(0, 5%, 10%);
   background-color: hsl(210, 20%, 98%);
 
-  text-rendering: optimizeSpeed;
+  text-rendering: optimizeLegibility;
 }
 
 /* Justify and hyphenate all paragraphs */
