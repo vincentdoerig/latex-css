@@ -150,9 +150,8 @@ pre {
   padding: 1rem 1.4rem;
   max-width: 100%;
   overflow: auto;
-  border: 1px solid hsl(210, 15%, 49%);
   border-radius: 4px;
-  background: hsl(210, 40%, 96%);
+  background: hsl(210, 28%, 93%);
 }
 pre code {
   font-size: 95%;
@@ -300,8 +299,8 @@ dl dd {
 .latex span:nth-child(1) {
   text-transform: uppercase;
   font-size: 0.75em;
-  vertical-align: 0.25em;
-  margin-left: -0.36em;
+  vertical-align: 0.28em;
+  margin-left: -0.48em;
   margin-right: -0.15em;
   line-height: 1ex;
 }
