@@ -1,8 +1,8 @@
 {
   "name": "latex.css",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A small CSS library to make your website look like a LaTeX document",
-  "main": "./script.min.css",
+  "main": "./style.min.css",
   "scripts": {
     "build": "uglifycss style.css > style.min.css"
   },
