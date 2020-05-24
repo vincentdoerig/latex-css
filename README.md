@@ -35,7 +35,7 @@ Yarn:
 yarn add latex.css
 ```
 
-Add any optional classnames to elements with special styles (author subtitle, abstract, lemmas, theorems, etc.). A list of supported class-based elements can be found [here](https://latex.now.sh/#class-based-elements).
+Add any optional classnames to elements with special styles (author, subtitle, abstract, lemmas, theorems, etc.). A list of supported class-based elements can be found [here](https://latex.now.sh/#class-based-elements).
 
 ## Contributing
 
