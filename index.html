@@ -5,13 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LaTeX.css — Make your website look like a LaTeX document</title>
+
+  <meta name="description"
+    content="A minimal, almost class-less CSS library to write modern websites that look like LaTeX documents.">
+  <meta name="keywords" content="latex.css,css library,class-less css,latex css">
+  <meta property="og:title" content="LaTeX.css">
+  <meta property="og:url" content="https://latex.now.sh">
+  <meta property="og:description"
+    content="A minimal, almost class-less CSS library to write modern websites that look like LaTeX documents.">
+  <meta property="og:type" content="website">
+
   <link rel="stylesheet" href="style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body id="top">
   <header>
-    <h1>LaTeX.css</h1>
+    <h1><span class="latex">L<span>a</span>T<span>e</span>X</span>.css</h1>
     <p class="author">Vincent Dörig <br> May 2020</p>
   </header>
 
@@ -60,7 +70,8 @@
       <h2 id="getting-started">Getting Started</h2>
       <ul>
         <li>Add <code>&lt;link rel="stylesheet" href="https://latex.now.sh/style.css"&gt;</code> to the
-          <code>&lt;head&gt;</code> of your website.</li>
+          <code>&lt;head&gt;</code> of your website or install the package using <code>npm install latex.css</code>.
+        </li>
         <li>(optional) Add any classes to elements described in the <a href="#class-based-elements">next section</a>.
         </li>
         <li>(optional) If you need support for <span class="latex">L<span>a</span>T<span>e</span>X</span> math, add the
