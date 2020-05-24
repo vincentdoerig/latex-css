@@ -39,7 +39,7 @@ Add any optional classnames to elements with special styles (author subtitle, ab
 
 ## Languages
 
-Theorems, Definitions, Lemmas and Proofs labels can be change to other [supported languages](lang) adding the following code in the head of your project.
+The labels of theorems, definitions, lemmas and proofs can be changed to other [supported languages](lang) by including the following snippet in addition to the main CSS file.
 
 ```html
 <link rel="stylesheet" href="https://latex.now.sh/lang/es.css" />
