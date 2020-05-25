@@ -6,43 +6,39 @@
 */
 
 @font-face {
-  font-family: 'Latin Modern';
+  font-family: "Latin Modern";
   font-style: normal;
   font-weight: normal;
   font-display: swap;
-  src: url('./fonts/LM-regular.woff2') format('woff2'),
-    url('./fonts/LM-regular.woff') format('woff'),
-    url('./fonts/LM-regular.ttf') format('truetype');
+  src: url("./fonts/LM-regular.woff2") format("woff2"), url("./fonts/LM-regular.woff") format("woff"),
+    url("./fonts/LM-regular.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Latin Modern';
+  font-family: "Latin Modern";
   font-style: italic;
   font-weight: normal;
   font-display: swap;
-  src: url('./fonts/LM-italic.woff2') format('woff2'),
-    url('./fonts/LM-italic.woff') format('woff'),
-    url('./fonts/LM-italic.ttf') format('truetype');
+  src: url("./fonts/LM-italic.woff2") format("woff2"), url("./fonts/LM-italic.woff") format("woff"),
+    url("./fonts/LM-italic.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Latin Modern';
+  font-family: "Latin Modern";
   font-style: normal;
   font-weight: bold;
   font-display: swap;
-  src: url('./fonts/LM-bold.woff2') format('woff2'),
-    url('./fonts/LM-bold.woff') format('woff'),
-    url('./fonts/LM-bold.ttf') format('truetype');
+  src: url("./fonts/LM-bold.woff2") format("woff2"), url("./fonts/LM-bold.woff") format("woff"),
+    url("./fonts/LM-bold.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Latin Modern';
+  font-family: "Latin Modern";
   font-style: italic;
   font-weight: bold;
   font-display: swap;
-  src: url('./fonts/LM-bold-italic.woff2') format('woff2'),
-    url('./fonts/LM-bold-italic.woff') format('woff'),
-    url('./fonts/LM-bold-italic.ttf') format('truetype');
+  src: url("./fonts/LM-bold-italic.woff2") format("woff2"), url("./fonts/LM-bold-italic.woff") format("woff"),
+    url("./fonts/LM-bold-italic.ttf") format("truetype");
 }
 
 /* Box sizing rules */
@@ -76,7 +72,7 @@ html {
 }
 
 body {
-  font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+  font-family: "Latin Modern", Georgia, Cambria, "Times New Roman", Times, serif;
   line-height: 1.8;
 
   max-width: 80ch;
@@ -142,8 +138,8 @@ textarea {
   width: 100%;
 }
 
-/* Natural flow and rhythm in articles by default */
-article > * + * {
+/* Natural flow and rhythm in sections by default */
+section > * + * {
   margin-top: 1em;
 }
 
@@ -151,8 +147,7 @@ article > * + * {
 code,
 pre,
 kbd {
-  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 85%;
 }
 pre {
@@ -210,7 +205,7 @@ nav li {
   display: block;
 }
 nav li:before {
-  content: counters(item, '.') ' ';
+  content: counters(item, ".") " ";
   counter-increment: item;
   padding-right: 0.85rem;
 }
@@ -228,7 +223,7 @@ dl dd {
   font-style: italic;
 }
 .theorem::before {
-  content: 'Theorem ' counter(theorem) '. ';
+  content: "Theorem " counter(theorem) ". ";
   font-weight: bold;
   font-style: normal;
 }
@@ -241,7 +236,7 @@ dl dd {
   font-style: italic;
 }
 .lemma::before {
-  content: 'Lemma ' counter(theorem) '. ';
+  content: "Lemma " counter(theorem) ". ";
   font-weight: bold;
   font-style: normal;
 }
@@ -254,11 +249,11 @@ dl dd {
   position: relative;
 }
 .proof::before {
-  content: 'Proof. ' attr(title);
+  content: "Proof. " attr(title);
   font-style: italic;
 }
 .proof:after {
-  content: '◾️';
+  content: "◾️";
   position: absolute;
   right: -12px;
   bottom: -2px;
@@ -272,7 +267,7 @@ dl dd {
   font-style: normal;
 }
 .definition::before {
-  content: 'Definition ' counter(definition) '. ';
+  content: "Definition " counter(definition) ". ";
   font-weight: bold;
   font-style: normal;
 }
@@ -285,13 +280,14 @@ dl dd {
 }
 
 /* Make footnote text smaller and left align it (looks bad with long URLs) */
-.footnotes p {
+footer p {
   text-align: left;
   line-height: 1.5;
   font-size: 85%;
   margin-bottom: 0.4rem;
 }
-.footnotes {
+footer {
+  margin-top: 1em;
   border-top: 1px solid hsl(0, 0%, 39%);
 }
 
@@ -320,6 +316,31 @@ dl dd {
   margin-left: -0.1667em;
   margin-right: -0.125em;
   line-height: 1ex;
+}
+
+/* Section spacing */
+
+section {
+  margin-top: 3rem;
+}
+
+section > section {
+  margin-top: 2.5rem;
+}
+
+section > section > section {
+  margin-top: 2rem;
+}
+
+h2 + section,
+h3 + section,
+h4 + section {
+  margin-top: 0.8rem !important;
+}
+
+section > h2 + section > h3,
+section > h3 + section > h4 {
+  margin-top: 0rem !important;
 }
 
 /* Heading typography */
