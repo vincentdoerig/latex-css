@@ -1,0 +1,4 @@
+:lang(de) .theorem::before { content: 'Satz ' counter(theorem) '. ' !important; }
+:lang(de) .lemma::before { content: 'Lemma ' counter(theorem) '. ' !important; }
+:lang(de) .proof::before { content: 'Beweis. ' attr(title) !important; }
+:lang(de) .definition::before { content: 'Definition ' counter(definition) '. ' !important; }

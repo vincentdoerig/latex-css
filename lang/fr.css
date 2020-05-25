@@ -1,0 +1,4 @@
+:lang(fr) .theorem::before { content: 'Théorème ' counter(theorem) '. ' !important; }
+:lang(fr) .lemma::before { content: 'Lemme ' counter(theorem) '. ' !important; }
+:lang(fr) .proof::before { content: 'Démonstration. ' attr(title) !important; }
+:lang(fr) .definition::before { content: 'Définition ' counter(definition) '. ' !important; }
