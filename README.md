@@ -37,6 +37,20 @@ yarn add latex.css
 
 Add any optional classnames to elements with special styles (author subtitle, abstract, lemmas, theorems, etc.). A list of supported class-based elements can be found [here](https://latex.now.sh/#class-based-elements).
 
+## Languages
+
+The labels of theorems, definitions, lemmas and proofs can be changed to other [supported languages](lang) by including the following snippet in addition to the main CSS file.
+
+```html
+<link rel="stylesheet" href="https://latex.now.sh/lang/es.css" />
+```
+
+and changing the html `lang` attribute:
+
+```html
+<html lang="es">
+```
+
 ## Contributing
 
 Contributions, feedback and issues are welcome. Feel free to fork, comment, critique, or submit a pull request.
