@@ -1,0 +1,4 @@
+:lang(mwl) .theorem::before { content: 'Teorema ' counter(theorem) '. ' !important; }
+:lang(mwl) .lemma::before { content: 'Lhema ' counter(theorem) '. ' !important; }
+:lang(mwl) .proof::before { content: 'Demunstraçon. ' attr(title) !important; }
+:lang(mwl) .definition::before { content: 'Defeniçon ' counter(definition) '. ' !important; }
