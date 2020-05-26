@@ -1,0 +1,4 @@
+:lang(dk) .theorem::before { content: 'Læresætning ' counter(theorem) '. ' !important; }
+:lang(dk) .lemma::before { content: 'Lemma ' counter(theorem) '. ' !important; }
+:lang(dk) .proof::before { content: 'Bevis. ' attr(title) !important; }
+:lang(dk) .definition::before { content: 'Definition ' counter(definition) '. ' !important; }
