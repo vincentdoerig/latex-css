@@ -115,7 +115,7 @@ a:visited {
 }
 
 a:focus {
-  outline: 3px solid red;
+  outline: 2px solid blue;
 }
 
 /* Make images easier to work with */
