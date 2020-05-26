@@ -114,6 +114,10 @@ a:visited {
   color: #a00;
 }
 
+a:focus {
+  outline: 3px solid red;
+}
+
 /* Make images easier to work with */
 img {
   max-width: 100%;
