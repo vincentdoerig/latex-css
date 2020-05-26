@@ -115,7 +115,8 @@ a:visited {
 }
 
 a:focus {
-  outline: 2px solid blue;
+  outline-offset: 2px;
+  outline: 2px solid hsl(222, 68%, 35%);
 }
 
 /* Make images easier to work with */
