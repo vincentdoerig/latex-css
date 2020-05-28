@@ -1,0 +1,5 @@
+:lang(ja) .theorem::before { content: '定理 ' counter(theorem) '. ' !important; }
+:lang(ja) .theorem { font-style: italic; }
+:lang(ja) .lemma::before { content: '補題 ' counter(theorem) '. ' !important; }
+:lang(ja) .proof::before { content: '証明: ' attr(title) !important; font-style: normal; }
+:lang(ja) .definition::before { content: '定義 ' counter(definition) '. ' !important; }
