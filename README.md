@@ -51,6 +51,8 @@ and changing the html `lang` attribute:
 <html lang="es">
 ```
 
+Have a look at the [language support page](https://latex.now.sh/languages) for more info and a demo of the different languages.
+
 ## Contributing
 
 Contributions, feedback and issues are welcome. Feel free to fork, comment, critique, or submit a pull request.
