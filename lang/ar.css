@@ -1,0 +1,5 @@
+:lang(ar) .theorem::before { content: 'مبرهنة ' counter(theorem) '. ' !important; }
+:lang(ar) .lemma::before { content: 'تمهيدية ' counter(theorem) '. ' !important; }
+:lang(ar) .proof::before { content: 'البرهان. ' attr(title) !important; }
+:lang(ar) .definition::before { content: 'تعريف ' counter(definition) '. ' !important; }
+body{direction:rtl}pre,code{direction:ltr}th,td{text-align:right}nav ol{padding-right:2rem}nav li:before{padding-left:.85rem}.proof:after{left:-12px}.footnotes p{text-align:right}.latex span:nth-child(1){margin-right:-0.48em;margin-left:-0.15em}.latex span:nth-child(2){margin-right:-0.1667em;margin-left:-0.125em}
