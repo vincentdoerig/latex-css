@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LaTeX.css — Language Support</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <h1>
+    <span class="latex">L<span>a</span>T<span>e</span>X</span>.css Language
+    Support
+  </h1>
+
+  <div class="abstract">
+    <h5>Abstract</h5>
+    <p>
+      LaTeX.css prefixes elements with a class name of
+      <a href="/#tdpl">theorem, definition, lemma or proof</a> with a
+      corresponding label. They are in English by default, but it is possible
+      to change it to a
+      <a href="https://github.com/vincentdoerig/latex-css/tree/master/lang">supported language</a>,
+      by setting the <code>lang</code> attribute to the desired language code
+      and importing the corresponding language file (<code>&lt;link rel="stylesheet" href="https://latex.now.sh/lang/[lang].css"
+          /&gt;</code>) in addition to the main stylesheet.
+    </p>
+  </div>
+
+  <article>
+    <p>
+      Here is a quick demo demonstrating LaTeX.css' language support. If want
+      to support a language that isn't listed here, feel free to open a PR/issue on
+      <a href="https://github.com/vincentdoerig/latex-css">GitHub</a>.
+    </p>
+    <label for="language-select">Choose a language:</label>
+
+    <select name="language" id="language-select">
+      <option value="en">English (en)</option>
+      <!-- ↓ Sort alphabetically ↓ -->
+      <option value="de">German (de)</option>
+      <option value="dk">Danish (dk)</option>
+      <option value="es">Spanish (es)</option>
+      <option value="fr">French (fr)</option>
+      <option value="it">Italian (it)</option>
+      <option value="ja">Japanese (ja)</option>
+      <option value="mwl">Mirandese (mwl)</option>
+      <option value="pt">Portuguese (pt)</option>
+      <option value="ro">Romanian (ro)</option>
+    </select>
+
+    <div id="wrapper">
+      <div class="theorem">Hello, I'm a theorem.</div>
+      <div class="definition">This is a definition.</div>
+      <div class="lemma">And this is a lemma.</div>
+      <div class="proof">And we also got a proof.</div>
+    </div>
+  </article>
+
+  <script>
+    const selection = document.getElementById('language-select');
+    const wrapper = document.getElementById('wrapper');
+
+    selection.addEventListener('change', () => {
+      const selectedLanguage = selection.options[selection.selectedIndex].value;
+      wrapper.lang = selectedLanguage;
+      if (selectedLanguage !== 'en') {
+        const link = document.createElement('link');
+        link.setAttribute('rel', "stylesheet");
+        link.setAttribute('href', `lang/${selectedLanguage}.css`);
+        document.head.appendChild(link);
+      }
+    });
+  </script>
+
+  <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+  <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" /></noscript>
+</body>
+
+</html>
