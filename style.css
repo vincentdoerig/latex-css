@@ -97,9 +97,10 @@ body {
 /* Justify and hyphenate all paragraphs */
 p {
   text-align: justify;
-  hyphens: auto;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
   margin-top: 1rem;
 }
 
