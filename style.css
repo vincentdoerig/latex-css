@@ -294,13 +294,9 @@ dl dd {
   font-size: 0.8rem;
   float: right;
   clear: right;
-  margin-right: -60%;
-  width: 50%;
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 1.3;
-  vertical-align: baseline;
-  position: relative;
+  width: 18vw;
+  margin-right: -20vw;
+  margin-bottom: 1em;
 }
 
 .sidenote-number {
@@ -346,7 +342,7 @@ input.margin-toggle {
   display: none;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1050px) {
   label.margin-toggle:not(.sidenote-number) {
     display: inline;
   }
@@ -357,7 +353,7 @@ input.margin-toggle {
   .margin-toggle:checked + .sidenote,
   .margin-toggle:checked + .marginnote {
     display: block;
-    margin: 1rem 0 1rem 0.5rem;
+    margin: 1rem 1.25rem 1rem 0.5rem;
     float: left;
     left: 1rem;
     clear: both;
