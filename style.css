@@ -295,9 +295,14 @@ dl dd {
 .abstract,
 .abstract p {
   text-align: center;
+  margin-top: 0;
 }
 .abstract {
   margin: 2.25rem 0;
+}
+.abstract > h2 {
+  font-size: 1rem;
+  margin-bottom: -0.2rem;
 }
 
 /* Format the LaTeX symbol correctly (a higher up, e lower) */
