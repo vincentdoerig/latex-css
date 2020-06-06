@@ -241,6 +241,11 @@
             <td>Description 2</td>
             <td>Description 3</td>
           </tr>
+          <tr>
+            <td>Description 1</td>
+            <td>Description 2</td>
+            <td>Description 3</td>
+          </tr>
         </tbody>
       </table>
 
@@ -283,41 +288,43 @@
         </tbody>
       </table>
 
-      <table>
-        <caption>Color names and values</caption>
-        <tbody>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">HEX</th>
-            <th scope="col">HSL</th>
-            <th scope="col">RGB</th>
-          </tr>
-          <tr>
-            <th scope="row" style="color: teal;">Teal</th>
-            <td><code>#008080</code></td>
-            <td><code>hsl(180, 100%, 25%)</code></td>
-            <td><code>rgb(0, 128, 128)</code></td>
-          </tr>
-          <tr>
-            <th scope="row" style="color: goldenrod;">Goldenrod</th>
-            <td><code>#daa520</code></td>
-            <td><code>hsl(43, 74%, 49%)</code></td>
-            <td><code>rgb(218, 165, 32)</code></td>
-          </tr>
-          <tr>
-            <th scope="row" style="color: cornflowerblue;">Cornflowerblue</th>
-            <td><code>#6495ed</code></td>
-            <td><code>hsl(219, 79%, 66%)</code></td>
-            <td><code>rgb(100, 149, 237)</code></td>
-          </tr>
-          <tr>
-            <th scope="row" style="color: lightcoral;">Lightcoral</th>
-            <td><code>#f08080</code></td>
-            <td><code>hsl(0, 79%, 72%)</code></td>
-            <td><code>rgb(240, 128, 128)</code></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="scroll-wrapper">
+        <table>
+          <caption>Color names and values.</caption>
+          <tbody>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">HEX</th>
+              <th scope="col">HSL</th>
+              <th scope="col">RGB</th>
+            </tr>
+            <tr>
+              <th scope="row" style="color: teal;">Teal</th>
+              <td><code>#008080</code></td>
+              <td><code>hsl(180, 100%, 25%)</code></td>
+              <td><code>rgb(0, 128, 128)</code></td>
+            </tr>
+            <tr>
+              <th scope="row" style="color: goldenrod;">Goldenrod</th>
+              <td><code>#daa520</code></td>
+              <td><code>hsl(43, 74%, 49%)</code></td>
+              <td><code>rgb(218, 165, 32)</code></td>
+            </tr>
+            <tr>
+              <th scope="row" style="color: cornflowerblue;">Cornflowerblue</th>
+              <td><code>#6495ed</code></td>
+              <td><code>hsl(219, 79%, 66%)</code></td>
+              <td><code>rgb(100, 149, 237)</code></td>
+            </tr>
+            <tr>
+              <th scope="row" style="color: lightcoral;">Lightcoral</th>
+              <td><code>#f08080</code></td>
+              <td><code>hsl(0, 79%, 72%)</code></td>
+              <td><code>rgb(240, 128, 128)</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <h3 id="images">Images</h3>
       <figure>
@@ -328,6 +335,19 @@
           <a href="https://unsplash.com/@heytowner">John Towner</a>.
         </figcaption>
       </figure>
+
+      <h2>Miscellaneous</h2>
+
+      <h3>Scroll overflow</h3>
+      <p>It is best to break up long equations into smaller parts, but when this isn't possible, consider wrapping the
+        overflowing element with a class of <code>scroll-overflow</code> to
+        allow scrolling on the x-axis. Large tables should also be wrapped with this class.</p>
+      <p>Below is an example of a long equation with overflow scroll.</p>
+      <div class="scroll-wrapper">
+        $$(1+x)^{n}=1+n x+\frac{n(n-1)}{2 !} x^{2}+\frac{n(n-1)(n-2)}{3 !} x^{3}+\frac{n(n-1)(n-2)(n-3)}{4 !}
+        x^{4}+\frac{n(n-1)(n-2)(n-3)(n-4)}{5 !}
+        x^{5}+\ldots$$
+      </div>
 
       <div class="footnotes">
         <p id="fn1">

@@ -122,6 +122,7 @@ a:focus {
 /* Make images easier to work with */
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -204,6 +205,7 @@ th,
 td {
   text-align: left;
   padding: 0.5rem;
+  line-height: 1.1;
 }
 /* Table caption */
 caption {
@@ -218,6 +220,17 @@ caption {
 caption::before {
   content: 'Table ' counter(caption) '. ';
   font-weight: bold;
+}
+
+/* allow scroll on the x-axis */
+.scroll-wrapper {
+  overflow-x: auto;
+}
+
+/* if a table is wrapped in a scroll wrapper,
+  the table cells shouldn't wrap */
+.scroll-wrapper > table td {
+  white-space: nowrap;
 }
 
 /* Center align the title */
