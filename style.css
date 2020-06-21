@@ -158,6 +158,7 @@ pre {
   overflow: auto;
   border-radius: 4px;
   background: hsl(210, 28%, 93%);
+  white-space: pre-wrap;
 }
 pre code {
   font-size: 95%;
