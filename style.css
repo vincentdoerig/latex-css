@@ -285,9 +285,7 @@ dl dd {
 
 /* TODO
   - acknowledge https://edwardtufte.github.io/tufte-css/
-  - do some clean-up
-  - support margin notes (?)
-  - add documentation etc
+  - make sidenotes links and add a border to the content when clicked using `:target`
 */
 
 .sidenote {
@@ -299,6 +297,14 @@ dl dd {
   margin-bottom: 1em;
 }
 
+/* (WIP) add border when a sidenote is clicked on */
+.sidenote:target {
+  border: hsl(55, 55%, 70%) 1.5px solid;
+  padding: 0 .5rem;
+  scroll-margin-block-start: 10rem;
+}
+
+/* sidenote counter */
 .sidenote-number {
   counter-increment: sidenote-counter;
 }
@@ -309,6 +315,7 @@ dl dd {
   vertical-align: baseline;
 }
 
+/* add number in main content */
 .sidenote-number::after {
   content: counter(sidenote-counter);
   font-size: 0.7rem;
@@ -316,48 +323,45 @@ dl dd {
   left: 0.1rem;
 }
 
-.sidenote::before {
+/* add number in front of the sidenote */
+.sidenote-number ~ .sidenote::before {
   content: counter(sidenote-counter) ' ';
   font-size: 0.7rem;
   top: -0.5rem;
 }
 
-blockquote .sidenote,
-blockquote .marginnote {
-  margin-right: -82%;
-  min-width: 59%;
-  text-align: left;
+/* sidenotes inside blockquotes are indented more */
+blockquote .sidenote {
+  margin-right: -24vw;
+  width: 18vw;
 }
 
-label.sidenote-number {
+
+label.sidenote-toggle {
   display: inline;
   cursor: pointer;
 }
 
-label.margin-toggle:not(.sidenote-number) {
-  display: none;
-}
-
-input.margin-toggle {
+input.sidenote-toggle {
   display: none;
 }
 
 @media (max-width: 1050px) {
-  label.margin-toggle:not(.sidenote-number) {
-    display: inline;
-  }
-  .sidenote,
-  .marginnote {
+  .sidenote {
     display: none;
   }
-  .margin-toggle:checked + .sidenote,
-  .margin-toggle:checked + .marginnote {
+  .sidenote-toggle:checked + .sidenote {
     display: block;
-    margin: 1rem 1.25rem 1rem 0.5rem;
+    margin: 0.5rem 1.25rem 1rem 0.5rem;
     float: left;
     left: 1rem;
     clear: both;
     width: 95%;
+  }
+  /* tweak indentation of sidenote inside a blockquote */
+  blockquote .sidenote {
+    margin-right: -25vw;
+    width: 16vw;
   }
 }
 

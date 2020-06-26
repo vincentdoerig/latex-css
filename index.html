@@ -61,6 +61,7 @@
         </ol>
       </li>
       <li><a href="#language-support">Language Support</a></li>
+      <li><a href="#sidenotes">Sidenotes</a></li>
       <li>
         <a href="#html-elements">HTML Elements</a>
         <ol>
@@ -174,22 +175,44 @@
         Take a peak at the <a href="/languages">language support demo</a> to
         see how the labels of the different languages change.
       </p>
+
       <h2 id="sidenotes">Sidenotes</h2>
-      <p>No worries. No cares. Just float and wait for the wind to blow you around. If we're going to have animals
-        around we all have to be concerned about them and take care of them<label for="sn-1"
-          class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle" /><span
-          class="sidenote">You have to make those little noises or it won't work.</span>. We'll do another happy little
-        painting. Even the worst thing we can do here is good. Steve wants reflections, so let's give him reflections.
+      <p>
+        Sidenotes can be used as an alternative to footnotes, where the user does not
+        have to jump to the bottom of the page to read it. On mobile, click the
+        superscript to reveal the note<label for="sn-1" class="sidenote-toggle sidenote-number"></label><input
+          type="checkbox" id="sn-1" class="sidenote-toggle" /><span class="sidenote">Yay, sidenotes!. If you are on
+          mobile, I will appear inline. If you are
+          using a larger screen, the sidenote will appear to the right of the
+          text.</span>.
       </p>
 
-      <p>Decide where your cloud lives. Maybe he lives right in here. Absolutely no pressure. You are just a whisper
-        floating across a mountain. I sincerely wish for you every possible joy life could bring<label for="sn-2"
-          class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle" /><span
-          class="sidenote">If you didn't have baby clouds, you wouldn't have big clouds. Don't be afraid to make these
-          big decisions. Once
-          you start, they sort of just make themselves. We don't have to be concerned about it. We just have to let it
-          fall where it will.</span>. Now, we're going to
-        fluff this cloud. A little happy sunlight shining through there. This is your world.</p>
+      <p>
+        Sidenotes do need a little bit of setup, they are made up of a label, an
+        invisible checkbox on top of the number and a span with the text inside. The
+        superscript is audomatically defined and incremented using CSS when the
+        checkbox has a class of <code>sidenote-number</code>.
+      </p>
+      <pre><code>&lt;label for="sn-1" class="sidenote-toggle sidenote-number"&gt;&lt;/label&gt;
+&lt;input type="checkbox" id="sn-1" class="sidenote-toggle" /&gt;
+&lt;span class="sidenote"&gt;&lt;!-- sidenote content --&gt;&lt;/span&gt;</code></pre>
+      <p>If you do not need superscripted numbers, you can opt out of the <code>sidenote-number</code> class and insert
+        anything in the label such as this: <label for="sn-plus" class="sidenote-toggle">⊕</label><input type="checkbox"
+          id="sn-plus" class="sidenote-toggle" /><span class="sidenote">This is a sidenote without a number.</span>.</p>
+      <p>The snippet for a sidenote without a number is very similar:</p>
+      <pre><code>&lt;label for="sn-anything" class="sidenote-toggle"&gt;⊕&lt;/label&gt;
+&lt;input type="checkbox" id="sn-anything" class="sidenote-toggle" /&gt;
+&lt;span class="sidenote"&gt;&lt;!-- sidenote content --&gt;&lt;/span&gt;</code></pre>
+      <!-- sidnotes as a link
+          <label for="sn-plus" class="sidenote-toggle"><a
+            href="#sn-plus-content">⊕</a></label><input type="checkbox" id="sn-plus" class="sidenote-toggle" /><span
+          class="sidenote" id="sn-plus-content">This is a sidenote without a number.</span> -->
+      <p>The symbol you could use to indicate a sidenote is up to you. What about this: <label for="sn-symbol"
+          class="sidenote-toggle">📝</label><input type="checkbox" id="sn-symbol" class="sidenote-toggle" /><span
+          class="sidenote">A notebook indicating a note. Aha.</span>.</p>
+      <!-- <blockquote>You could also have sidenotes inside blockquotes just like this one <label for="sn-quote"
+          class="sidenote-toggle">🔖</label><input type="checkbox" id="sn-quote" class="sidenote-toggle" /><span
+          class="sidenote">Hello there!</span>.</blockquote> -->
 
       <h2 id="html-elements">HTML Elements</h2>
       <p>
