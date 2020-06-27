@@ -330,6 +330,10 @@ dl dd {
   top: -0.5rem;
 }
 
+label.sidenote-toggle:not(.sidenote-number) {
+  display: none;
+}
+
 /* sidenotes inside blockquotes are indented more */
 blockquote .sidenote {
   margin-right: -24vw;
@@ -347,6 +351,9 @@ input.sidenote-toggle {
 }
 
 @media (max-width: 1050px) {
+  label.sidenote-toggle:not(.sidenote-number) {
+    display: inline;
+  }
   .sidenote {
     display: none;
   }

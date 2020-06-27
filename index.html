@@ -196,9 +196,8 @@
       <pre><code>&lt;label for="sn-1" class="sidenote-toggle sidenote-number"&gt;&lt;/label&gt;
 &lt;input type="checkbox" id="sn-1" class="sidenote-toggle" /&gt;
 &lt;span class="sidenote"&gt;&lt;!-- sidenote content --&gt;&lt;/span&gt;</code></pre>
-      <p>If you do not need superscripted numbers, you can opt out of the <code>sidenote-number</code> class and insert
-        anything in the label such as this: <label for="sn-plus" class="sidenote-toggle">⊕</label><input type="checkbox"
-          id="sn-plus" class="sidenote-toggle" /><span class="sidenote">This is a sidenote without a number.</span>.</p>
+      <p>If you do not need superscripted numbers, you can opt out of the <code>sidenote-number</code> class and the sidenote will not have a number assigned. On a smaller screen, you will need to add a symbol inside the <code>label</code> for the user to click on. <label for="sn-plus" class="sidenote-toggle">⊕</label><input type="checkbox"
+          id="sn-plus" class="sidenote-toggle" /><span class="sidenote">This is a sidenote without a number.</span></p>
       <p>The snippet for a sidenote without a number is very similar:</p>
       <pre><code>&lt;label for="sn-anything" class="sidenote-toggle"&gt;⊕&lt;/label&gt;
 &lt;input type="checkbox" id="sn-anything" class="sidenote-toggle" /&gt;
@@ -207,9 +206,9 @@
           <label for="sn-plus" class="sidenote-toggle"><a
             href="#sn-plus-content">⊕</a></label><input type="checkbox" id="sn-plus" class="sidenote-toggle" /><span
           class="sidenote" id="sn-plus-content">This is a sidenote without a number.</span> -->
-      <p>The symbol you could use to indicate a sidenote is up to you. What about this: <label for="sn-symbol"
+      <p>The symbol you could use to indicate a sidenote is up to you. What about this notebook. <label for="sn-symbol"
           class="sidenote-toggle">📝</label><input type="checkbox" id="sn-symbol" class="sidenote-toggle" /><span
-          class="sidenote">A notebook indicating a note. Aha.</span>.</p>
+          class="sidenote">A notebook indicating a note. Aha. <br> (if on a large screen, resize to mobile to see the emoji)</span></p>
       <!-- <blockquote>You could also have sidenotes inside blockquotes just like this one <label for="sn-quote"
           class="sidenote-toggle">🔖</label><input type="checkbox" id="sn-quote" class="sidenote-toggle" /><span
           class="sidenote">Hello there!</span>.</blockquote> -->
