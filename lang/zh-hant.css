@@ -1,0 +1,5 @@
+:lang(zh-hant) .theorem::before { content: '定理 ' counter(theorem) '. ' !important; }
+:lang(zh-hant) .lemma::before { content: '引理 ' counter(theorem) '. ' !important; }
+:lang(zh-hant) .proof::before { content: '證明：' attr(title) !important; font-style: normal; }
+:lang(zh-hant) .definition::before { content: '定義 ' counter(definition) '. ' !important; }
+:lang(zh-hant) ::before { font-family: 'Microsoft Yahei', 'STHeiti', 'Source Han Sans CN'; }
