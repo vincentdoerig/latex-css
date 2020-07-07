@@ -297,6 +297,12 @@ dl dd {
   margin-bottom: 1em;
 }
 
+.sidenote.left {
+  float: left;
+  margin-left: -20vw;
+  margin-bottom: 1em;
+}
+
 /* (WIP) add border when a sidenote is clicked on */
 .sidenote:target {
   border: hsl(55, 55%, 70%) 1.5px solid;
