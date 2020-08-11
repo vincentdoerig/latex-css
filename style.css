@@ -324,11 +324,6 @@ dl dd {
 
 /* Sidenotes */
 
-/* TODO
-  - acknowledge https://edwardtufte.github.io/tufte-css/
-  - make sidenotes links and add a border to the content when clicked using `:target`
-*/
-
 .sidenote {
   font-size: 0.8rem;
   float: right;
