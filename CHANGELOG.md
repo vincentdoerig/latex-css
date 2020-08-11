@@ -6,6 +6,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.2.0] 2020-08-11
+
+### Added
+- Sidenotes. See https://latex.now.sh/#sidenotes for more information
+- `scroll-wrapper` class
+- Add support for the following languages
+  - Simplified and Traditional Chinese
+  - Czech
+  - Japanese
+
+### Changed
+- Tables now better represent actual LaTeX Tables
+  - width auto instead of 100%
+  - borders on top and bottom
+  - caption styles + caption counter
+
+### Fixed
+- errors in the Italian and Romanian language files
+
 ## [1.1.0] 2020-05-24
 
 ### Added
