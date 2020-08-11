@@ -65,6 +65,8 @@ Most of the CSS reset is based on Andy Bell's [Modern CSS Reset](https://hankchi
 
 The sample [HTML5 markup test page](https://latex.now.sh/elements) is based on [html5-test-page](https://github.com/cbracco/html5-test-page) by @cbracco.
 
+The idea of sidenotes was taken and adpated from [Tufte CSS](https://edwardtufte.github.io/tufte-css/).
+
 ## License
 
 This project is open source and available under the [MIT License](LICENSE).
