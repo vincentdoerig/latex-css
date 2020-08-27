@@ -1,0 +1,4 @@
+:lang(tr) .theorem::before { content: 'Teorem ' counter(theorem) '. ' !important; }
+:lang(tr) .lemma::before { content: 'Lemma ' counter(theorem) '. ' !important; }
+:lang(tr) .proof::before { content: 'Kanıt. ' attr(title) !important; }
+:lang(tr) .definition::before { content: 'Tanım ' counter(definition) '. ' !important; }
