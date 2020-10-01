@@ -1,0 +1,124 @@
+/*!
+ * LaTeX prism.css (https://latex.now.sh/#syntax-highlighting)
+ * Based on the default prism.js theme for JavaScript, CSS and HTML by Lea Verou
+ *
+ * Source: https://github.com/vincentdoerig/latex-css/tree/master/prism
+ * Licensed under MIT (https://github.com/vincentdoerig/latex-css/blob/master/LICENSE)
+*/
+
+code[class*='language-'],
+pre[class*='language-'] {
+  color: black;
+  background: none;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+
+/* Code blocks */
+pre[class*='language-'] {
+  padding: 1em;
+  overflow: auto;
+}
+
+pre[class*='language-'] {
+  background: #F0F0F0;
+}
+
+/* Inline code */
+:not(pre) > code[class*='language-'] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #407f80;
+}
+
+.token.punctuation,
+.token.constant {
+  color: #000000;
+}
+
+.token.punctuation.attr-equals,
+.token.number,
+.token.operator {
+  color: #666666;
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.symbol,
+.token.deleted,
+.token.keyword {
+  color: #007f00;
+}
+
+.token.selector,
+.token.attr-name,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #7d8f29;
+}
+
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #9a6e3a;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.string,
+.token.attr-value .punctuation:not(.attr-equals) {
+  color: #ba2121;
+}
+
+.token.class-name {
+  color: #dd4a68;
+}
+
+.token.important,
+.token.variable {
+  color: #e90;
+}
+
+.token.regex {
+  color: #BA6687;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
