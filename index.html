@@ -17,6 +17,7 @@
   <meta property="og:type" content="website" />
 
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="prism/prism.css" />
 </head>
 
 <body id="top">
@@ -35,9 +36,9 @@
       website that looks like a
       <span class="latex">L<span>a</span>T<span>e</span>X</span>
       document. Write semantic HTML, add
-      <code>&lt;link rel="stylesheet"
+      <code class="language-html">&lt;link rel="stylesheet"
           href="https://latex.now.sh/style.css"&gt;</code>
-      to the <code>&lt;head&gt;</code> of your project and you are good to go.
+      to the <code class="language-html">&lt;head&gt;</code> of your project and you are good to go.
       The source code can be found on GitHub at
       <a href="https://github.com/vincentdoerig/latex-css">https://github.com/vincentdoerig/latex-css</a>.
     </p>
@@ -76,7 +77,8 @@
       <li>
         <a href="#miscellaneous">Miscellaneous</a>
         <ol>
-          <li><a href="#scroll-overflow">Scroll overflow</a></li>
+          <li><a href="#scroll-overflow">Scroll Overflow</a></li>
+          <li><a href="#syntax-highlighting">Syntax Highlighting</a></li>
         </ol>
       </li>
     </ol>
@@ -88,9 +90,9 @@
       <ul>
         <li>
           Add
-          <code>&lt;link rel="stylesheet"
+          <code class="language-html">&lt;link rel="stylesheet"
               href="https://latex.now.sh/style.css"&gt;</code>
-          to the <code>&lt;head&gt;</code> of your website or install the
+          to the <code class="language-html">&lt;head&gt;</code> of your website or install the
           package using <code>npm install latex.css</code>.
         </li>
         <li>
@@ -102,7 +104,15 @@
           <span class="latex">L<span>a</span>T<span>e</span>X</span> math, add
           the following script to include
           <a href="https://www.mathjax.org/">MathJax</a>:
-          <pre><code>&lt;script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"&gt;&lt;/script&gt;</code></pre>
+          <pre><code class="language-html">&lt;script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"&gt;&lt;/script&gt;</code></pre>
+        </li>
+        <li>
+          (optional) If you need syntax highlighting, add
+          the following script to include
+          <a href="https://prismjs.com/">Prism</a> and the Prism LaTeX stylesheet (or use any other):
+          <pre><code class="language-html">&lt;link rel="stylesheet" href="https://latex.now.sh/prism/prism.css"&gt;
+
+&lt;script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"&gt;&lt;/script&gt;</code></pre>
         </li>
         <li>Done.</li>
       </ul>
@@ -113,7 +123,7 @@
         Use the following code to add an author and abstract to your document.
         It will look like <a href="#top">this</a>.
       </p>
-      <pre><code>&lt;p class="author"&gt;John Doe &lt;br&gt; December 7, 2020&lt;/p&gt;
+      <pre><code class="language-html">&lt;p class="author"&gt;John Doe &lt;br&gt; December 7, 2020&lt;/p&gt;
 
 &lt;div class="abstract"&gt;
   &lt;h2&gt;Abstract&lt;/h2&gt;
@@ -127,7 +137,7 @@
         in the following example.
       </p>
 
-      <pre><code>&lt;div class="theorem"&gt;...&lt;/div&gt;
+      <pre><code class="language-html">&lt;div class="theorem"&gt;...&lt;/div&gt;
 &lt;div class="definition"&gt;...&lt;/div&gt;
 &lt;div class="lemma"&gt;...&lt;/div&gt;
 &lt;div class="proof"&gt;...&lt;/div&gt;</code></pre>
@@ -175,7 +185,7 @@
         by including the following snippet, linking to the desired language in
         addition to the main CSS file.
       </p>
-      <pre><code>&lt;link rel="stylesheet" href="https://latex.now.sh/lang/es.css" /&gt;
+      <pre><code class="language-html">&lt;link rel="stylesheet" href="https://latex.now.sh/lang/es.css" /&gt;
   ...
 &lt;html lang="es"&gt;</code></pre>
       <p>
@@ -197,16 +207,16 @@
       <p>
         Sidenotes do need a little bit of setup, they are made up of a label, an
         invisible checkbox on top of the number and a span with the text inside. The
-        superscript is audomatically defined and incremented using CSS when the
+        superscript is set automatically and incremented using CSS when the
         checkbox has a class of <code>sidenote-number</code>.
       </p>
-      <pre><code>&lt;label for="sn-1" class="sidenote-toggle sidenote-number"&gt;&lt;/label&gt;
+      <pre><code class="language-html">&lt;label for="sn-1" class="sidenote-toggle sidenote-number"&gt;&lt;/label&gt;
 &lt;input type="checkbox" id="sn-1" class="sidenote-toggle" /&gt;
 &lt;span class="sidenote"&gt;&lt;!-- sidenote content --&gt;&lt;/span&gt;</code></pre>
       <p>If you do not need superscripted numbers, you can opt out of the <code>sidenote-number</code> class and the sidenote will not have a number assigned. On a smaller screen, you will need to add a symbol inside the <code>label</code> for the user to click on. <label for="sn-plus" class="sidenote-toggle">⊕</label><input type="checkbox"
           id="sn-plus" class="sidenote-toggle" /><span class="sidenote">This is a sidenote without a number.</span></p>
       <p>The snippet for a sidenote without a number is very similar:</p>
-      <pre><code>&lt;label for="sn-anything" class="sidenote-toggle"&gt;⊕&lt;/label&gt;
+      <pre><code class="language-html">&lt;label for="sn-anything" class="sidenote-toggle"&gt;⊕&lt;/label&gt;
 &lt;input type="checkbox" id="sn-anything" class="sidenote-toggle" /&gt;
 &lt;span class="sidenote"&gt;&lt;!-- sidenote content --&gt;&lt;/span&gt;</code></pre>
       <!-- sidnotes as a link
@@ -385,7 +395,7 @@
 
       <h2 id="miscellaneous">Miscellaneous</h2>
 
-      <h3 id="scroll-overflow">Scroll overflow</h3>
+      <h3 id="scroll-overflow">Scroll Overflow</h3>
       <p>It is best to break up long equations into smaller parts, but when this isn't possible, consider wrapping the
         overflowing element with a class of <code>scroll-overflow</code> to
         allow scrolling on the x-axis. Large tables should also be wrapped with this class.</p>
@@ -395,6 +405,21 @@
         x^{4}+\frac{n(n-1)(n-2)(n-3)(n-4)}{5 !}
         x^{5}+\ldots$$
       </div>
+
+      <h3 id="syntax-highlighting">Syntax Highlighting</h3>
+      <p>If you need syntax highlighting for code, LaTeX.css provides a <a href="https://prismjs.com/">PrismJS</a> theme
+        that immitates the <a href="https://github.com/gpoore/minted">minted</a> package for LaTeX. Add the following
+        stylesheet and script:</p>
+      <pre><code class="language-html">&lt;link rel="stylesheet" href="https://latex.now.sh/prism/prism.css"&gt;
+
+&lt;script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"&gt;&lt;/script&gt;</code></pre>
+      <p>And use it like this:</p>
+      <pre><code class="language-html">&lt;pre&gt;
+  &lt;code class="language-html"&gt;
+    &lt;!-- your HTML code snippet --&gt;
+  &lt;/code&gt;
+&lt;/pre&gt;</code></pre>
+      <p>Change which languages Prism highlights by customising the script <a href="https://prismjs.com/download.html">here</a>.</p>
 
       <div class="footnotes">
         <p id="fn1">
@@ -422,6 +447,7 @@
     };
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script async src="prism/prism.js"></script>
 
   <script async defer data-domain="latex.now.sh" src="https://plausible.io/js/plausible.js"></script>
 </body>
