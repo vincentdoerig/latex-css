@@ -64,6 +64,7 @@
       </li>
       <li><a href="#language-support">Language Support</a></li>
       <li><a href="#sidenotes">Sidenotes</a></li>
+      <li><a href="#alternative-typeface">Alternative Typeface</a></li>
       <li>
         <a href="#html-elements">HTML Elements</a>
         <ol>
@@ -230,6 +231,11 @@
       <!-- <blockquote>You could also have sidenotes inside blockquotes just like this one <label for="sn-quote"
           class="sidenote-toggle">🔖</label><input type="checkbox" id="sn-quote" class="sidenote-toggle" /><span
           class="sidenote">Hello there!</span>.</blockquote> -->
+
+      <h2 id="alternative-typeface">Alternative Typeface</h2>
+      <p><span class="latex">L<span>a</span>T<span>e</span>X</span>.css uses Latin Modern by default. If you don't like this typeface (hard to read, too thin, etc.), you can switch to the <a href="https://github.com/alerque/libertinus"><code>Libertinus</code></a> font family by adding a class of <code>libertinus</code> to the <code class="language-html">&lt;body&gt;</code> tag. Click the button below to switch between Latin Modern and Libertinus.</p>
+
+      <button id="typeface-toggle">Current typeface: <span id="typeface">Latin Modern</span></button>
 
       <h2 id="html-elements">HTML Elements</h2>
       <p>
@@ -444,7 +450,13 @@
       tex: {
         inlineMath: [['$', '$'],],
       },
-    };
+    }
+    const toggle = document.getElementById('typeface-toggle')
+    const typeface = document.getElementById('typeface')
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('libertinus')
+      typeface.textContent = document.body.classList.contains('libertinus') ? 'Libertinus' : 'Latin Modern'
+    })
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script async src="prism/prism.js"></script>
