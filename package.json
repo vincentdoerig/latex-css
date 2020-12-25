@@ -1,6 +1,6 @@
 {
   "name": "latex.css",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "A small CSS library to make your website look like a LaTeX document",
   "main": "./style.min.css",
   "scripts": {
