@@ -1,0 +1,4 @@
+:lang(hu) .theorem::before { content: 'Tétel ' counter(theorem) '. ' !important; }
+:lang(hu) .lemma::before { content: 'Lemma ' counter(theorem) '. ' !important; }
+:lang(hu) .proof::before { content: 'Bizonyítás. ' attr(title) !important; }
+:lang(hu) .definition::before { content: 'Definíció ' counter(definition) '. ' !important; }
