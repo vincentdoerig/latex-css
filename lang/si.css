@@ -1,0 +1,4 @@
+:lang(si) .theorem::before { content: 'Izrek ' counter(theorem) '. ' !important; }
+:lang(si) .lemma::before { content: 'Lema ' counter(theorem) '. ' !important; }
+:lang(si) .proof::before { content: 'Dokaz. ' attr(title) !important; }
+:lang(si) .definition::before { content: 'Definicija ' counter(definition) '. ' !important; }
