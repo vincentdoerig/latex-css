@@ -120,7 +120,11 @@ dd {
 /* Make default font-size 1rem and add smooth scrolling to anchors */
 html {
   font-size: 1rem;
-  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body.libertinus {
