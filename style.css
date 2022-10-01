@@ -100,6 +100,19 @@
   box-sizing: border-box;
 }
 
+:root {
+  --body-color: hsl(0, 5%, 10%);
+  --body-bg-color: hsl(210, 20%, 98%);
+  --link-visited: #a00;
+  --link-focus-outline: hsl(220, 90%, 52%);
+  --pre-bg-color: hsl(210, 28%, 93%);
+  --kbd-bg-color: hsl(210, 5%, 100%);
+  --kbd-border-color: hsl(210, 5%, 70%);
+  --table-border-color: black;
+  --sidenote-target-border-color: hsl(55, 55%, 70%);
+  --footnotes-border-color: hsl(0, 0%, 39%);
+}
+
 /* Remove default margin */
 body,
 h1,
@@ -145,8 +158,8 @@ body {
   counter-reset: definition;
   counter-reset: sidenote-counter;
 
-  color: hsl(0, 5%, 10%);
-  background-color: hsl(210, 20%, 98%);
+  color: var(--body-color);
+  background-color: var(--body-bg-color);
 
   text-rendering: optimizeLegibility;
 }
@@ -168,12 +181,12 @@ a:not([class]) {
 /* Make links red */
 a,
 a:visited {
-  color: #a00;
+  color: var(--link-visited);
 }
 
 a:focus {
   outline-offset: 2px;
-  outline: 2px solid hsl(220, 90%, 52%);
+  outline: 2px solid var(--link-focus-outline);
 }
 
 /* Make images easier to work with */
@@ -214,15 +227,15 @@ pre {
   max-width: 100%;
   overflow: auto;
   border-radius: 4px;
-  background: hsl(210, 28%, 93%);
+  background: var(--pre-bg-color);
 }
 pre code {
   font-size: 95%;
   position: relative;
 }
 kbd {
-  background: hsl(210, 5%, 100%);
-  border: 1px solid hsl(210, 5%, 70%);
+  background: var(--kbd-bg-color);
+  border: 1px solid var(--kbd-border-color);
   border-radius: 2px;
   padding: 2px 4px;
   font-size: 75%;
@@ -234,8 +247,8 @@ table {
   border-spacing: 0;
   width: auto;
   max-width: 100%;
-  border-top: 2.27px solid black;
-  border-bottom: 2.27px solid black;
+  border-top: 2.27px solid var(--table-border-color);
+  border-bottom: 2.27px solid var(--table-border-color);
   /* display: block; */
   overflow-x: auto; /* does not work because element is not block */
   /* white-space: nowrap; */
@@ -243,19 +256,19 @@ table {
 }
 /* add bottom border on column table headings  */
 table tr > th[scope='col'] {
-  border-bottom: 1.36px solid black;
+  border-bottom: 1.36px solid var(--table-border-color);
 }
 /* add right border on row table headings  */
 table tr > th[scope='row'] {
-  border-right: 1.36px solid black;
+  border-right: 1.36px solid var(--table-border-color);
 }
 table > tbody > tr:first-child > td,
 table > tbody > tr:first-child > th {
-  border-top: 1.36px solid black;
+  border-top: 1.36px solid var(--table-border-color);
 }
 table > tbody > tr:last-child > td,
 table > tbody > tr:last-child > th {
-  border-bottom: 1.36px solid black;
+  border-bottom: 1.36px solid var(--table-border-color);
 }
 
 th,
@@ -397,7 +410,7 @@ dl dd {
 
 /* (WIP) add border when a sidenote is clicked on */
 .sidenote:target {
-  border: hsl(55, 55%, 70%) 1.5px solid;
+  border: var(--sidenote-target-border-color) 1.5px solid;
   padding: 0 .5rem;
   scroll-margin-block-start: 10rem;
 }
@@ -478,7 +491,7 @@ input.sidenote-toggle {
   margin-bottom: 0.4rem;
 }
 .footnotes {
-  border-top: 1px solid hsl(0, 0%, 39%);
+  border-top: 1px solid var(--footnotes-border-color);
 }
 
 /* Center title and paragraph */
