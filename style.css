@@ -141,9 +141,7 @@ body {
   margin: 0 auto;
   padding: 2rem 1.25rem;
 
-  counter-reset: theorem;
-  counter-reset: definition;
-  counter-reset: sidenote-counter;
+  counter-reset: theorem definition sidenote-counter;
 
   color: hsl(0, 5%, 10%);
   background-color: hsl(210, 20%, 98%);
