@@ -113,7 +113,7 @@
   --footnotes-border-color: hsl(0, 0%, 39%);
 }
 
-[data-dark-mode] {
+.latex-dark {
   --body-color: hsl(0, 0%, 86%);
   --body-bg-color: hsl(0, 0%, 16%);
   --link-visited: hsl(196 80% 77%);
@@ -124,10 +124,11 @@
   --table-border-color: white;
   --sidenote-target-border-color: hsl(0, 0%, 59%);
   --footnotes-border-color: hsl(0, 0%, 59%);
+  --proof-symbol-filter: invert(80%);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+   .latex-dark-auto {
     --body-color: hsl(0, 0%, 86%);
     --body-bg-color: hsl(0, 0%, 16%);
     --link-visited: hsl(196 80% 77%);
@@ -138,6 +139,7 @@
     --table-border-color: white;
     --sidenote-target-border-color: hsl(0, 0%, 59%);
     --footnotes-border-color: hsl(0, 0%, 59%);
+    --proof-symbol-filter: invert(80%);
   }
 }
 
@@ -394,6 +396,7 @@ dl dd {
 }
 .proof:after {
   content: '◾️';
+  filter: var(--proof-symbol-filter);
   position: absolute;
   right: -12px;
   bottom: -2px;

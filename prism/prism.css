@@ -21,7 +21,7 @@
   --token-pink: #BA6687;
 }
 
-[data-dark-mode] {
+.latex-dark {
   --bg-color: #2d2d2d;
   --color: #ccc;
   --token-teal: #90D0D0;
@@ -37,7 +37,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  .latex-dark-auto {
     --bg-color: #2d2d2d;
     --color: #ccc;
     --token-teal: #90D0D0;
