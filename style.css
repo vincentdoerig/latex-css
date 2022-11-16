@@ -111,6 +111,7 @@
   --table-border-color: black;
   --sidenote-target-border-color: hsl(55, 55%, 70%);
   --footnotes-border-color: hsl(0, 0%, 39%);
+  --text-indent-size: 1.5rem;
 }
 
 .latex-dark {
@@ -199,6 +200,26 @@ p {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   margin-top: 1rem;
+}
+
+/* Indents paragraphs like in LaTeX documents*/
+.indent-pars p {
+  text-indent: var(--text-indent-size);
+}
+
+.indent-pars p.no-indent,
+p.no-indent {
+  text-indent: 0;
+}
+
+blockquote p {
+  text-indent: 0 !important;
+}
+
+.indent-pars h2 + p,
+.indent-pars h3 + p,
+.indent-pars h4 + p {
+  text-indent: 0;
 }
 
 /* A elements that don't have a class get default styles */
@@ -429,12 +450,14 @@ dl dd {
   width: 18vw;
   margin-right: -20vw;
   margin-bottom: 1em;
+  text-indent: 0;
 }
 
 .sidenote.left {
   float: left;
   margin-left: -20vw;
   margin-bottom: 1em;
+  text-indent: 0;
 }
 
 /* (WIP) add border when a sidenote is clicked on */
