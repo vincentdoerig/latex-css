@@ -413,6 +413,18 @@ dl dd {
   font-style: normal;
 }
 
+/* First paragraph inside math environments */ 
+.mathenv-opening-par .theorem p:first-child,
+.mathenv-opening-par .lemma p:first-child,
+.mathenv-opening-par .proof p:first-child,
+.mathenv-opening-par .definition p:first-child,
+.theorem.mathenv-opening-par p:first-child,
+.lemma.mathenv-opening-par p:first-child,
+.proof.mathenv-opening-par p:first-child,
+.definition.mathenv-opening-par p:first-child {
+  display: inline;
+}
+
 /* Center align author name, use small caps and add vertical spacing  */
 .author {
   margin: 0.85rem 0;

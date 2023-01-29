@@ -148,6 +148,14 @@
 &lt;div class="definition"&gt;...&lt;/div&gt;
 &lt;div class="lemma"&gt;...&lt;/div&gt;
 &lt;div class="proof"&gt;...&lt;/div&gt;</code></pre>
+      <p>To enter the first paragraph within a math environment enclosed in <code>&lt;p&gt;</code>
+      tags (better HTML semantics), the CSS class <code>mathenv-opening-par</code> can be
+      used.</p>
+      <pre><code class="language-html">&lt;article class="mathenv-opening-par"&gt;
+&lt;div class="theorem mathenv-opening-par"&gt;</code></pre>
+      <p>Any opening paragraph inside a multi-paragraph math environment, affected
+      by <code>mathenv-opening-par</code> class, must be enclosed in <code>&lt;p&gt;</code>
+        tags.</p>
       <p>Below are some examples.</p>
       <h4 id="proofs-theorems">Proofs & Theorems</h4>
       <div class="theorem">
