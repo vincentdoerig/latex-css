@@ -3,6 +3,13 @@
   "version": "1.9.0",
   "description": "A small CSS library to make your website look like a LaTeX document",
   "main": "./style.min.css",
+  "files": [
+    "dist",
+    "fonts",
+    "lang",
+    "style.css",
+    "style.min.css"
+  ],
   "scripts": {
     "prepack": "vite build"
   },
