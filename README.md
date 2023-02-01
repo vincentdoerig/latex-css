@@ -67,6 +67,9 @@ You can find a [demo of supported languages] on the [docs website].
 
 ## Development
 
+![Node.js](https://img.shields.io/static/v1?style=for-the-badge&message=Node.js&color=339933&logo=Node.js&logoColor=FFFFFF&label=)
+![Vite](https://img.shields.io/static/v1?style=for-the-badge&message=Vite&color=646CFF&logo=Vite&logoColor=FFFFFF&label=)
+
 ❤️ Contributions, feedback and issues are welcome! If you want to see something
 improved, you can [open an Issue] or [do it yourself]!
 
