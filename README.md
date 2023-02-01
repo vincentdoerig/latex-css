@@ -101,7 +101,7 @@ Our [HTML5 markup test page] is also based on [@cbracco]'s [HTML5 Test Page].
 [html5 test page]: https://github.com/cbracco/html5-test-page#readme
 [tufte css]: https://edwardtufte.github.io/tufte-css/
 [html5 markup test page]: https://latex.now.sh/elements
-[cbracco]: https://github.com/cbracco
+[@cbracco]: https://github.com/cbracco
 [open an issue]: https://github.com/vincentdoerig/latex-css/issues/new
 [do it yourself]: https://github.com/vincentdoerig/latex-css/blob/main/CONTRIBUTING.md
 <!-- prettier-ignore-end -->
