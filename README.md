@@ -65,13 +65,6 @@ Spanish when the `:lang(es)` CSS pseudo-class matches. Remember to set that
 
 You can find a [demo of supported languages] on the [docs website].
 
-## Acknowledgements
-
-This project was originally inspired by [LatexCSS] which we used as a starting
-point. From there, elements from the [modern css reset] were incorporated. We
-even integrated a sidenote system based on work from the [Tufte CSS] project.
-Our [HTML5 markup test page] is also based on [@cbracco]'s [HTML5 Test Page].
-
 ## Development
 
 ❤️ Contributions, feedback and issues are welcome! If you want to see something
@@ -84,6 +77,13 @@ important commands that are relevant to building, testing, etc. are:
 | Command         | Description                              |
 | --------------- | ---------------------------------------- |
 | `npm run build` | Bundle everything into the main CSS file |
+
+## Acknowledgements
+
+This project was originally inspired by [LatexCSS] which we used as a starting
+point. From there, elements from the [modern css reset] were incorporated. We
+even integrated a sidenote system based on work from the [Tufte CSS] project.
+Our [HTML5 markup test page] is also based on [@cbracco]'s [HTML5 Test Page].
 
 [^1]: Not including fonts
 
