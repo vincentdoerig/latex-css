@@ -68,12 +68,11 @@ You can find a [demo of supported languages] on the [docs website].
 ## Development
 
 ![Node.js](https://img.shields.io/static/v1?style=for-the-badge&message=Node.js&color=339933&logo=Node.js&logoColor=FFFFFF&label=)
-![Vite](https://img.shields.io/static/v1?style=for-the-badge&message=Vite&color=646CFF&logo=Vite&logoColor=FFFFFF&label=)
 
 ❤️ Contributions, feedback and issues are welcome! If you want to see something
 improved, you can [open an Issue] or [do it yourself]!
 
-This project is built with [Vite] and vanilla CSS. In the future we might
+This project is built with [UglifyCSS] and vanilla CSS. In the future we might
 transition to SCSS or even SASS as our base language. Right now, though, the
 important commands that are relevant to building, testing, etc. are:
 
@@ -104,4 +103,5 @@ Our [HTML5 markup test page] is also based on [@cbracco]'s [HTML5 Test Page].
 [@cbracco]: https://github.com/cbracco
 [open an issue]: https://github.com/vincentdoerig/latex-css/issues/new
 [do it yourself]: https://github.com/vincentdoerig/latex-css/blob/main/CONTRIBUTING.md
+[uglifycss]: https://github.com/fmarcia/uglifycss#readme
 <!-- prettier-ignore-end -->
