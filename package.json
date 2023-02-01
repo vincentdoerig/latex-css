@@ -9,13 +9,8 @@
     "css"
   ],
   "homepage": "https://latex.now.sh",
-  "bugs": {
-    "url": "https://github.com/vincentdoerig/latex-css/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vincentdoerig/latex-css.git"
-  },
+  "bugs": "https://github.com/vincentdoerig/latex-css/issues",
+  "repository": "github:vincentdoerig/latex-css",
   "license": "MIT",
   "author": "Vincent Dörig",
   "main": "./style.min.css",
