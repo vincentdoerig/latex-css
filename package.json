@@ -11,7 +11,7 @@
     "style.min.css"
   ],
   "scripts": {
-    "prepack": "vite build"
+    "prepack": "vite build && cp dist/style.css style.min.css"
   },
   "repository": {
     "type": "git",
