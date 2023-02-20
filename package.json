@@ -11,7 +11,8 @@
     "style.min.css"
   ],
   "scripts": {
-    "prepack": "vite build && cp dist/style.css style.min.css"
+    "prepack": "vite build && cp dist/style.css style.min.css",
+    "build": "npm pack --dry-run"
   },
   "repository": {
     "type": "git",
