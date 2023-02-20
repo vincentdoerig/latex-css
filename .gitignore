@@ -1,3 +1,6 @@
+# Don't accidentally commit the build artifact to the repo
+style.min.css
+
 #region https://github.com/github/gitignore/blob/main/Node.gitignore
 # Logs
 logs
