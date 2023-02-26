@@ -212,6 +212,11 @@ p.no-indent {
   text-indent: 0;
 }
 
+.indent-pars ol p,
+.indent-pars ul p {
+  text-indent: 0;
+}
+
 .indent-pars h2 + p,
 .indent-pars h3 + p,
 .indent-pars h4 + p {
