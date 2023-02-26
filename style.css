@@ -111,7 +111,11 @@
   --table-border-color: black;
   --sidenote-target-border-color: hsl(55, 55%, 70%);
   --footnotes-border-color: hsl(0, 0%, 39%);
-  --text-indent-size: 1.5rem;
+  --text-indent-size: 1.463rem; /* In 12pt [Latin Modern font] LaTeX article
+  \parindent =~ 17.625pt; taking also into account the ratio
+  1pt[LaTeX] = (72 / 72.27) * 1pt[HTML], with default 12pt/1rem LaTeX.css font
+  size, the identation value in rem CSS units is: 
+  \parindent =~ 17.625 * (72 / 72.27) / 12 = 1.463rem. */
 }
 
 .latex-dark {
