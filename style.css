@@ -212,10 +212,6 @@ p.no-indent {
   text-indent: 0;
 }
 
-blockquote p {
-  text-indent: 0 !important;
-}
-
 .indent-pars h2 + p,
 .indent-pars h3 + p,
 .indent-pars h4 + p {
