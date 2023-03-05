@@ -5,5 +5,5 @@
 :lang(es) .indent-pars h2 + p,
 :lang(es) .indent-pars h3 + p,
 :lang(es) .indent-pars h4 + p {
-  text-indent: var(--text-indent-size) !important;
+  text-indent: var(--text-indent-size);
 }
