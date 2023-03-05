@@ -60,6 +60,7 @@
               <li><a href="#definitions">Definitions</a></li>
             </ol>
           </li>
+          <li><a href="#paragraphs">Paragraphs</a></li>
         </ol>
       </li>
       <li><a href="#language-support">Language Support</a></li>
@@ -183,6 +184,25 @@
         A definition is a a statement of the meaning of a word or word group
         or a sign or symbol.<sup><a href="#fn2" id="ref2">2</a></sup>
       </div>
+
+      <h3 id="paragraphs">Paragraphs</h3>
+      <p>
+        In order to get automatic first line indentation of paragraphs, like in
+        default <span class="latex">L<span>a</span>T<span>e</span>X</span> articles, the class
+        <code>indent-pars</code> can be used with <code>article</code> tag.
+      </p>
+      <pre><code class="language-html">&lt;article class="indent-pars"&gt;
+  ...
+&lt;/article&gt;</code></pre>
+      <p>
+        The CSS style provided follows <code>babel</code> specific language rules: by default,
+        the first paragraph after a section title is not indented in English, unlike Spanish and
+        French languages.
+      </p>
+      <p>
+        To avoid first line indentation of some specific paragraph, the class <code>no-indent</code>
+        can be used.</p>
+      <pre><code class="language-html">&lt;p class="no-indent"&gt;...&lt;/p&gt;</code></pre>
 
       <h2 id="language-support">Language Support</h2>
       <p>
