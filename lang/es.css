@@ -2,3 +2,8 @@
 :lang(es) .lemma::before { content: 'Lema ' counter(theorem) '. ' !important; }
 :lang(es) .proof::before { content: 'Demostración. ' attr(title) !important; }
 :lang(es) .definition::before { content: 'Definición ' counter(definition) '. ' !important; }
+:lang(es) .indent-pars h2 + p,
+:lang(es) .indent-pars h3 + p,
+:lang(es) .indent-pars h4 + p {
+  text-indent: var(--text-indent-size);
+}
