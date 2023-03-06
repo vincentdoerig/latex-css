@@ -1,10 +1,18 @@
 {
   "name": "latex.css",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "A small CSS library to make your website look like a LaTeX document",
   "main": "./style.min.css",
+  "files": [
+    "dist",
+    "fonts",
+    "lang",
+    "style.css",
+    "style.min.css"
+  ],
   "scripts": {
-    "build": "uglifycss style.css > style.min.css"
+    "prepack": "vite build && cp dist/style.css style.min.css",
+    "build": "npm pack --dry-run"
   },
   "repository": {
     "type": "git",
@@ -23,6 +31,6 @@
   },
   "homepage": "https://latex.now.sh",
   "devDependencies": {
-    "uglifycss": "0.0.29"
+    "vite": "^4.0.4"
   }
 }
