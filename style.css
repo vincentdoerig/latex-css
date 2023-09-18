@@ -365,7 +365,7 @@ table.borders-custom {
   border-spacing: 0;
   width: auto;
   max-width: 100%;
-  overflow-x: auto; /* does not work because element is not block */
+  overflow-x: auto;
   counter-increment: caption;
 }
 
