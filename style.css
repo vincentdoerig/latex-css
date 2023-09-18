@@ -109,8 +109,8 @@
   --kbd-bg-color: hsl(210, 5%, 100%);
   --kbd-border-color: hsl(210, 5%, 70%);
   --table-border-color: black;
-  --light-rule-width: 1.36px;
-  --heavy-rule-width: 2.27px;
+  --border-width-thin: 1.36px;
+  --border-width-thick: 2.27px;
   --sidenote-target-border-color: hsl(55, 55%, 70%);
   --footnotes-border-color: hsl(0, 0%, 39%);
   --text-indent-size: 1.463rem; /* In 12pt [Latin Modern font] LaTeX article
@@ -298,7 +298,7 @@ kbd {
 }
 
 /* Better tables */
-table:not(.custom-borders) {
+table:not(.borders-custom) {
   border-collapse: collapse;
   border-spacing: 0;
   width: auto;
@@ -311,19 +311,19 @@ table:not(.custom-borders) {
   counter-increment: caption;
 }
 /* add bottom border on column table headings  */
-table:not(.custom-borders) tr > th[scope='col'] {
+table:not(.borders-custom) tr > th[scope='col'] {
   border-bottom: 1.36px solid var(--table-border-color);
 }
 /* add right border on row table headings  */
-table:not(.custom-borders) tr > th[scope='row'] {
+table:not(.borders-custom) tr > th[scope='row'] {
   border-right: 1.36px solid var(--table-border-color);
 }
-table:not(.custom-borders) > tbody > tr:first-child > td,
-table:not(.custom-borders) > tbody > tr:first-child > th {
+table:not(.borders-custom) > tbody > tr:first-child > td,
+table:not(.borders-custom) > tbody > tr:first-child > th {
   border-top: 1.36px solid var(--table-border-color);
 }
-table:not(.custom-borders) > tbody > tr:last-child > td,
-table:not(.custom-borders) > tbody > tr:last-child > th {
+table:not(.borders-custom) > tbody > tr:last-child > td,
+table:not(.borders-custom) > tbody > tr:last-child > th {
   border-bottom: 1.36px solid var(--table-border-color);
 }
 
@@ -360,7 +360,7 @@ caption::before {
 }
 
 /* Table custom borders */
-table.custom-borders {
+table.borders-custom {
   border-collapse: collapse;
   border-spacing: 0;
   width: auto;
@@ -369,30 +369,30 @@ table.custom-borders {
   counter-increment: caption;
 }
 
-.heavy-border-top {
-  border-top: var(--heavy-rule-width) solid var(--table-border-color);
+.border-top-thick {
+  border-top: var(--border-width-thick) solid var(--table-border-color);
 }
-.heavy-border-right {
-  border-right: var(--heavy-rule-width) solid var(--table-border-color);
+.border-right-thick {
+  border-right: var(--border-width-thick) solid var(--table-border-color);
 }
-.heavy-border-bottom {
-  border-bottom: var(--heavy-rule-width) solid var(--table-border-color);
+.border-bottom-thick {
+  border-bottom: var(--border-width-thick) solid var(--table-border-color);
 }
-.heavy-border-left {
-  border-left: var(--heavy-rule-width) solid var(--table-border-color);
+.border-left-thick {
+  border-left: var(--border-width-thick) solid var(--table-border-color);
 }
 
-.border-top {
-  border-top: var(--light-rule-width) solid var(--table-border-color);
+.border-top-thin {
+  border-top: var(--border-width-thin) solid var(--table-border-color);
 }
-.border-right {
-  border-right: var(--light-rule-width) solid var(--table-border-color);
+.border-right-thin {
+  border-right: var(--border-width-thin) solid var(--table-border-color);
 }
-.border-bottom {
-  border-bottom: var(--light-rule-width) solid var(--table-border-color);
+.border-bottom-thin {
+  border-bottom: var(--border-width-thin) solid var(--table-border-color);
 }
-.border-left {
-  border-left: var(--light-rule-width) solid var(--table-border-color);
+.border-left-thin {
+  border-left: var(--border-width-thin) solid var(--table-border-color);
 }
 
 /* Table column alignment */

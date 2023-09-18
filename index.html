@@ -213,17 +213,17 @@
       <h4 id="table-borders">Custom table borders</h4>
       <p>
         To add custom borders to the table, you should use the class
-        <code class="language-html">.custom-borders</code> with <code>&lt;table&gt;</code>
+        <code class="language-html">borders-custom</code> with <code>&lt;table&gt;</code>
         tag, to begin with a table without any border. The classes 
-        <code>border-&lt;position&gt;</code> and <code>heavy-border-&lt;position&gt;</code>,
+        <code>border-&lt;position&gt;-thin</code> and <code>border-&lt;position&gt;-thick</code>,
         are available, where <code>&lt;position&gt;</code> can take one of the values:
         <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code>.
       </p>
-      <pre><code class="language-html">&lt;table class="custom-borders ..."&gt;
-  &lt;tr class="border-bottom"&gt;
+      <pre><code class="language-html">&lt;table class="borders-custom ..."&gt;
+  &lt;tr class="border-bottom-thick"&gt;
     &lt;td&gt;...&lt;/td&gt;&lt;td&gt;...&lt;/td&gt;&lt;td&gt;...&lt;/td&gt;
   &lt;/tr&gt;
-  &lt;tr class="border-bottom"&gt;
+  &lt;tr class="border-bottom-thin"&gt;
     &lt;td&gt;...&lt;/td&gt;&lt;td&gt;...&lt;/td&gt;&lt;td&gt;...&lt;/td&gt;
   &lt;/tr&gt;
   ...</code></pre>
@@ -476,23 +476,23 @@
         </table>
       </div>
 
-      <table class="custom-borders c1 c2 c3 c4 c5 c6 c7 c8">
+      <table class="borders-custom c1 c2 c3 c4 c5 c6 c7 c8">
         <caption>Example table with custom borders and aligment</caption>
         <colgroup>
-          <col class="border-right">
-          <col class="border-right">
-          <col class="border-right">
-          <col class="border-right">
-          <col class="border-right">
-          <col class="border-right">
-          <col class="heavy-border-right">
+          <col class="border-right-thin">
+          <col class="border-right-thin">
+          <col class="border-right-thin">
+          <col class="border-right-thin">
+          <col class="border-right-thin">
+          <col class="border-right-thin">
+          <col class="border-right-thick">
           <col>
         </colgroup>
         <tr>
           <th scope="col" colspan="7"></th>
           <th>DeMorgan's Law</th>
         </tr>
-        <tr class="border-bottom">
+        <tr class="border-bottom-thin">
           <td>$P$</td>
           <td>$Q$</td>
           <td>$\lnot P$</td>
@@ -502,7 +502,7 @@
           <td>$\lnot (P \land Q)$</td>
           <td>$\lnot P \lor \lnot Q \iff \lnot (P \land Q)$</td>
         </tr>
-        <tr class="border-bottom">
+        <tr class="border-bottom-thin">
           <td rowspan="2">T</td>
           <td>T</td>
           <td rowspan="2">F</td>
@@ -512,7 +512,7 @@
           <td>F</td>
           <td>T</td>
         </tr>
-        <tr class="border-bottom">
+        <tr class="border-bottom-thin">
           <td>F</td>
           <td>T</td>
           <td>F</td>
@@ -520,7 +520,7 @@
           <td>T</td>
           <td>T</td>
         </tr>
-        <tr class="border-bottom">
+        <tr class="border-bottom-thin">
           <td rowspan="2">F</td>
           <td>T</td>
           <td rowspan="2">T</td>
@@ -540,10 +540,10 @@
         </tr>
       </table>
 
-      <table class="custom-borders l1 c2 c3 r4">
+      <table class="borders-custom l1 c2 c3 r4">
         <caption>Close approaches to the Earth by NEOs</caption>
         <thead>
-          <tr class="heavy-border-bottom">
+          <tr class="border-bottom-thick">
             <th>CA Date</th>
             <th>Object Name</th>
             <th>Diameter</th>
