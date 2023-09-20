@@ -396,46 +396,46 @@ table.borders-custom {
 }
 
 /* Table column alignment */
-.l1 tr > :nth-child(1),
-.l2 tr > :nth-child(2),
-.l3 tr > :nth-child(3),
-.l4 tr > :nth-child(4),
-.l5 tr > :nth-child(5),
-.l6 tr > :nth-child(6),
-.l7 tr > :nth-child(7),
-.l8 tr > :nth-child(8),
-.l9 tr > :nth-child(9),
-.l10 tr > :nth-child(10),
-.l11 tr > :nth-child(11),
-.l12 tr > :nth-child(12) {
+.col-1-l tr > :nth-child(1),
+.col-2-l tr > :nth-child(2),
+.col-3-l tr > :nth-child(3),
+.col-4-l tr > :nth-child(4),
+.col-5-l tr > :nth-child(5),
+.col-6-l tr > :nth-child(6),
+.col-7-l tr > :nth-child(7),
+.col-8-l tr > :nth-child(8),
+.col-9-l tr > :nth-child(9),
+.col-10-l tr > :nth-child(10),
+.col-11-l tr > :nth-child(11),
+.col-12-l tr > :nth-child(12) {
   text-align: left;
 }
-.c1 tr > :nth-child(1),
-.c2 tr > :nth-child(2),
-.c3 tr > :nth-child(3),
-.c4 tr > :nth-child(4),
-.c5 tr > :nth-child(5),
-.c6 tr > :nth-child(6),
-.c7 tr > :nth-child(7),
-.c8 tr > :nth-child(8),
-.c9 tr > :nth-child(9),
-.c10 tr > :nth-child(10),
-.c11 tr > :nth-child(11),
-.c12 tr > :nth-child(12) {
+.col-1-c tr > :nth-child(1),
+.col-2-c tr > :nth-child(2),
+.col-3-c tr > :nth-child(3),
+.col-4-c tr > :nth-child(4),
+.col-5-c tr > :nth-child(5),
+.col-6-c tr > :nth-child(6),
+.col-7-c tr > :nth-child(7),
+.col-8-c tr > :nth-child(8),
+.col-9-c tr > :nth-child(9),
+.col-10-c tr > :nth-child(10),
+.col-11-c tr > :nth-child(11),
+.col-12-c tr > :nth-child(12) {
   text-align: center;
 }
-.r1 tr > :nth-child(1),
-.r2 tr > :nth-child(2),
-.r3 tr > :nth-child(3),
-.r4 tr > :nth-child(4),
-.r5 tr > :nth-child(5),
-.r6 tr > :nth-child(6),
-.r7 tr > :nth-child(7),
-.r8 tr > :nth-child(8),
-.r9 tr > :nth-child(9),
-.r10 tr > :nth-child(10),
-.r11 tr > :nth-child(11),
-.r12 tr > :nth-child(12) {
+.col-1-r tr > :nth-child(1),
+.col-2-r tr > :nth-child(2),
+.col-3-r tr > :nth-child(3),
+.col-4-r tr > :nth-child(4),
+.col-5-r tr > :nth-child(5),
+.col-6-r tr > :nth-child(6),
+.col-7-r tr > :nth-child(7),
+.col-8-r tr > :nth-child(8),
+.col-9-r tr > :nth-child(9),
+.col-10-r tr > :nth-child(10),
+.col-11-r tr > :nth-child(11),
+.col-12-r tr > :nth-child(12) {
   text-align: right;
 }
 

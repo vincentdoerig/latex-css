@@ -231,11 +231,11 @@
       <h4 id="table-column-aligment">Table column alignment</h4>
       <p>
         For each column of the table, there is one class for left, center or right
-        alignment, up to 12 columns: <code>l1-l12</code>, <code>c1-c12</code>,
-        <code>r1-r12</code>. For example, a table with 3 columns using the following
-        classes
+        alignment, up to 12 columns: <code>col-n-l</code>, <code>col-n-c</code>,
+        <code>col-n-r</code>, <code>n</code>=1, ...,12. For example, a table with 3 columns
+        using the following classes
       </p>
-      <pre><code class="language-html">&lt;table class="l1 c2 r3"&gt;
+      <pre><code class="language-html">&lt;table class="col-1-l col-2-c col-3-r"&gt;
   &lt;tr&gt;
     &lt;td&gt;...&lt;/td&gt;&lt;td&gt;...&lt;/td&gt;&lt;td&gt;...&lt;/td&gt;
   &lt;/tr&gt;
@@ -476,7 +476,8 @@
         </table>
       </div>
 
-      <table class="borders-custom c1 c2 c3 c4 c5 c6 c7 c8">
+      <table class="borders-custom col-1-c col-2-c col-3-c col-4-c col-5-c col-6-c
+        col-7-c col-8-c">
         <caption>Example table with custom borders and aligment</caption>
         <colgroup>
           <col class="border-right-thin">
@@ -540,7 +541,7 @@
         </tr>
       </table>
 
-      <table class="borders-custom l1 c2 c3 r4">
+      <table class="borders-custom col-1-l col-2-c col-3-c col-4-r">
         <caption>Close approaches to the Earth by NEOs</caption>
         <thead>
           <tr class="border-bottom-thick">
