@@ -480,18 +480,19 @@
         col-7-c col-8-c">
         <caption>Example table with custom borders and aligment</caption>
         <colgroup>
-          <col class="border-right-thin">
-          <col class="border-right-thin">
-          <col class="border-right-thin">
+          <col class="border-left-thin border-right-thin">
           <col class="border-right-thin">
           <col class="border-right-thin">
           <col class="border-right-thin">
           <col class="border-right-thick">
-          <col>
+          <col class="border-right-thin">
+          <col class="border-right-thin">
         </colgroup>
+        <tr class="border-top-thin">
+          <th scope="col" colspan="7">De Morgan's Law: $\lnot P \lor \lnot Q \iff \lnot (P \land Q)$</th>
+        </tr>
         <tr>
-          <th scope="col" colspan="7"></th>
-          <th>DeMorgan's Law</th>
+          <th scope="col" colspan="7" class="border-bottom-thin">TRUTH TABLE</th>
         </tr>
         <tr class="border-bottom-thin">
           <td>$P$</td>
@@ -501,7 +502,6 @@
           <td>$P \land Q$</td>
           <td>$\lnot P \lor \lnot Q$</td>
           <td>$\lnot (P \land Q)$</td>
-          <td>$\lnot P \lor \lnot Q \iff \lnot (P \land Q)$</td>
         </tr>
         <tr class="border-bottom-thin">
           <td rowspan="2">T</td>
@@ -509,17 +509,15 @@
           <td rowspan="2">F</td>
           <td>F</td>
           <td>T</td>
-          <td>F</td>
-          <td>F</td>
-          <td>T</td>
+          <td><strong>F</strong></td>
+          <td><strong>F</strong></td>
         </tr>
         <tr class="border-bottom-thin">
           <td>F</td>
           <td>T</td>
           <td>F</td>
-          <td>T</td>
-          <td>T</td>
-          <td>T</td>
+          <td><strong>T</strong></td>
+          <td><strong>T</strong></td>
         </tr>
         <tr class="border-bottom-thin">
           <td rowspan="2">F</td>
@@ -527,17 +525,15 @@
           <td rowspan="2">T</td>
           <td>F</td>
           <td>F</td>
-          <td>T</td>
-          <td>T</td>
-          <td>T</td>
+          <td><strong>T</strong></td>
+          <td><strong>T</strong></td>
         </tr>
-        <tr>
+        <tr class="border-bottom-thin">
           <td>F</td>
           <td>T</td>
           <td>F</td>
-          <td>T</td>
-          <td>T</td>
-          <td>T</td>
+          <td><strong>T</strong></td>
+          <td><strong>T</strong></td>
         </tr>
       </table>
 
