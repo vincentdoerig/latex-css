@@ -31,6 +31,6 @@
   },
   "homepage": "https://latex.now.sh",
   "devDependencies": {
-    "vite": "^4.0.4"
+    "vite": "^4.4.9"
   }
 }
