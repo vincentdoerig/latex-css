@@ -61,6 +61,12 @@
             </ol>
           </li>
           <li><a href="#paragraphs">Paragraphs</a></li>
+          <li><a href="#table-classes">Table classes</a>
+            <ol>
+              <li><a href="#table-borders">Custom table borders</a></li>
+              <li><a href="#table-column-aligment">Table column alignment</a></li>
+            </ol>
+          </li>
         </ol>
       </li>
       <li><a href="#language-support">Language Support</a></li>
@@ -203,6 +209,43 @@
         To avoid first line indentation of some specific paragraph, the class <code>no-indent</code>
         can be used.</p>
       <pre><code class="language-html">&lt;p class="no-indent"&gt;...&lt;/p&gt;</code></pre>
+      <h3 id="table-classes">Table classes</h3>
+      <h4 id="table-borders">Custom table borders</h4>
+      <p>
+        To add custom borders to the table, you should use the class
+        <code class="language-html">borders-custom</code> with <code>&lt;table&gt;</code>
+        tag, to begin with a table without any border. The classes 
+        <code>border-&lt;position&gt;-thin</code> and <code>border-&lt;position&gt;-thick</code>,
+        are available, where <code>&lt;position&gt;</code> can take one of the values:
+        <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code>.
+      </p>
+      <pre><code class="language-html">&lt;table class="borders-custom ..."&gt;
+  &lt;tr class="border-bottom-thick"&gt;
+    &lt;td&gt;...&lt;/td&gt;&lt;td&gt;...&lt;/td&gt;&lt;td&gt;...&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr class="border-bottom-thin"&gt;
+    &lt;td&gt;...&lt;/td&gt;&lt;td&gt;...&lt;/td&gt;&lt;td&gt;...&lt;/td&gt;
+  &lt;/tr&gt;
+  ...</code></pre>
+      <p>See full examples in <a href="#tables">section about tables</a>.</p>
+      <h4 id="table-column-aligment">Table column alignment</h4>
+      <p>
+        For each column of the table, there is one class for left, center or right
+        alignment, up to 12 columns: <code>col-n-l</code>, <code>col-n-c</code>,
+        <code>col-n-r</code>, <code>n</code>=1, ...,12. For example, a table with 3 columns
+        using the following classes
+      </p>
+      <pre><code class="language-html">&lt;table class="col-1-l col-2-c col-3-r"&gt;
+  &lt;tr&gt;
+    &lt;td&gt;...&lt;/td&gt;&lt;td&gt;...&lt;/td&gt;&lt;td&gt;...&lt;/td&gt;
+  &lt;/tr&gt;
+  ...</code></pre>
+      <p>
+        aligns to the left the first column, centers the second one and aligns to the
+        right the third of the columns.
+      </p>
+
+      <p>See full examples in <a href="#tables">section about tables</a>.</p>
 
       <h2 id="language-support">Language Support</h2>
       <p>
@@ -432,6 +475,123 @@
           </tbody>
         </table>
       </div>
+
+      <table class="borders-custom col-1-c col-2-c col-3-c col-4-c col-5-c col-6-c
+        col-7-c col-8-c">
+        <caption>Example table with custom borders and aligment</caption>
+        <colgroup>
+          <col class="border-left-thin border-right-thin">
+          <col class="border-right-thin">
+          <col class="border-right-thin">
+          <col class="border-right-thin">
+          <col class="border-right-thick">
+          <col class="border-right-thin">
+          <col class="border-right-thin">
+        </colgroup>
+        <tr class="border-top-thin">
+          <th scope="col" colspan="7">De Morgan's Law: $\lnot P \lor \lnot Q \iff \lnot (P \land Q)$</th>
+        </tr>
+        <tr>
+          <th scope="col" colspan="7" class="border-bottom-thin">TRUTH TABLE</th>
+        </tr>
+        <tr class="border-bottom-thin">
+          <td>$P$</td>
+          <td>$Q$</td>
+          <td>$\lnot P$</td>
+          <td>$\lnot Q$</td>
+          <td>$P \land Q$</td>
+          <td>$\lnot P \lor \lnot Q$</td>
+          <td>$\lnot (P \land Q)$</td>
+        </tr>
+        <tr class="border-bottom-thin">
+          <td rowspan="2">T</td>
+          <td>T</td>
+          <td rowspan="2">F</td>
+          <td>F</td>
+          <td>T</td>
+          <td><strong>F</strong></td>
+          <td><strong>F</strong></td>
+        </tr>
+        <tr class="border-bottom-thin">
+          <td>F</td>
+          <td>T</td>
+          <td>F</td>
+          <td><strong>T</strong></td>
+          <td><strong>T</strong></td>
+        </tr>
+        <tr class="border-bottom-thin">
+          <td rowspan="2">F</td>
+          <td>T</td>
+          <td rowspan="2">T</td>
+          <td>F</td>
+          <td>F</td>
+          <td><strong>T</strong></td>
+          <td><strong>T</strong></td>
+        </tr>
+        <tr class="border-bottom-thin">
+          <td>F</td>
+          <td>T</td>
+          <td>F</td>
+          <td><strong>T</strong></td>
+          <td><strong>T</strong></td>
+        </tr>
+      </table>
+
+      <table class="borders-custom col-1-l col-2-c col-3-c col-4-r">
+        <caption>Close approaches to the Earth by NEOs</caption>
+        <thead>
+          <tr class="border-bottom-thick">
+            <th>CA Date</th>
+            <th>Object Name</th>
+            <th>Diameter</th>
+            <th>Dist. Min. (LD)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2023-Jul-10</td>
+            <td>2018 NW</td>
+            <td>7.3m-16m</td>
+            <td>0.287</td>
+          </tr>
+          <tr>
+            <td>2023-Jul-10</td>
+            <td>2023 LN1</td>
+            <td>45m-00m</td>
+            <td>17.813</td>
+          </tr>
+          <tr>
+            <td>2023-Jul-11</td>
+            <td>2023 MD2</td>
+            <td>36m-80m</td>
+            <td>5.570</td>
+          </tr>
+          <tr>
+            <td>2023-Jul-11</td>
+            <td>2023 NE</td>
+            <td>32m-70m</td>
+            <td>11.253</td>
+          </tr>
+          <tr>
+            <td>2023-Jul-11</td>
+            <td>2023 MQ1</td>
+            <td>28m-62m</td>
+            <td>10.716</td>
+          </tr>
+          <tr>
+            <td>2023-Jul-12</td>
+            <td>2023 OM</td>
+            <td>20m-46m</td>
+            <td>7.628</td>
+          </tr>
+          <tr>
+            <td>2023-Jul-12</td>
+            <td>2018 UY</td>
+            <td>190m-420m</td>
+            <td>7.412</td>
+          </tr>
+        </tbody>
+      </table>
 
       <h3 id="images">Images</h3>
       <figure>

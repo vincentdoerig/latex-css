@@ -109,6 +109,8 @@
   --kbd-bg-color: hsl(210, 5%, 100%);
   --kbd-border-color: hsl(210, 5%, 70%);
   --table-border-color: black;
+  --border-width-thin: 1.36px;
+  --border-width-thick: 2.27px;
   --sidenote-target-border-color: hsl(55, 55%, 70%);
   --footnotes-border-color: hsl(0, 0%, 39%);
   --text-indent-size: 1.463rem; /* In 12pt [Latin Modern font] LaTeX article
@@ -296,33 +298,33 @@ kbd {
 }
 
 /* Better tables */
-table {
+table:not(.borders-custom) {
   border-collapse: collapse;
   border-spacing: 0;
   width: auto;
   max-width: 100%;
-  border-top: 2.27px solid var(--table-border-color);
-  border-bottom: 2.27px solid var(--table-border-color);
+  border-top: var(--border-width-thick) solid var(--table-border-color);
+  border-bottom: var(--border-width-thick) solid var(--table-border-color);
   /* display: block; */
   overflow-x: auto; /* does not work because element is not block */
   /* white-space: nowrap; */
   counter-increment: caption;
 }
 /* add bottom border on column table headings  */
-table tr > th[scope='col'] {
-  border-bottom: 1.36px solid var(--table-border-color);
+table:not(.borders-custom) tr > th[scope='col'] {
+  border-bottom: var(--border-width-thin) solid var(--table-border-color);
 }
 /* add right border on row table headings  */
-table tr > th[scope='row'] {
-  border-right: 1.36px solid var(--table-border-color);
+table:not(.borders-custom) tr > th[scope='row'] {
+  border-right: var(--border-width-thin) solid var(--table-border-color);
 }
-table > tbody > tr:first-child > td,
-table > tbody > tr:first-child > th {
-  border-top: 1.36px solid var(--table-border-color);
+table:not(.borders-custom) > tbody > tr:first-child > td,
+table:not(.borders-custom) > tbody > tr:first-child > th {
+  border-top: var(--border-width-thin) solid var(--table-border-color);
 }
-table > tbody > tr:last-child > td,
-table > tbody > tr:last-child > th {
-  border-bottom: 1.36px solid var(--table-border-color);
+table:not(.borders-custom) > tbody > tr:last-child > td,
+table:not(.borders-custom) > tbody > tr:last-child > th {
+  border-bottom: var(--border-width-thin) solid var(--table-border-color);
 }
 
 th,
@@ -355,6 +357,86 @@ caption::before {
   the table cells shouldn't wrap */
 .scroll-wrapper > table td {
   white-space: nowrap;
+}
+
+/* Table custom borders */
+table.borders-custom {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: auto;
+  max-width: 100%;
+  overflow-x: auto;
+  counter-increment: caption;
+}
+
+.border-top-thick {
+  border-top: var(--border-width-thick) solid var(--table-border-color);
+}
+.border-right-thick {
+  border-right: var(--border-width-thick) solid var(--table-border-color);
+}
+.border-bottom-thick {
+  border-bottom: var(--border-width-thick) solid var(--table-border-color);
+}
+.border-left-thick {
+  border-left: var(--border-width-thick) solid var(--table-border-color);
+}
+
+.border-top-thin {
+  border-top: var(--border-width-thin) solid var(--table-border-color);
+}
+.border-right-thin {
+  border-right: var(--border-width-thin) solid var(--table-border-color);
+}
+.border-bottom-thin {
+  border-bottom: var(--border-width-thin) solid var(--table-border-color);
+}
+.border-left-thin {
+  border-left: var(--border-width-thin) solid var(--table-border-color);
+}
+
+/* Table column alignment */
+.col-1-l tr > :nth-child(1),
+.col-2-l tr > :nth-child(2),
+.col-3-l tr > :nth-child(3),
+.col-4-l tr > :nth-child(4),
+.col-5-l tr > :nth-child(5),
+.col-6-l tr > :nth-child(6),
+.col-7-l tr > :nth-child(7),
+.col-8-l tr > :nth-child(8),
+.col-9-l tr > :nth-child(9),
+.col-10-l tr > :nth-child(10),
+.col-11-l tr > :nth-child(11),
+.col-12-l tr > :nth-child(12) {
+  text-align: left;
+}
+.col-1-c tr > :nth-child(1),
+.col-2-c tr > :nth-child(2),
+.col-3-c tr > :nth-child(3),
+.col-4-c tr > :nth-child(4),
+.col-5-c tr > :nth-child(5),
+.col-6-c tr > :nth-child(6),
+.col-7-c tr > :nth-child(7),
+.col-8-c tr > :nth-child(8),
+.col-9-c tr > :nth-child(9),
+.col-10-c tr > :nth-child(10),
+.col-11-c tr > :nth-child(11),
+.col-12-c tr > :nth-child(12) {
+  text-align: center;
+}
+.col-1-r tr > :nth-child(1),
+.col-2-r tr > :nth-child(2),
+.col-3-r tr > :nth-child(3),
+.col-4-r tr > :nth-child(4),
+.col-5-r tr > :nth-child(5),
+.col-6-r tr > :nth-child(6),
+.col-7-r tr > :nth-child(7),
+.col-8-r tr > :nth-child(8),
+.col-9-r tr > :nth-child(9),
+.col-10-r tr > :nth-child(10),
+.col-11-r tr > :nth-child(11),
+.col-12-r tr > :nth-child(12) {
+  text-align: right;
 }
 
 /* Center align the title */
