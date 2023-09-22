@@ -4,7 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/vincentdoerig/latex-css/compare/v1.9.0...master)
+## [Unreleased](https://github.com/vincentdoerig/latex-css/compare/v1.10.0...master)
+
+## [1.10.0](https://github.com/vincentdoerig/latex-css/compare/v1.9.0...v1.10.0) 2023-09-22
+
+### Added
+
+- Allow some few customization options for table borders and column alignment (#60)
+  - For custom borders: adds classes `border-<position>-<weight>` for `top`, `right`, `top`, `bottom` and `thin`/`thick` respectively. Use with the `borders-custom` class.
+  - For custom column alignment: adds classes `col-<n>-l`, `col-<n>-c`, `col-<n>-r` for `n=1,...,12` and `n` being the n-th column of the table
 
 ## [1.9.0](https://github.com/vincentdoerig/latex-css/compare/v1.8.0...v1.9.0) 2023-03-06
 
