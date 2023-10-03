@@ -32,6 +32,19 @@
     min-height: 0px;
     padding: 0px;
   }
+
+  /* Fix sidenotes for A4 paper size */
+  .sidenote {
+    /* `marginparwidth` ~ 49.813pt[HTML] */
+    width: 49.813pt;
+    margin-right: -59.813pt;
+  }
+  /* Default LaTeX article has only margin notes on the right side margin */
+  .sidenote.left {
+    float: left;
+    /* Same 10pt sep. from text because of simmetry */
+    margin-left: -59.813pt;
+  }
 }
 
 /* Styles for screen document display */
