@@ -1,0 +1,24 @@
+/* Printable design for LaTeX.css using Paged.js
+ * General styles for both A4 and US letter page size
+ */
+
+@import "style.css";
+
+:root {
+  --body-background-color: hsl(0, 0%, 91%);
+  --page-shadow-color: hsl(0, 0%, 81%);
+}
+
+/* Styles for screen document display */
+@media screen, pagedjs-ignore {
+  body {
+    background-color: var(--body-background-color);
+  }
+
+  .pagedjs_page {
+    background-color: var(--body-bg-color);
+    box-shadow: 0 0 3px 1px var(--page-shadow-color);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

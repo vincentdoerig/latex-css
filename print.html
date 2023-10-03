@@ -16,7 +16,7 @@
     content="A minimal, almost class-less CSS library to write and print modern websites that look like LaTeX documents." />
   <meta property="og:type" content="website" />
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="print-A4.css" />
   <link rel="stylesheet" href="prism/prism.css" />
 </head>
 
@@ -89,7 +89,13 @@
           <li><a href="#syntax-highlighting">Syntax Highlighting</a></li>
         </ol>
       </li>
-      <li><a href="#pagedjs-loading">Paged.js Loading</a></li>
+      <li>
+        <a href="#printable-version">Printable version</a>
+        <ol>
+          <li><a href="#pagedjs-loading">Paged.js Loading</a></li>
+          <li><a href="#pagedjs-tweaking">Paged.js Tweaking</a></li>
+        </ol>
+      </li>
     </ol>
   </nav>
 
@@ -472,7 +478,8 @@
 &lt;/pre&gt;</code></pre>
       <p>Change which languages Prism highlights by customising the script <a href="https://prismjs.com/download.html">here</a>.</p>
 
-      <h2 id="pagedjs-loading">Paged.js Loading</h2>
+      <h2 id="printable-version">Printable Version</h2>
+      <h3 id="pagedjs-loading">Paged.js Loading</h3>
       <p>
         If you want to paginate the document with Paged.js, you only need to add a
         link to the script and load the HTML file in a web server.
@@ -513,7 +520,96 @@
         making sure &ldquo;Margins&rdquo; and &ldquo;Headers and Footers&rdquo;
         options are set to &ldquo;none&rdquo;.
       </p>
-      
+
+      <h3 id="pagedjs-tweaking">Paged.js Tweaking</h3>
+      <p>
+        There are two different points to discuss: how the document is displayed
+        in the screen and how the document is printed, corresponding to
+        <code class="language-css">@media screen { ... }</code> and
+        <code class="language-css">@media print { ... }</code> respectively.
+      </p>
+      <p>
+        Starting from version 4.1 Paged.js removes any CSS rule inside
+        <code class="language-css">@media screen { ... }</code>, both for screen
+        display and print; you must add <code>pagedjs-ignore</code> so Paged.js skips
+        this media block, passing it to the screen display:
+      </p>
+      <pre><code class="language-css">@media screen, pagedjs-ignore {
+  /* CSS rules that will affect only the display on the screen */
+}</code></pre>
+      <p>
+        Paged.js includes a <code>style</code> element in the header of the html
+        file whith its default CSS styles (see
+        <a href="https://gitlab.coko.foundation/pagedjs/pagedjs/-/blob/main/src/polisher/base.js?ref_type=heads">here</a>).
+        Also, reads and processes all your CSS styles and files and inserts them
+        in the same way.
+      <p>
+
+      <h4>Paged.js design</h4>
+      <p>Paged content design is organized following this scheme:</p>
+      <pre><code>div.pagedjs_pages &gt; div.pagedjs_page &gt; div.pagedjs_sheet &gt; div.pagedjs_pagebox</code></pre>
+      <p>
+        <code>div.pagedjs_sheet</code> is arranged as a grid including sheet bleeds;
+        <code>div.pagedjs_pagebox</code> is arranged as a grid, containing page
+        margins. And <code>div.pagedjs_pagebox</code> is page box from
+        <a href="https://www.w3.org/TR/css-page-3/#page-model">CSS page model</a>
+      </p>
+      <p>
+        The design of <code>pagedjs_pagebox</code> consist of four corner margins,
+        and four group of margins distributed on a grid with three columns and rows.
+      </p>
+      <figure>
+        <img src="https://pagedjs.org/images/margin-boxes_grid_01.png" />
+        <figcaption>
+          Grid design for <code>div.pagedjs_pagebox</code> (from
+          <a href="https://Pagedjs.org/documentation">Paged.js</a> documentation)
+        </figcaption>
+      </figure>
+      <p>
+        You can learn more about Paged.js page layout
+        <a href="https://pagedjs.org/documentation/7-generated-content-in-margin-boxes/">here</a>
+      </p>
+
+      <h4>Some Paged.js Variables</h4>
+      <p>
+        You can assign values for some of the following variables, but they also
+        can be automatically populated by Paged.js. For example if you use a CSS
+        style like
+      </p>
+      <pre><code class="language-css">@media print {
+  @page {
+    size: A4 portrait;
+  ...
+  }
+...
+}</code></pre>
+      <p>the values for <code>--pagedjs-width</code> and <code>--pagedjs-height</code>
+        (among others) will be populated with the right A4 size paper dimensions.
+        Here is a list of some of Paged.js variables, their names are autodescriptive:
+      </p>
+      <ul>
+        <li><code>--pagedjs-width</code>, <code>--pagedjs-height</code>.</li>
+        <li>
+          <code>--pagedjs-margin-top</code>, <code>--pagedjs-margin-right</code>,
+          <code>--pagedjs-margin-bottom</code>, <code>--pagedjs-margin-left</code>.
+        </li>
+        <li>
+          <code>--pagedjs-width-right</code>, <code>--pagedjs-height-right</code>,
+          <code>--pagedjs-width-left</code>, <code>--pagedjs-height-left</code>.
+        </li>
+        <li>
+          <code>--pagedjs-pagebox-width</code>, <code>--pagedjs-pagebox-height</code>.
+        </li>
+        <li><code>--pagedjs-page-count</code>.</li>
+        <li><code>--pagedjs-page-counter-increment</code>.</li>
+        <li><code>--pagedjs-footnotes-height</code>.</li>
+        <li><code>--pagedjs-footnotes-count</code>.</li>
+      </ul>
+      <p>
+        You must also be careful where the variables are populated/updated, in order
+        to get the right values.
+      </p>
+
       <div class="footnotes">
         <p id="fn1">
           1. From

@@ -1,0 +1,46 @@
+/* Printable design for LaTeX.css using Paged.js
+ * A4 page (595.276x841.89pt[HTML]), 11pt-font size, 1.3-linespread.
+ *
+ * Default Latex Article margins size (converted to HTML points):
+ * - Full left margin: 117.828pt,
+ * - Full right margin: 118.286pt,
+ * - Document text width: 358.655pt,
+ * - Full top margin: 126.795pt,
+ * - Full bottom margin: 122.271pt,
+ * - Document text height: 592.777pt.
+ */
+
+@import "print.css";
+
+/* Styles for document printing (also screen display) */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin-top: 126.795pt;
+    margin-right: 118.286pt;
+    margin-bottom: 122.271pt;
+    margin-left: 117.828pt;
+  }
+
+  body {
+    /* ~ 11pt font-size */
+    font-size: 0.913rem;
+    /* One and half line spacing */
+    line-height: 1.3;
+    /* Reset LaTeX.css style properties */
+    max-width: none;
+    min-height: 0px;
+    padding: 0px;
+  }
+}
+
+/* Styles for screen document display */
+@media screen, pagedjs-ignore {
+  .pagedjs_page {
+    margin-top: 35px;
+  }
+
+  .pagedjs_page:last-of-type {
+    margin-bottom: 35px;
+  }
+}
