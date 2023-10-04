@@ -20,6 +20,13 @@
     margin-right: 118.286pt;
     margin-bottom: 122.271pt;
     margin-left: 117.828pt;
+    @bottom-center{
+      content: counter(page);
+      /* Adjust div.pagedjs_margin-bottom-center for page numbers */
+      flex-direction: column;
+      /* footskip = 29.888pt = 11pt + 18.888pt */  
+      padding-top: 18.888pt;
+    } 
   }
 
   body {
