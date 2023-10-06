@@ -9,6 +9,52 @@
   --page-shadow-color: hsl(0, 0%, 81%);
 }
 
+@media print {
+  /* It seems Paged.js still doesn't support `counters()` or there is some bug
+   * when the ToC is split during pagination.
+   * Here `counters()` is replaced with with a complex `counter()` construction,
+   * with 3 levels of sectioning, like in LaTeX documents (excluding paragraphs):
+   * `sec-level-1`, `sec-level-2`, `sec-level-3`.
+   */
+  /* ToC Level-1 */
+  nav > ol {
+    counter-reset: sec-level-1;
+    /* No padding for ToC first-level sections in LaTeX default articles */
+    padding-left: 0;
+  }
+  nav > ol > li {
+    /* ToC first-level sections are in boldface type in LaTeX default articles */
+    counter-increment: sec-level-1;
+  }
+  nav > ol > li::before {
+    content: counter(sec-level-1);
+    font-weight: bold;
+  }
+  nav > ol > li > a {
+    font-weight: bold;
+  }
+  /* ToC Level-2 */
+  nav > ol > li > ol {
+    counter-reset: sec-level-2;
+  }
+  nav > ol > li > ol > li {
+    counter-increment: sec-level-2;
+  }
+  nav > ol > li > ol > li::before {
+    content: counter(sec-level-1) '.' counter(sec-level-2);
+  }
+  /* ToC Level-3 */
+  nav > ol > li > ol > li > ol {
+    counter-reset: sec-level-3;
+  }
+  nav > ol > li > ol > li > ol > li {
+    counter-increment: sec-level-3;
+  }
+  nav > ol > li > ol > li > ol > li::before {
+    content: counter(sec-level-1) '.' counter(sec-level-2) '.' counter(sec-level-3);
+  }
+}
+
 /* Styles for screen document display */
 @media screen, pagedjs-ignore {
   body {
