@@ -53,6 +53,57 @@
   nav > ol > li > ol > li > ol > li::before {
     content: counter(sec-level-1) '.' counter(sec-level-2) '.' counter(sec-level-3);
   }
+
+  /* Add ToC page numbers */
+  .toc-page-numbers nav > ol li::before {
+    float: left;
+  }
+  .toc-page-numbers nav li > a {
+    display: flex;
+    text-decoration-line: none;
+  }
+  /* Page numbers */
+  .toc-page-numbers nav li > a::after {
+    content: target-counter(attr(href), page);
+    flex: 0 0 5%;
+    align-self: flex-end;
+    text-align: right;
+    text-decoration-line: underline;
+    padding-left: 0.85rem;
+    background-color: var(--body-bg-color);
+  }
+  /* Add an extra gap between the ToC entry text and the page number container. */
+  .toc-page-numbers nav div.toc-item-container {
+    flex: 0 1 95%;
+    padding-right: 1rem;
+  }
+  .toc-page-numbers nav > ol > li > ol span.dotted-line {
+    background-color: var(--body-bg-color);
+  }
+  .toc-page-numbers nav > ol > li > ol span.dotted-line::after {
+    content: ".............................................................................................................................";
+    float: left;
+    width: 0;
+    letter-spacing: 5pt;
+    color: var(--body-color);
+  }
+  /* Hide the fragment of dotted line outside the navigation container */
+  .toc-page-numbers nav > ol > li > ol li {
+    overflow: hidden;
+  }
+  .toc-page-numbers nav span.toc-item-content {
+    background-color: var(--body-bg-color);
+    text-decoration-line: underline;
+  }
+  /* Make an "inline gap" before dotted line. It has been used this solution
+   * instead of [a more natural] `padding-right` to `.toc-item-content`
+   * because of rendering differences between browsers. Also, tries to avoid
+   * line breaks just before the dotted line.
+   */
+  .toc-page-numbers nav > ol > li > ol span.dotted-line::before {
+    content: "\00a0"; /* non-breaking space */
+    margin-left: 0.2em;
+  }
 }
 
 /* Styles for screen document display */

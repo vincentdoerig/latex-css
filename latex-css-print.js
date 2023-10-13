@@ -54,7 +54,37 @@ var LatexCss = window.LatexCss || {};
 
     onLoadPromises.push(RemoveImgLoadingPromise());
   }
-  
+
+  // A "container" to insert ToC dotted line is needed
+  let bodyDocument = document.getElementById("top");
+  let bodyClasses = bodyDocument.classList;
+  if (bodyClasses.contains("toc-page-numbers")) {
+
+    let addTocField = function (element){
+      // Enclose ToC item content inside a `span` element and add other `span`
+      // container to insert the dotted line; both of them inside a `div`.
+      let tocItemContent = document.createElement("span");
+      tocItemContent.classList.add("toc-item-content");
+      element.childNodes.forEach(function(el) {
+        tocItemContent.append(el);
+      });
+      let tocField = document.createElement("span");
+      tocField.classList.add("dotted-line");
+      let tocItemContainer = document.createElement("div");
+      tocItemContainer.classList.add("toc-item-container");
+      tocItemContainer.append(tocItemContent, tocField);
+      element.textContent = "";
+      element.append(tocItemContainer);
+    }
+
+    let addTocNumbersPromise = function() {
+      return new Promise(function(resolve) {
+        let tocItems = document.querySelectorAll("nav li > a");
+        resolve(tocItems.forEach(addTocField));
+      });
+    }
+    onLoadPromises.push(addTocNumbersPromise());
+  }
   
   // Paged.js config to start after script promises in `onLoadPromises` are loaded
   PagedConfig = {
