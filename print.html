@@ -481,8 +481,11 @@
       <h2 id="printable-version">Printable Version</h2>
       <h3 id="pagedjs-loading">Paged.js Loading</h3>
       <p>
-        If you want to paginate the document with Paged.js, you only need to add a
-        link to the script and load the HTML file in a web server.
+        If you want to paginate the document with Paged.js, you only need to add
+        a link to <code>latex-css-print.js</code> script, add a link to one of
+        the two CSS paginated styles (<code>print-A4.css</code>, <code>print-Lt.css</code>,
+        for A4 and ANSI Letter paper size respectively) and load the HTML file in
+        a web server.
       </p>
       <p>
         In order to work properly, Paged.js must be the last one of the scripts that
@@ -491,7 +494,12 @@
         (so attribute <code>async</code> is not recommended in script loading).
         You must proceed as follows:
       </p>
-      <pre><code class="language-html">&lt;!--add optionally MathJax or Prism.js if you need them--&gt;
+      <pre><code class="language-html">&lt;head&gt;
+  [...]
+  &lt;link rel="stylesheet" href="print-A4.css" /&gt;
+&lt;/head&gt;
+[...]
+&lt;!--add optionally MathJax or Prism.js if you need them--&gt;
 &lt;!--
 &lt;script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"&gt;&lt;/script&gt;
 &lt;script defer src="prism/prism.js"&gt;&lt;/script&gt;
