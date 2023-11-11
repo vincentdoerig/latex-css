@@ -54,7 +54,9 @@
     content: counter(sec-level-1) '.' counter(sec-level-2) '.' counter(sec-level-3);
   }
 
-  /* Add ToC page numbers */
+  /* Add page numbers to the ToC.
+   * `latex-css-print.js` must be loaded if `toc-page-numbers` class is used.
+   */
   .toc-page-numbers nav > ol li::before {
     float: left;
   }

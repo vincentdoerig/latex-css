@@ -507,21 +507,43 @@
 &lt;script defer src="latex-css-print.js"&gt;&lt;/script&gt;
 &lt;script defer src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"&gt;&lt;/script&gt;</code></pre>
       <p>
-        If you want to load some other javascript libraries, which provides a startup
-        promise, you can pass a vector of promises to LatexCss this way
+        If you need to configure a more complex <code>PagedConfig.js</code> settings
+        (for example, to load some other javascript libraries), LatexCss provides
+        a startup promise, <code>LatexCss.startupPromise</code>, so you still can
+        use it as follows:
       </p>
-      <pre><code class="language-html">&lt;script scr="url/to/scriptOne.js"&gt;&lt;/script&gt;
-&lt;script scr="url/to/scriptTwo.js"&gt;&lt;/script&gt;
+      <pre><code class="language-html">&lt;script scr="url/to/someScript.js"&gt;&lt;/script&gt;
 &lt;script&gt;
-  LatexCss = {
-    afterLoadPromises: [promiseScriptOne, promiseScriptTwo],
-  }
+[...]
+  window.PagedConfig = {
+    before: function () {
+      return Promise.all([someScriptStartupPromise, LatexCss.startupPromise]);
+    },
+  };
 &lt;/script&gt;
-&lt;script src="latex-css-print.js"&gt;&lt;/script&gt;</code></pre>
+&lt;script src="latex-css-print.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"&gt;&lt;/script&gt;</code></pre>
       <p>However, you must be very careful with the scripts you load and the &ldquo;lazy
         loading&rdquo; HTML elements you use, or you can easily break the document
         display.
       </p>
+      <p>
+        <strong>Fallback loading method.</strong> If you still have problems loading
+        other scripts, you can disable automatic Paged.js previewer and call
+        <code>window.PagedPolyfill.preview()</code> after setting a sufficient
+        delay time:
+      </p>
+      <pre><code class="language-html">&lt;script&gt;
+  window.PagedConfig = {
+    auto: false,
+  };
+  setTimeout(() => {
+    window.PagedPolyfill.preview();
+  }, 1500);
+&lt;/script&gt;
+&lt;!-- Add optionally latex-css-print.js (if you want some of the features it provides) --&gt;
+&lt;!-- &lt;script src="latex-css-print.js"&gt;&lt;/script&gt; --&gt;
+&lt;script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"&gt;&lt;/script&gt;</code></pre>
       <p>
         Finally, if you want to print the document: click &ldquo;Print...&rdquo;
         entry in your browser main menu and then select &ldquo;Save as PDF&rdquo;,

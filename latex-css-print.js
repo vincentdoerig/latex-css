@@ -1,23 +1,25 @@
-// LatexCss.js library to load scripts which provide "on-load" promises, before
-// Paged.js starts to process the document.
-// Loads automatically Prism.js and MathJax startup configuration, if they are
-// found.
-
+// LatexCss.js library provides some utility functions for LaTeX.css printable
+// design. Adds automatically Prism.js and MathJax startup promises to Paged.js 
+// configuration, if they are found.
 
 var LatexCss = window.LatexCss || {};
+var MathJax = window.MathJax || {};
+var Prism = window.Prism || {};
 
 (function() {
-  let onLoadPromises = this.onLoadPromises || [];
+  let onLoadPromises = [];
   let removeImgLoading = this.removeImgLoading || false;
   
   // Add promise when Mathjax is found
-  if (typeof MathJax !== "undefined") {
+  if (typeof MathJax.typeset !== "undefined") {
+    console.log("LatexCss: MathJax script found");
     onLoadPromises.push(MathJax.startup.promise);
   }
 
   
   // Add promise when Prism.js is found
-  if (typeof Prism !== "undefined") {
+  if (typeof Prism.highlight !== "undefined") {
+    console.log("LatexCss: Prism script found");
     // Variable to salve the `resolve` from Prism.js Promise.
     let prismHighlightResolve;
 
@@ -44,7 +46,7 @@ var LatexCss = window.LatexCss || {};
 
   // Remove `loading` attribute from `img` element
   if (removeImgLoading) {
-
+    console.log("LatexCss: remove image `loading` attribute");
     let RemoveImgLoadingPromise = function() {
       return new Promise(function(resolve) {
         let ImgElements = document.querySelectorAll("img");
@@ -55,11 +57,12 @@ var LatexCss = window.LatexCss || {};
     onLoadPromises.push(RemoveImgLoadingPromise());
   }
 
+  // Add ToC page numbers if `toc-page-numbers` class is used in `body`
   // A "container" to insert ToC dotted line is needed
   let bodyDocument = document.getElementById("top");
   let bodyClasses = bodyDocument.classList;
   if (bodyClasses.contains("toc-page-numbers")) {
-
+    console.log("LatexCss: add page numbers to ToC")
     let addTocField = function (element){
       // Enclose ToC item content inside a `span` element and add other `span`
       // container to insert the dotted line; both of them inside a `div`.
@@ -86,14 +89,32 @@ var LatexCss = window.LatexCss || {};
     onLoadPromises.push(addTocNumbersPromise());
   }
   
-  // Paged.js config to start after script promises in `onLoadPromises` are loaded
-  PagedConfig = {
-    before: () => {
-      return Promise.all(onLoadPromises);
-    },
-    after: () => {
-      return console.log("Pagedjs script finished")
-    },
-  };
+  // Make startup promises public 
+  this.startupPromise = Promise.all(onLoadPromises);
 
 }).apply(LatexCss);
+
+
+// Paged.js config to start after startup Promises are loaded, if `PagedConfig.before`
+// has not been customized by the user.
+if (typeof PagedConfig === "undefined") {
+  PagedConfig = {
+    before: () => {
+      return LatexCss.startupPromise;
+    },
+    after: () => {
+      console.log("LatexCss: Pagedjs script finished");
+    },
+  };
+} else {
+  if (typeof PagedConfig.before === "undefined") {
+    PagedConfig.before = function() {
+      return LatexCss.startupPromise;
+    };
+  }
+  if (typeof PagedConfig.after === "undefined") {
+    PagedConfig.after = function() {
+      console.log("LatexCss: Pagedjs script finished");
+    };
+  }
+}
