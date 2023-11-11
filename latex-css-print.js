@@ -59,8 +59,7 @@ var Prism = window.Prism || {};
 
   // Add ToC page numbers if `toc-page-numbers` class is used in `body`
   // A "container" to insert ToC dotted line is needed
-  let bodyDocument = document.getElementById("top");
-  let bodyClasses = bodyDocument.classList;
+  let bodyClasses = document.body.classList;
   if (bodyClasses.contains("toc-page-numbers")) {
     console.log("LatexCss: add page numbers to ToC")
     let addTocField = function (element){
