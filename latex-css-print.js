@@ -7,8 +7,8 @@ var MathJax = window.MathJax || {};
 var Prism = window.Prism || {};
 
 (function() {
-  let onLoadPromises = [];
-  let removeImgLoading = this.removeImgLoading || false;
+  const onLoadPromises = [];
+  const removeImgLoading = this.removeImgLoading || false;
   
   // Add promise when Mathjax is found
   if (typeof MathJax.typeset !== "undefined") {
@@ -28,7 +28,7 @@ var Prism = window.Prism || {};
     let numCodeItemsProcessed = 0;
 
     // Promise with a deferred `resolve` trick.
-    let prismHighlightPromise = new Promise(function(resolve) {
+    const prismHighlightPromise = new Promise(function(resolve) {
       prismHighlightResolve = resolve;
     });
 
@@ -47,8 +47,8 @@ var Prism = window.Prism || {};
   // Remove `loading` attribute from `img` element
   if (removeImgLoading) {
     console.log("LatexCss: remove image `loading` attribute");
-    let removeImgLoadingPromise = new Promise(function(resolve) {
-      let ImgElements = document.querySelectorAll("img");
+    const removeImgLoadingPromise = new Promise(function(resolve) {
+      const ImgElements = document.querySelectorAll("img");
       resolve(ImgElements.forEach((element) => element.removeAttribute("loading")));
     });
 
@@ -57,28 +57,28 @@ var Prism = window.Prism || {};
 
   // Add ToC page numbers if `toc-page-numbers` class is used in `body`
   // A "container" to insert ToC dotted line is needed
-  let bodyClasses = document.body.classList;
+  const bodyClasses = document.body.classList;
   if (bodyClasses.contains("toc-page-numbers")) {
     console.log("LatexCss: add page numbers to ToC")
-    let addTocField = function (element){
+    const addTocField = function (element){
       // Enclose ToC item content inside a `span` element and add other `span`
       // container to insert the dotted line; both of them inside a `div`.
-      let tocItemContent = document.createElement("span");
+      const tocItemContent = document.createElement("span");
       tocItemContent.classList.add("toc-item-content");
       element.childNodes.forEach(function(el) {
         tocItemContent.append(el);
       });
-      let tocField = document.createElement("span");
+      const tocField = document.createElement("span");
       tocField.classList.add("dotted-line");
-      let tocItemContainer = document.createElement("div");
+      const tocItemContainer = document.createElement("div");
       tocItemContainer.classList.add("toc-item-container");
       tocItemContainer.append(tocItemContent, tocField);
       element.textContent = "";
       element.append(tocItemContainer);
     }
 
-    let addTocNumbersPromise = new Promise(function(resolve) {
-      let tocItems = document.querySelectorAll("nav li > a");
+    const addTocNumbersPromise = new Promise(function(resolve) {
+      const tocItems = document.querySelectorAll("nav li > a");
       resolve(tocItems.forEach(addTocField));
     });
     onLoadPromises.push(addTocNumbersPromise);
