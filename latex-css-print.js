@@ -17,7 +17,7 @@ if (location.hash) {
 
 (function() {
   const onLoadPromises = [];
-  const removeImgLoading = this.removeImgLoading || false;
+  const removeImgLoading = this.removeImgLoading || true;
   
   // Add promise when Mathjax is found
   if (typeof MathJax.typeset !== "undefined") {
