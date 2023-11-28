@@ -47,14 +47,12 @@ var Prism = window.Prism || {};
   // Remove `loading` attribute from `img` element
   if (removeImgLoading) {
     console.log("LatexCss: remove image `loading` attribute");
-    let RemoveImgLoadingPromise = function() {
-      return new Promise(function(resolve) {
-        let ImgElements = document.querySelectorAll("img");
-        resolve(ImgElements.forEach((element) => element.removeAttribute("loading")));
-      });
-    }
+    let removeImgLoadingPromise = new Promise(function(resolve) {
+      let ImgElements = document.querySelectorAll("img");
+      resolve(ImgElements.forEach((element) => element.removeAttribute("loading")));
+    });
 
-    onLoadPromises.push(RemoveImgLoadingPromise());
+    onLoadPromises.push(removeImgLoadingPromise);
   }
 
   // Add ToC page numbers if `toc-page-numbers` class is used in `body`
@@ -79,13 +77,11 @@ var Prism = window.Prism || {};
       element.append(tocItemContainer);
     }
 
-    let addTocNumbersPromise = function() {
-      return new Promise(function(resolve) {
-        let tocItems = document.querySelectorAll("nav li > a");
-        resolve(tocItems.forEach(addTocField));
-      });
-    }
-    onLoadPromises.push(addTocNumbersPromise());
+    let addTocNumbersPromise = new Promise(function(resolve) {
+      let tocItems = document.querySelectorAll("nav li > a");
+      resolve(tocItems.forEach(addTocField));
+    });
+    onLoadPromises.push(addTocNumbersPromise);
   }
   
   // Make startup promises public 
