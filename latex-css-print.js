@@ -6,6 +6,15 @@ var LatexCss = window.LatexCss || {};
 var MathJax = window.MathJax || {};
 var Prism = window.Prism || {};
 
+// Scroll to the top of the document (to mitigate certain auto-scroll effect,
+// when fixing section anchor reload issue with the function
+// `LatexCss.fixAnchorReload()`)
+if (location.hash) {
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+  }, 0);
+}
+
 (function() {
   const onLoadPromises = [];
   const removeImgLoading = this.removeImgLoading || false;
@@ -87,6 +96,18 @@ var Prism = window.Prism || {};
   // Make startup promises public 
   this.startupPromise = Promise.all(onLoadPromises);
 
+  // Go to section anchor (after Paged.js has been loaded, to fix section anchor
+  // reload issue)
+  this.fixAnchorReload = function() {
+    if (location.hash) {
+      const hash = location.hash;
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView();
+      }
+    }
+  }
+
 }).apply(LatexCss);
 
 
@@ -98,6 +119,8 @@ if (typeof PagedConfig === "undefined") {
       return LatexCss.startupPromise;
     },
     after: () => {
+      // Go to section anchor after Paged.js has been loaded
+      LatexCss.fixAnchorReload();
       console.log("LatexCss: Pagedjs script finished");
     },
   };
@@ -109,6 +132,8 @@ if (typeof PagedConfig === "undefined") {
   }
   if (typeof PagedConfig.after === "undefined") {
     PagedConfig.after = function() {
+      // Go to section anchor after Paged.js has been loaded
+      LatexCss.fixAnchorReload();
       console.log("LatexCss: Pagedjs script finished");
     };
   }
