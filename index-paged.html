@@ -9,20 +9,20 @@
 
   <meta name="description"
     content="A minimal, almost class-less CSS library to write and print modern websites that look like LaTeX documents." />
-  <meta name="keywords" content="latex.css,css library,class-less css,latex css, printable design" />
+  <meta name="keywords" content="latex.css,css library,class-less css,latex css, paged layout" />
   <meta property="og:title" content="LaTeX.css" />
   <meta property="og:url" content="https://latex.now.sh" />
   <meta property="og:description"
     content="A minimal, almost class-less CSS library to write and print modern websites that look like LaTeX documents." />
   <meta property="og:type" content="website" />
 
-  <link rel="stylesheet" href="print-A4.css" />
+  <link rel="stylesheet" href="style-paged.css" />
   <link rel="stylesheet" href="prism/prism.css" />
 </head>
 
 <body id="top" class="toc-page-numbers">
   <header>
-    <h1><span class="latex">L<span>a</span>T<span>e</span>X</span>.css Printable Design</h1>
+    <h1><span class="latex">L<span>a</span>T<span>e</span>X</span>.css Paged Layout</h1>
     <p class="author">
       Vincent Dörig <br />
       May 2020
@@ -43,7 +43,7 @@
       <a href="https://github.com/vincentdoerig/latex-css">https://github.com/vincentdoerig/latex-css</a>.
     </p>
     <p>
-      This is a printable CSS design for LaTeX.css, using <a href="https://pagedjs.org">Paged.js</a>.
+      This is a paged CSS layout for LaTeX.css, using <a href="https://pagedjs.org">Paged.js</a>.
       Both together display the document paginated in the screen, and allow to export it to PDF format
       through the browser.
     </p>
@@ -90,7 +90,7 @@
         </ol>
       </li>
       <li>
-        <a href="#printable-version">Printable version</a>
+        <a href="#paged-layout">Paged Layout</a>
         <ol>
           <li><a href="#pagedjs-loading">Paged.js Loading</a></li>
           <li><a href="#pagedjs-tweaking">Paged.js Tweaking</a></li>
@@ -135,9 +135,10 @@
 &lt;script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"&gt;&lt;/script&gt;</code></pre>
         </li>
         <li>
-          (optional) If you want to see the document with a paginated design add the
-          <a href="https://pagedjs.org">Pajed.js</a> script (see detailed section about
-          <a href="#pagedjs-loading">Pajed.js loading</a>).
+          (optional) If you want the document to be displayed in a paginated layout
+          (so you can print it to a PDF file, for example) add the
+          <a href="https://pagedjs.org">Pajed.js</a> script (see detailed section
+          about <a href="#pagedjs-loading">Pajed.js loading</a>).
         </li>
         <li>Done.</li>
       </ul>
@@ -478,25 +479,24 @@
 &lt;/pre&gt;</code></pre>
       <p>Change which languages Prism highlights by customising the script <a href="https://prismjs.com/download.html">here</a>.</p>
 
-      <h2 id="printable-version">Printable Version</h2>
+      <h2 id="paged-layout">Paged Layout</h2>
       <h3 id="pagedjs-loading">Paged.js Loading</h3>
       <p>
         If you want to paginate the document with Paged.js, you only need to add
-        a link to <code>latex-css-print.js</code> script, add a link to one of
-        the two CSS paginated styles (<code>print-A4.css</code>, <code>print-Lt.css</code>,
-        for A4 and ANSI Letter paper size respectively) and load the HTML file in
+        a link to <code>latexcss-paged.js</code> script, add a link to the CSS
+        paginated style file, <code>style-paged.css</code>, and load the HTML file in
         a web server.
       </p>
       <p>
         In order to work properly, Paged.js must be the last one of the scripts that
-        modify the DOM and CSSOM to load. LaTeX.css provides a custom configuration
-        to easily load Page.js together with MathJax and Prism.js if they are found
-        (so attribute <code>async</code> is not recommended in script loading).
-        You must proceed as follows:
+        modify the DOM and CSSOM to load. <code>latexcss-paged.js</code> provides
+        a custom configuration to easily load Page.js together with MathJax and
+        Prism.js if they are found (so attribute <code>async</code> is not recommended
+        in script loading). You must proceed as follows:
       </p>
       <pre><code class="language-html">&lt;head&gt;
   [...]
-  &lt;link rel="stylesheet" href="print-A4.css" /&gt;
+  &lt;link rel="stylesheet" href="style-paged.css" /&gt;
 &lt;/head&gt;
 [...]
 &lt;!--add optionally MathJax or Prism.js if you need them--&gt;
@@ -504,13 +504,13 @@
 &lt;script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"&gt;&lt;/script&gt;
 &lt;script defer src="prism/prism.js"&gt;&lt;/script&gt;
 --&gt;
-&lt;script defer src="latex-css-print.js"&gt;&lt;/script&gt;
+&lt;script defer src="latexcss-paged.js"&gt;&lt;/script&gt;
 &lt;script defer src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"&gt;&lt;/script&gt;</code></pre>
       <p>
-        If you need to configure a more complex <code>PagedConfig.js</code> settings
-        (for example, to load some other javascript libraries), LatexCss provides
-        a startup promise, <code>LatexCss.startupPromise</code>, so you still can
-        use it as follows:
+        If you need to configure a more complex <code>PagedConfig</code> settings
+        (for example, to load some other javascript libraries), <code>LatexCss</code>
+        provides a startup promise, <code>LatexCss.startupPromise</code>, so you
+        still can use it as follows:
       </p>
       <pre><code class="language-html">&lt;script scr="url/to/someScript.js"&gt;&lt;/script&gt;
 &lt;script&gt;
@@ -521,7 +521,7 @@
     },
   };
 &lt;/script&gt;
-&lt;script src="latex-css-print.js"&gt;&lt;/script&gt;
+&lt;script src="latexcss-paged.js"&gt;&lt;/script&gt;
 &lt;script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"&gt;&lt;/script&gt;</code></pre>
       <p>However, you must be very careful with the scripts you load and the &ldquo;lazy
         loading&rdquo; HTML elements you use, or you can easily break the document
@@ -541,8 +541,8 @@
     window.PagedPolyfill.preview();
   }, 1500);
 &lt;/script&gt;
-&lt;!-- Add optionally latex-css-print.js (if you want some of the features it provides) --&gt;
-&lt;!-- &lt;script src="latex-css-print.js"&gt;&lt;/script&gt; --&gt;
+&lt;!-- Add optionally latexcss-paged.js (if you want some of the features it provides) --&gt;
+&lt;!-- &lt;script src="latexcss-paged.js"&gt;&lt;/script&gt; --&gt;
 &lt;script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"&gt;&lt;/script&gt;</code></pre>
       <p>
         Finally, if you want to print the document: click &ldquo;Print...&rdquo;
@@ -559,7 +559,7 @@
         <code class="language-css">@media print { ... }</code> respectively.
       </p>
       <p>
-        Starting from version 4.1 Paged.js removes any CSS rule inside
+        Starting from version 0.4.1 Paged.js removes any CSS rule inside
         <code class="language-css">@media screen { ... }</code>, both for screen
         display and print; you must add <code>pagedjs-ignore</code> so Paged.js skips
         this media block, passing it to the screen display:
@@ -667,7 +667,7 @@
   </script>
   <script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script defer src="prism/prism.js"></script>
-  <script defer src="latex-css-print.js"></script>
+  <script defer src="latexcss-paged.js"></script>
   <script defer src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
 
   <script async defer data-domain="latex.now.sh" src="https://plausible.io/js/plausible.js"></script>

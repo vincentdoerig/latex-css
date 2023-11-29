@@ -1,6 +1,4 @@
-/* Printable design for LaTeX.css using Paged.js
- * General styles for both A4 and US letter page size
- */
+/* LaTeX.css paged layout using Paged.js */
 
 @import "style.css";
 
@@ -9,13 +7,57 @@
   --page-shadow-color: hsl(0, 0%, 81%);
 }
 
+/* Styles for document printing (also screen display) */
 @media print {
+  @page {
+    size: A4 portrait;
+    margin-top: 126.795pt;
+    margin-right: 118.286pt;
+    margin-bottom: 122.271pt;
+    margin-left: 117.828pt;
+    @bottom-center{
+      content: counter(page);
+      /* Adjust div.pagedjs_margin-bottom-center for page numbers */
+      flex-direction: column;
+      /* footskip = 29.888pt = 11pt + 18.888pt */  
+      padding-top: 18.888pt;
+    } 
+  }
+
+  body {
+    /* ~ 11pt font-size */
+    font-size: 0.913rem;
+    /* One and half line spacing */
+    line-height: 1.3;
+    /* Reset LaTeX.css style properties */
+    max-width: none;
+    min-height: 0px;
+    padding: 0px;
+  }
+
+  /* Fix sidenotes for A4 paper size */
+  .sidenote {
+    /* `marginparwidth` ~ 49.813pt[HTML] */
+    width: 49.813pt;
+    margin-right: -59.813pt;
+  }
+  /* Default LaTeX article has only margin notes on the right side margin */
+  .sidenote.left {
+    float: left;
+    /* Same 10pt sep. from text because of simmetry */
+    margin-left: -59.813pt;
+  }
+
+  /* ------------------ */
+
+
   /* It seems Paged.js still doesn't support `counters()` or there is some bug
    * when the ToC is split during pagination.
    * Here `counters()` is replaced with with a complex `counter()` construction,
    * with 3 levels of sectioning, like in LaTeX documents (excluding paragraphs):
    * `sec-level-1`, `sec-level-2`, `sec-level-3`.
    */
+
   /* ToC Level-1 */
   nav > ol {
     counter-reset: sec-level-1;
@@ -55,7 +97,7 @@
   }
 
   /* Add page numbers to the ToC.
-   * `latex-css-print.js` must be loaded if `toc-page-numbers` class is used.
+   * `latexcss-paged.js` must be loaded if `toc-page-numbers` class is used.
    */
   .toc-page-numbers nav > ol li::before {
     float: left;
@@ -106,6 +148,9 @@
     content: "\00a0"; /* non-breaking space */
     margin-left: 0.2em;
   }
+
+  
+/* ------------------ */
 }
 
 /* Styles for screen document display */
@@ -117,7 +162,12 @@
   .pagedjs_page {
     background-color: var(--body-bg-color);
     box-shadow: 0 0 3px 1px var(--page-shadow-color);
+    margin-top: 35px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .pagedjs_page:last-of-type {
+    margin-bottom: 35px;
   }
 }

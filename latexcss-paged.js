@@ -1,5 +1,5 @@
-// LatexCss.js library provides some utility functions for LaTeX.css printable
-// design. Adds automatically Prism.js and MathJax startup promises to Paged.js 
+// LatexCss.js library provides some utility functions for LaTeX.css paged
+// layout. Adds automatically Prism.js and MathJax startup promises to Paged.js 
 // configuration, if they are found.
 
 var LatexCss = window.LatexCss || {};
