@@ -151,6 +151,13 @@
     margin-left: 0.2em;
   }
 
+  /* Wrap preformatted text and avoid scroll bars */
+  pre,
+  code {
+    white-space: pre-wrap!important;
+    overflow: visible!important; /* just in case */
+  }
+
 }
 
 /* Styles for screen document display */
