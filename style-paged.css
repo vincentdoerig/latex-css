@@ -158,6 +158,26 @@
     overflow: visible!important; /* just in case */
   }
 
+  /* Adjust end-of-proof symbol for paged layout */
+  .proof:after {
+    /* This particular implementation has been chosen for three reasons:
+     * 1. The sidenotes separation space has been decreased for the paged layout,
+     * so end-of-proof symbol may overlap sidenotes.
+     * 2. With this method, demonstration end sign behaviour is more similar to
+     * `proof` environment style from `amsthm` package.
+     * 3. Firefox has problems (like in ToC, but not exactly the same) with
+     * paddings/margins for floating block elements inside paragraphs
+     * (specifically, here the print layout is different from the screen layout
+     * when using paddings/margins).
+     * Note: U+25FE is not supported by either "Latin Modern" or "Libertinus"
+     * fonts installed; their respective "math variants" are needed.
+     */
+    content: '\00A0\25FE';
+    position: static;
+    display: block;
+    float: right;
+    padding-top: 1pt;
+  }
 }
 
 /* Styles for screen document display */
