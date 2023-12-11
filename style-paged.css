@@ -1,4 +1,9 @@
-/* LaTeX.css paged layout using Paged.js */
+/*!
+ * LaTeX.css Paged Layout using Paged.js
+ *
+ * Source: https://github.com/vincentdoerig/latex-css
+ * Licensed under MIT (https://github.com/vincentdoerig/latex-css/blob/master/LICENSE)
+ */
 
 @import "style.css";
 
@@ -19,9 +24,9 @@
       content: counter(page);
       /* Adjust div.pagedjs_margin-bottom-center for page numbers */
       flex-direction: column;
-      /* footskip = 29.888pt = 11pt + 18.888pt */  
+      /* footskip = 29.888pt = 11pt + 18.888pt */
       padding-top: 18.888pt;
-    } 
+    }
   }
 
   body {
@@ -47,9 +52,6 @@
     /* Same 10pt sep. from text because of simmetry */
     margin-left: -59.813pt;
   }
-
-  /* ------------------ */
-
 
   /* It seems Paged.js still doesn't support `counters()` or there is some bug
    * when the ToC is split during pagination.
@@ -145,12 +147,10 @@
    * line breaks just before the dotted line.
    */
   .toc-page-numbers nav > ol > li > ol span.dotted-line::before {
-    content: "\00a0"; /* non-breaking space */
+    content: "\00A0"; /* non-breaking space */
     margin-left: 0.2em;
   }
 
-  
-/* ------------------ */
 }
 
 /* Styles for screen document display */

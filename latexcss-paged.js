@@ -1,6 +1,10 @@
-// LatexCss.js library provides some utility functions for LaTeX.css paged
-// layout. Adds automatically Prism.js and MathJax startup promises to Paged.js 
-// configuration, if they are found.
+/*! LatexCss library provides some utility functions for LaTeX.css paged layout.
+ * Adds automatically Prism.js and MathJax startup promises to Paged.js
+ * configuration, if they are found.
+ *
+ * Source: https://github.com/vincentdoerig/latex-css
+ * Licensed under MIT (https://github.com/vincentdoerig/latex-css/blob/master/LICENSE)
+ */
 
 var LatexCss = window.LatexCss || {};
 var MathJax = window.MathJax || {};
@@ -18,14 +22,14 @@ if (location.hash) {
 (function() {
   const onLoadPromises = [];
   const removeImgLoading = this.removeImgLoading || true;
-  
+
   // Add promise when Mathjax is found
   if (typeof MathJax.typeset !== "undefined") {
     console.log("LatexCss: MathJax script found");
     onLoadPromises.push(MathJax.startup.promise);
   }
 
-  
+
   // Add promise when Prism.js is found
   if (typeof Prism.highlight !== "undefined") {
     console.log("LatexCss: Prism script found");
@@ -48,7 +52,7 @@ if (location.hash) {
         prismHighlightResolve(numCodeItemsProcessed);
       };
     });
-    
+
     onLoadPromises.push(prismHighlightPromise);
   };
 
@@ -92,8 +96,8 @@ if (location.hash) {
     });
     onLoadPromises.push(addTocNumbersPromise);
   }
-  
-  // Make startup promises public 
+
+  // Make startup promises public
   this.startupPromise = Promise.all(onLoadPromises);
 
   // Go to section anchor (after Paged.js has been loaded, to fix section anchor
