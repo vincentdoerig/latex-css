@@ -193,6 +193,16 @@
     float: right;
     padding-top: 1pt;
   }
+
+  /**
+   * Avoid hyphenation: it seems Paged.js has some problems with hyphenation
+   * while paginating the document.
+   * Ref: https://gitlab.coko.foundation/pagedjs/pagedjs/-/issues/266
+   */
+  body,
+  p {
+    hyphens: none;
+  }
 }
 
 /* Styles for screen document display */
