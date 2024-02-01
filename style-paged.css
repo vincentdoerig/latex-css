@@ -165,6 +165,14 @@
     white-space: pre-wrap;
   }
 
+  /* Allow text wrapping for long url's in the link text */
+  a {
+    overflow-wrap: break-word;
+  }
+  .toc a {
+    overflow-wrap: normal;
+  }
+
   /* Adjust end-of-proof symbol for paged layout */
   .proof:after {
     /* This particular implementation has been chosen for three reasons:
