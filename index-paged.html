@@ -93,6 +93,7 @@
         <a href="#paged-layout">Paged Layout</a>
         <ol>
           <li><a href="#pagedjs-loading">Paged.js Loading</a></li>
+          <li><a href="#page-margins">Page Size and Margins</a></li>
           <li><a href="#pagedjs-tweaking">Paged.js Tweaking</a></li>
         </ol>
       </li>
@@ -542,6 +543,29 @@
         entry in your browser main menu and then select &ldquo;Save as PDF&rdquo;,
         making sure &ldquo;Margins&rdquo; and &ldquo;Headers and Footers&rdquo;
         options are set to &ldquo;none&rdquo;.
+      </p>
+      <h3 id="page-margins">Page Size and Margins</h3>
+      <p>
+        By default, an A4 page size is used for paged layout and side notes are
+        not displayed. Because web browser's incomplete CSS Paged Media
+        implementation, some CSS must be wrote if you want change the size of
+        the page or the width of margins. For example, you can use the following
+        CSS code (after <code>style-paged.css</code> link)
+      </p>
+      <pre><code class="language-html">[...]
+&lt;link rel="stylesheet" href="style-paged.css" /&gt;
+&lt;style&gt;
+  @page {
+    size: letter portrait;
+    margin-top: 100pt;
+    margin-left: 100pt;
+    margin-bottom: 100pt;
+    margin-left: 100pt;
+  }
+&lt;/style&gt;</code></pre>
+      <p>
+        if you want to change the document size to <strong>US letter</strong>
+        and increase the width of the margins.
       </p>
 
       <h3 id="pagedjs-tweaking">Paged.js Tweaking</h3>

@@ -12,12 +12,18 @@
 
 /* Styles for document printing (also screen display) */
 @media print {
+  /**
+   * NOTE: It seems variables don't work inside `@page` because browser's
+   * implementation of custom properties is still incomplete.
+   * Ref: https://stackoverflow.com/a/44738574
+   */
   @page {
+    /* Default LaTeX.css (A4) page margins */
     size: A4 portrait;
-    margin-top: 126.795pt;
-    margin-right: 118.286pt;
-    margin-bottom: 122.271pt;
-    margin-left: 117.828pt;
+    margin-top: 85pt;
+    margin-right: 85pt;
+    margin-bottom: 85pt;
+    margin-left: 85pt;
     @bottom-center{
       content: counter(page);
       /* Adjust div.pagedjs_margin-bottom-center for page numbers */
