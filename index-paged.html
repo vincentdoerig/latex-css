@@ -19,9 +19,18 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="prism/prism.css" />
   <link rel="stylesheet" href="style-paged.css" />
+
+  <style>
+    @page {
+      margin-top: 90pt;
+      margin-right: 125pt;
+      margin-bottom: 90pt;
+      margin-left: 80pt;
+    }
+  </style>
 </head>
 
-<body id="top" class="toc-page-numbers">
+<body id="top" class="toc-page-numbers sidenotes-outer">
   <header>
     <h1><span class="latex">L<span>a</span>T<span>e</span>X</span>.css Paged Layout</h1>
     <p class="author">
@@ -94,6 +103,7 @@
         <ol>
           <li><a href="#pagedjs-loading">Paged.js Loading</a></li>
           <li><a href="#page-margins">Page Size and Margins</a></li>
+          <li><a href="#utility-classes">Utility Classes</a></li>
           <li><a href="#pagedjs-tweaking">Paged.js Tweaking</a></li>
         </ol>
       </li>
@@ -566,6 +576,63 @@
       <p>
         if you want to change the document size to <strong>US letter</strong>
         and increase the width of the margins.
+      </p>
+      <h3 id="utility-classes">Utility Classes</h3>
+      <h4>Page Numbers in ToC</h4>
+      <p>
+        The class <code>toc-page-numbers</code> can be used with <code>body</code>
+        tag to display the page numbers corresponding to the different entries of
+        the table of contents.
+      </p>
+      <h4>Sidenotes</h4>
+      <p>
+        Side notes are not displayed by default. To show the side notes, only on
+        one of the margins, the following classes can be used with
+        <code>body</code> element:
+      </p>
+      <ul>
+        <li>
+          <code>sidenotes-outer</code>. Show the side notes on the outer margin,
+          hide those on the inner margin (because only single-sided documents
+          are supported at this moment, <emph>inner margin</emph> is the left
+          margin and <emph>outer margin</emph> is the right one);
+        </li>
+        <li>
+          <code>sidenotes-inner</code>. Show the side notes on the inner margin
+          and hide the side notes on the outer margin.
+        </li>
+      </ul>
+      <p>
+        By default, side notes automatically adjust to the size of the margin.
+        However, the width of the side notes can be set manually using the CSS
+        variable <code>--sidenote-width</code>, in the same way as for margin
+        width:
+      </p>
+      <pre><code class="language-html">[...]
+&lt;style&gt;
+  :root {
+    --sidenote-width: 80pt;
+  }
+
+  @page {
+    margin-top: 100pt;
+    margin-right: 80pt;
+    margin-bottom: 100pt;
+    margin-left: 160pt;
+  }
+&lt;/style&gt;</code></pre>
+      <h4>Text Properties</h4>
+      <p>
+        Three classes to adjust the font size of the document are provided:
+        <code>font-size-10</code>, <code>font-size-11</code> and
+        <code>font-size-12</code>, for <code>10pt</code>, <code>11pt</code> and
+        <code>12pt</code> font size respectively.
+      </p>
+      <p>
+        There are also three classes available to change the line spacing:
+        <code>line-height-single</code>, <code>line-height-onehalf</code>
+        and <code>line-height-double</code>, if you want single, one and half
+        or double line spacing respectively.
       </p>
 
       <h3 id="pagedjs-tweaking">Paged.js Tweaking</h3>

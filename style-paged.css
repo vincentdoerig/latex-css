@@ -44,17 +44,35 @@
     padding: 0px;
   }
 
-  /* Fix sidenotes for A4 paper size */
+  /**
+   * By default, sidenote width automatically adapts to margin width (using
+   * Paged.js variables `--pagedjs-margin-left` and `--pagedjs-margin-right`).
+   * The width of left and right margins must be greater than 30pt:
+   * 10pt separation from the document text and 20pt inner-outer blank margin.
+   */
   .sidenote {
-    /* `marginparwidth` ~ 49.813pt[HTML] */
-    width: 49.813pt;
-    margin-right: -59.813pt;
+    display: none;
   }
-  /* Default LaTeX article has only margin notes on the right side margin */
-  .sidenote.left {
-    float: left;
-    /* Same 10pt sep. from text because of simmetry */
-    margin-left: -59.813pt;
+  body.sidenotes-outer .sidenote {
+    --sidenote-width-default: calc(var(--pagedjs-margin-right) - 30pt);
+    --sidenote-margin-default: calc(20pt - var(--pagedjs-margin-right));
+    --sidenote-width-custom: min(var(--sidenote-width), var(--sidenote-width-default));
+    --sidenote-margin: calc(0pt - var(--sidenote-width-custom) - 10pt);
+    display: block;
+    width: var(--sidenote-width-custom, var(--sidenote-width-default));
+    margin-right: var(--sidenote-margin, var(--sidenote-margin-default));
+  }
+  body.sidenotes-outer .sidenote.left {
+    display: none;
+  }
+  body.sidenotes-inner .sidenote.left {
+    --sidenote-width-default: calc(var(--pagedjs-margin-left) - 30pt);
+    --sidenote-margin-default: calc(20pt - var(--pagedjs-margin-left));
+    --sidenote-width-custom: min(var(--sidenote-width), var(--sidenote-width-default));
+    --sidenote-margin: calc(0pt - var(--sidenote-width-custom) - 10pt);
+    display: block;
+    width: var(--sidenote-width-custom, var(--sidenote-width-default));
+    margin-left: var(--sidenote-margin, var(--sidenote-margin-default));
   }
 
   /* It seems Paged.js still doesn't support `counters()` or there is some bug
@@ -209,6 +227,29 @@
   p {
     hyphens: none;
   }
+
+  /* Document font size */
+  .font-size-10 {
+    font-size: 10pt;
+  }
+  .font-size-11 {
+    font-size: 11pt;
+  }
+  .font-size-12 {
+    font-size: 12pt;
+  }
+
+  /* Document line spacing */
+  .line-height-single {
+    line-height: normal;
+  }
+  .line-height-onehalf {
+    line-height: 1.5;
+  }
+  .line-height-double {
+    line-height: 2;
+  }
+
 }
 
 /* Styles for screen document display */
