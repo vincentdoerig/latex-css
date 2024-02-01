@@ -28,14 +28,13 @@
       content: counter(page);
       /* Adjust div.pagedjs_margin-bottom-center for page numbers */
       flex-direction: column;
-      /* footskip = 29.888pt = 11pt + 18.888pt */
-      padding-top: 18.888pt;
+      padding-top: 20pt; /* Separation from the main text */
     }
   }
 
   body {
-    /* ~ 11pt font-size */
-    font-size: 0.913rem;
+    /* Default 11pt font-size */
+    font-size: 11pt;
     /* One and half line spacing */
     line-height: 1.3;
     /* Reset LaTeX.css style properties */
