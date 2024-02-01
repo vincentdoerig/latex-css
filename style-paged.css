@@ -149,11 +149,20 @@
     margin-left: 0.2em;
   }
 
-  /* Wrap preformatted text and avoid scroll bars */
+  /**
+   * Overwrite Prism.css styles to allow text wrapping inside `pre`, `code`
+   * elements, and avoid scroll bars
+   */
+  code,
   pre,
-  code {
-    white-space: pre-wrap!important;
-    overflow: visible!important; /* just in case */
+  code[class*='language-'],
+  pre[class*='language-'] {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    overflow: visible; /* just in case the text wrapping fails */
+  }
+  :not(pre) > code[class*='language-'] {
+    white-space: pre-wrap;
   }
 
   /* Adjust end-of-proof symbol for paged layout */
