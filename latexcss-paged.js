@@ -21,7 +21,6 @@ if (location.hash) {
 
 (function() {
   const onLoadPromises = [];
-  const removeImgLoading = this.removeImgLoading || true;
 
   // Add promise when Mathjax is found
   if (typeof MathJax.typeset !== "undefined") {
@@ -58,15 +57,12 @@ if (location.hash) {
 
 
   // Remove `loading` attribute from `img` element
-  if (removeImgLoading) {
-    console.log("LatexCss: remove image `loading` attribute");
-    const removeImgLoadingPromise = new Promise(function(resolve) {
-      const ImgElements = document.querySelectorAll("img");
-      resolve(ImgElements.forEach((element) => element.removeAttribute("loading")));
-    });
+  const removeImgLoadingPromise = new Promise(function(resolve) {
+    const ImgElements = document.querySelectorAll("img");
+    resolve(ImgElements.forEach((element) => element.removeAttribute("loading")));
+  });
 
-    onLoadPromises.push(removeImgLoadingPromise);
-  }
+  onLoadPromises.push(removeImgLoadingPromise);
 
   // Add ToC page numbers if `toc-page-numbers` class is used in `body`
   // A "container" to insert ToC dotted line is needed
