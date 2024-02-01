@@ -16,8 +16,9 @@
     content="A minimal, almost class-less CSS library to write and print modern websites that look like LaTeX documents." />
   <meta property="og:type" content="website" />
 
-  <link rel="stylesheet" href="style-paged.css" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="prism/prism.css" />
+  <link rel="stylesheet" href="style-paged.css" />
 </head>
 
 <body id="top" class="toc-page-numbers">
@@ -469,19 +470,25 @@
       <h3 id="pagedjs-loading">Paged.js Loading</h3>
       <p>
         If you want to paginate the document with Paged.js, you only need to add
-        a link to <code>latexcss-paged.js</code> script, add a link to the CSS
-        paginated style file, <code>style-paged.css</code>, and load the HTML file in
-        a web server.
+        a link to <code>latexcss-paged.js</code> script (together with
+        <code>paged.polyfill.js</code>), add a link to the CSS paginated style
+        file, <code>style-paged.css</code> (along with <code>style.css</code>),
+        and load the HTML file in a web server.
       </p>
       <p>
         In order to work properly, Paged.js must be the last one of the scripts that
         modify the DOM and CSSOM to load. <code>latexcss-paged.js</code> provides
-        a custom configuration to easily load Page.js together with MathJax and
+        a custom configuration to easily load Paged.js together with MathJax and
         Prism.js if they are found (so attribute <code>async</code> is not recommended
-        in script loading). You must proceed as follows:
+        in script loading). Also, <code>style-paged.css</code> should be added
+        after <code>style.css</code> and <code>prism.css</code> files.
+        You must proceed as follows:
       </p>
       <pre><code class="language-html">&lt;head&gt;
   [...]
+  &lt;link rel="stylesheet" href="style.css" /&gt;
+  &lt;!--add optionally prism.css if you are going to use it--&gt;
+  &lt;!-- &lt;link rel="stylesheet" href="prism/prism.css" /&gt; --&gt;
   &lt;link rel="stylesheet" href="style-paged.css" /&gt;
 &lt;/head&gt;
 [...]

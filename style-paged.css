@@ -5,8 +5,6 @@
  * Licensed under MIT (https://github.com/vincentdoerig/latex-css/blob/master/LICENSE)
  */
 
-@import "style.css";
-
 :root {
   --body-background-color: hsl(0, 0%, 91%);
   --page-shadow-color: hsl(0, 0%, 81%);
