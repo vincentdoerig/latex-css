@@ -8,6 +8,41 @@
 :root {
   --body-background-color: hsl(0, 0%, 91%);
   --page-shadow-color: hsl(0, 0%, 81%);
+  --body-color: black;
+  --body-bg-color: white;
+}
+
+/**
+ * Overwrite always `latex-dark` colors with the light ones.
+ * There is no need to overwrite `prefers-color-scheme: dark` media query,
+ * because Paged.js removes it from CSS applied styles.
+ */
+.latex-dark {
+  /* LaTeX.css colors (`style.css`) */
+  --body-color: black;
+  --body-bg-color: white;
+  --link-visited: hsl(0, 100%, 33%);
+  --link-focus-outline: hsl(220, 90%, 52%);
+  --pre-bg-color: hsl(210, 28%, 93%);
+  --kbd-bg-color: hsl(210, 5%, 100%);
+  --kbd-border-color: hsl(210, 5%, 70%);
+  --table-border-color: black;
+  --sidenote-target-border-color: hsl(55, 55%, 70%);
+  --footnotes-border-color: hsl(0, 0%, 39%);
+  --proof-symbol-filter: none;
+  /* Prism.js colors (`prism/prism.css`) */
+  --bg-color: #F0F0F0;
+  --color: black;
+  --token-teal: #407f80;
+  --token-black: #000000;
+  --token-grey: #666666;
+  --token-green: #007f00;
+  --token-lime: #7d8f29;
+  --token-brown: #9a6e3a;
+  --token-red: #ba2121;
+  --token-fuchsia: #dd4a68;
+  --token-orange: #e90;
+  --token-pink: #BA6687;
 }
 
 /* Styles for document printing (also screen display) */
@@ -20,6 +55,8 @@
   @page {
     /* Default LaTeX.css (A4) page margins */
     size: A4 portrait;
+    background-color: var(--body-bg-color);
+    color: var(--body-color);
     margin-top: 85pt;
     margin-right: 85pt;
     margin-bottom: 85pt;

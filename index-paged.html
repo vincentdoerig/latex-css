@@ -80,7 +80,6 @@
       </li>
       <li><a href="#language-support">Language Support</a></li>
       <li><a href="#sidenotes">Sidenotes</a></li>
-      <li><a href="#dark-mode">Dark Mode</a></li>
       <li><a href="#alternative-typeface">Alternative Typeface</a></li>
       <li>
         <a href="#html-elements">HTML Elements</a>
@@ -124,11 +123,6 @@
         <li>
           (optional) Add any classes to elements described in the
           <a href="#class-based-elements">next section</a>.
-        </li>
-        <li>
-          (optional) Add dark mode by adding the <code>latex-dark-auto</code> class to the <code
-            class="language-html">&lt;body&gt;</code>.
-          More infos <a href="#dark-mode">here</a>.
         </li>
         <li>
           (optional) If you need support for
@@ -286,16 +280,6 @@
       <!-- <blockquote>You could also have sidenotes inside blockquotes just like this one <label for="sn-quote"
           class="sidenote-toggle">🔖</label><input type="checkbox" id="sn-quote" class="sidenote-toggle" /><span
           class="sidenote">Hello there!</span>.</blockquote> -->
-
-      <h2 id="dark-mode">Dark Mode</h2>
-      <p>There is built-in support for dark mode. By default, the document is in light mode. To enable dark mode, add
-        the
-        <code>latex-dark</code> class to the <code class="language-html">&lt;body&gt;</code> element. This will force
-        the document to be in dark mode.
-      </p>
-      <p>If you want enable dark mode based on the
-        <code>prefers-color-scheme</code> CSS media query, then use the <code>latex-dark-auto</code> class instead.
-      </p>
 
       <h2 id="alternative-typeface">Alternative Typeface</h2>
       <p><span class="latex">L<span>a</span>T<span>e</span>X</span>.css uses Latin Modern by default. If you don't like this typeface (hard to read, too thin, etc.), you can switch to the <a href="https://github.com/alerque/libertinus"><code>Libertinus</code></a> font family by adding a class of <code>libertinus</code> to the <code class="language-html">&lt;body&gt;</code> tag.
