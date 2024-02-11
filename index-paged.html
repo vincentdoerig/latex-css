@@ -505,7 +505,7 @@
 [...]
   window.PagedConfig = {
     before: function () {
-      return Promise.all([someScriptStartupPromise, LatexCss.startupPromise]);
+      return Promise.all([someScriptStartupPromise, window.LatexCss.startupPromise()]);
     },
   };
 &lt;/script&gt;
@@ -735,7 +735,7 @@
   </script>
   <script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script defer src="prism/prism.js"></script>
-  <script defer src="latexcss-paged.js"></script>
+  <script src="src/index.js" type="module"></script>
   <script defer src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
 
   <script async defer data-domain="latex.now.sh" src="https://plausible.io/js/plausible.js"></script>
