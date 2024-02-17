@@ -280,8 +280,50 @@ const processFootnotesStartup = function() {
   });
 }
 
+/**
+ * Transform sidenotes from one or both margins to Paged Media footnotes,
+ * depending on the the sidenotes style choosen: `sidenotes-inner`,
+ * `sidenotes-outer` or none of them.
+ */
+const sideToFoot = function() {
+  const sideToFootPromise = new Promise(function(resolve) {
+    const bodyElClasses = document.body.classList;
+    let sidenoteList;
+    if (bodyElClasses.contains("sidenotes-inner")) {
+      sidenoteList = document.querySelectorAll("label + input + span.sidenote:not(.left)");
+    } else if (bodyElClasses.contains("sidenotes-outer")) {
+      sidenoteList = document.querySelectorAll("label + input + span.sidenote.left");
+    } else {
+      sidenoteList = document.querySelectorAll("label + input + span.sidenote");
+    }
+
+    if (sidenoteList.length !== 0) {
+      sidenoteList.forEach((sidenote) => {
+        const snInput = sidenote.previousElementSibling;
+        const snLabel = snInput.previousElementSibling;
+
+        // Build the CSS Paged Media footnote
+        const pagedMediaFootnote = document.createElement("span");
+        pagedMediaFootnote.classList.add("footnote");
+        sidenote.childNodes.forEach((child) => {
+          // `sidenote` will be finally removed (no duplicate ID's)
+          pagedMediaFootnote.append(child.cloneNode(true));
+        });
+        sidenote.replaceWith(pagedMediaFootnote);
+        snInput.remove();
+        snLabel.remove();
+      });
+      resolve(true);
+    } else {
+      resolve(false);
+    }
+  });
+
+  return sideToFootPromise;
+}
+
 const PROMS_FUNCS = [mathjaxStartup, prismHighlight, removeImageLoading, addTocNumers,
-                     processFootnotesStartup];
+                     processFootnotesStartup, sideToFoot];
 
 /**
  * Run all promise functions to build the list of promises that will be applied
