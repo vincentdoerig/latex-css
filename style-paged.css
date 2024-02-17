@@ -67,6 +67,17 @@
       flex-direction: column;
       padding-top: 20pt; /* Separation from the main text */
     }
+    @footnote {
+      /* Yes, you can use CSS variables inside @footnotes */
+      border-top: solid var(--footnotes-border-color) 1px;
+      margin-top: 1em;
+      font-size: 85%;
+      /**
+       * This adjustment is necessary because Paged.js falls a little short with
+       * `--pagedjs-footnotes-height`.
+       */
+      padding-bottom: 2pt;
+    }
   }
 
   body {
@@ -109,6 +120,18 @@
     display: block;
     width: var(--sidenote-width-custom, var(--sidenote-width-default));
     margin-left: var(--sidenote-margin, var(--sidenote-margin-default));
+  }
+
+  /* Paged footnotes style */
+  span.footnote {
+    float: footnote;
+    margin-top: 1rem;
+  }
+  .footnote::footnote-call {
+    vertical-align: super;
+    font-size: smaller;
+    color: var(--link-visited);
+    cursor: pointer;
   }
 
   /**
