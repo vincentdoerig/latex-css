@@ -2,3 +2,4 @@
 :lang(de) .lemma::before { content: 'Lemma ' counter(theorem) '. ' !important; }
 :lang(de) .proof::before { content: 'Beweis. ' attr(title) !important; }
 :lang(de) .definition::before { content: 'Definition ' counter(definition) '. ' !important; }
+:lang(de) caption::before { content: 'Tabelle ' counter(caption) '. ' !important; }
