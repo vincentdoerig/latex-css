@@ -4,7 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/vincentdoerig/latex-css/compare/v1.10.0...master)
+## [Unreleased](https://github.com/vincentdoerig/latex-css/compare/v1.11.0...master)
+
+## [1.11.0](https://github.com/vincentdoerig/latex-css/compare/v1.10.0...v1.11.0) 2024-02-19
+
+### Added
+- Swedish language support (#65)
+- Translated table caption prefix for cs (#63), da, de, es, fr, it
+
+### Fixed
+- Explicitly set `hyphens: none;` for inline code (#61)
 
 ## [1.10.0](https://github.com/vincentdoerig/latex-css/compare/v1.9.0...v1.10.0) 2023-09-22
 
