@@ -1,0 +1,4 @@
+:lang(sv) .theorem::before { content: 'Sats ' counter(theorem) '. ' !important; }
+:lang(sv) .lemma::before { content: 'Lemma ' counter(theorem) '. ' !important; }
+:lang(sv) .proof::before { content: 'Bevis. ' attr(title) !important; }
+:lang(sv) .definition::before { content: 'Definition ' counter(definition) '. ' !important; }
