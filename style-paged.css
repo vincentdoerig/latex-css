@@ -313,6 +313,24 @@
     line-height: 2;
   }
 
+  /* Page break control (hopefully) */
+  /* Manually avoid breaks */
+  .break-before-avoid {
+    break-before: avoid;
+  }
+  .break-inside-avoid {
+    break-inside: avoid;
+  }
+  .break-after-avoid {
+    break-after: avoid;
+  }
+  /* Manually force page breaks */
+  .break-before-page {
+    break-before: page;
+  }
+  .break-after-page {
+    break-after: page;
+  }
 }
 
 /* Styles for screen document display */
