@@ -224,6 +224,8 @@ const cleanFootnoteText = function(footnoteContent, footnoteMarkContent) {
  */
 const processFootnotes = function() {
   const footnotesDiv = document.querySelector("div.footnotes");
+  if (!footnotesDiv) return;
+
   const footnoteTextAll = getFootnotesText();
   const footnoteTextKeyAll = Object.keys(footnoteTextAll);
   const footnoteMarkAll = getFootnotesMark(footnoteTextKeyAll);
