@@ -317,6 +317,10 @@
     float: right;
     padding-top: 1pt;
   }
+  .proof {
+    /* Avoid the e-o-p sign vertical overflow because the `float` property */
+    overflow: hidden;
+  }
 
   /**
    * Avoid hyphenation: it seems Paged.js has some problems with hyphenation
