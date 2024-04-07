@@ -10,6 +10,9 @@
   --page-shadow-color: hsl(0, 0%, 81%);
   --body-color: black;
   --body-bg-color: white;
+  --banner-background-color: hsla(0, 100%, 5.88%, 0.4);
+  --banner-color: hsl(50.14, 94.81%, 84.9%);
+  --banner-border-color: hsl(38.62, 95.6%, 82.16%);
 }
 
 /**
@@ -348,5 +351,55 @@
 
   .pagedjs_page:last-of-type {
     margin-bottom: 35px;
+  }
+
+  /* Banner styles */
+  /**
+   * Note: The reason to use `class` but not `id` is because Paged.js will transform
+   * `#paged-banner` into `[data-id="paged-banner"]` but the HTML code used for
+   * the banner is included when Paged.js has finished the document processing.
+   */
+  div.paged-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: var(--banner-background-color);
+  }
+  div.paged-banner > div.paged-banner-content {
+    display: flex;
+    align-items: center;
+    background-color: var(--banner-color);
+    padding: 2rem 2vw 2rem 2vw;
+    margin: 3rem 3vw 0 3vw;
+    border: 1px solid var(--banner-border-color);
+    border-radius: 2px;
+  }
+  div.paged-banner > div.paged-banner-content > div.paged-banner-text {
+    flex: 100%;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  div.paged-banner > div.paged-banner-content button.paged-banner-close {
+    font-size: 2rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+    opacity: 0.5;
+  }
+  div.paged-banner > div.paged-banner-content button.paged-banner-close:after {
+    content: '\00D7'; /* times */
+    font-weight: bold;
+    position: relative;
+    bottom: 5px;
+  }
+  div.paged-banner > div.paged-banner-content button.paged-banner-close:hover {
+    opacity: 1;
+  }
+  /* Do not allow scrolling when the banner is displayed */
+  body.banner-displayed {
+    overflow: hidden;
   }
 }

@@ -9,13 +9,27 @@
 import { startupPromise } from "./startup.js";
 import * as utils from "./utils.js";
 
-// let LatexCssConfig = window.LatexCssConfig || {};
+let LatexCssConfig = window.LatexCssConfig || {
+  showBrowserWarning: true
+};
 
 let PagedConfig = window.PagedConfig;
 
 let LatexCss = {};
 LatexCss.startupPromise = startupPromise;
 LatexCss.utils = utils;
+
+const afterPaged = function() {
+  // Go to section anchor after Paged.js has been loaded
+  utils.fixAnchorReload();
+  // Add non-Blink browsers warning
+  if (LatexCssConfig.showBrowserWarning &&
+    !window.navigator.userAgent.includes("Chrome")) utils.addBrowserWarn();
+  console.log("LatexCss: Pagedjs script finished");
+}
+
+LatexCss.afterPaged = afterPaged;
+
 window.LatexCss = LatexCss;
 
 // Scroll to the top of the document
@@ -32,9 +46,7 @@ if (typeof PagedConfig === "undefined") {
       return startupPromise();
     },
     after: () => {
-      // Go to section anchor after Paged.js has been loaded
-      utils.fixAnchorReload();
-      console.log("LatexCss: Pagedjs script finished");
+      afterPaged();
     },
   };
 } else {
@@ -45,9 +57,7 @@ if (typeof PagedConfig === "undefined") {
   }
   if (typeof PagedConfig.after === "undefined") {
     window.PagedConfig.after = function() {
-      // Go to section anchor after Paged.js has been loaded
-      utils.fixAnchorReload();
-      console.log("LatexCss: Pagedjs script finished");
+      afterPaged();
     };
   }
 }
