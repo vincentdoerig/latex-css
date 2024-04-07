@@ -329,13 +329,83 @@
   }
 
   /* Document font size */
+  /**
+   * These are the corresponding values in absolute units, if you set
+   * `<html style="font-size: 10pt">`
+   */
   .font-size-10 {
     font-size: 10pt;
   }
+  .font-size-10 h1 {
+    font-size: 25pt;
+    line-height: 33pt;
+  }
+  .font-size-10 h2 {
+    font-size: 17pt;
+    line-height: 30pt;
+  }
+  .font-size-10 h3 {
+    font-size: 14pt;
+  }
+  .font-size-10 h4 {
+    font-size: 12pt;
+  }
+  .font-size-10 h5,
+  .font-size-10 h6 {
+    font-size: 10pt;
+  }
+  .font-size-10 .sidenote {
+    font-size: 8pt;
+  }
+  .font-size-10 .sidenote-number::after {
+    font-size: 7pt;
+  }
+  .font-size-10 .sidenote-number ~ .sidenote::before {
+    font-size: 7pt;
+  }
+  .font-size-10 .abstract > h2 {
+    font-size: 10pt;
+  }
+
   .font-size-11 {
     font-size: 11pt;
   }
+
+  /**
+   * These are the corresponding values in absolute units, if you set
+   * `<html style="font-size: 12pt">`
+   */
   .font-size-12 {
+    font-size: 12pt;
+  }
+  .font-size-12 h1 {
+    font-size: 30pt;
+    line-height: 39pt;
+  }
+  .font-size-12 h2 {
+    font-size: 20pt;
+    line-height: 24pt;
+  }
+  .font-size-12 h3 {
+    font-size: 17pt;
+  }
+  .font-size-12 h4 {
+    font-size: 14pt;
+  }
+  .font-size-12 h5,
+  .font-size-12 h6 {
+    font-size: 12pt;
+  }
+  .font-size-12 .sidenote {
+    font-size: 10pt;
+  }
+  .font-size-12 .sidenote-number::after {
+    font-size: 8pt;
+  }
+  .font-size-12 .sidenote-number ~ .sidenote::before {
+    font-size: 8pt;
+  }
+  .font-size-12 .abstract > h2 {
     font-size: 12pt;
   }
 
