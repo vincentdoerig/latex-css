@@ -83,9 +83,17 @@
     }
   }
 
-  body {
-    /* Default 11pt font-size */
+  html {
+    /**
+     * Consistent rendering: Use 11pt font-size, to override user agent default
+     * font size. It's important to use an absolute unit base font, so the document
+     * is going to be rendered across different environments (OS, desktops with
+     * different settings, ...) just as the developer designed it.
+     */
     font-size: 11pt;
+  }
+
+  body {
     /* One and half line spacing */
     line-height: 1.5;
     /* Reset LaTeX.css style properties */
@@ -254,6 +262,22 @@
     white-space: pre-wrap;
   }
 
+  /* Consistent rendering: use Latin Modern and Libertinus fonts for code snippets */
+  body.libertinus code,
+  body.libertinus pre,
+  body.libertinus kbd {
+    font-family: LibertinusMono, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+    font-size: 90%;
+  }
+  code,
+  pre,
+  kbd {
+    font-family: 'Latin Modern Mono', Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+    font-size: 95%;
+  }
+
   /* Allow text wrapping for long url's in the link text */
   a {
     overflow-wrap: break-word;
@@ -262,6 +286,13 @@
     overflow-wrap: normal;
   }
 
+  .proof::before {
+    /**
+     * Consistent rendering: temprorarily replace U+2003 (EM SPACE) with two U+00A0
+     * (NO-BREAK SPACE) because the former is not supported by the fonts provided.
+     */
+    content: 'Proof.\00A0\00A0' attr(title);
+  }
   /* Adjust end-of-proof symbol for paged layout */
   .proof::after {
     /**
@@ -274,10 +305,13 @@
      * paddings/margins for floating block elements inside paragraphs
      * (specifically, here the print layout is different from the screen layout
      * when using paddings/margins).
-     * Note: U+25FE is not supported by either "Latin Modern" or "Libertinus"
-     * fonts installed; their respective "math variants" are needed.
+     *
+     * Consistent rendering: the unicode symbol U+25FE (BLACK MEDIUM SMALL SQUARE)
+     * is not a supported character by any of the fonts provided. It's replaced
+     * temporarily with "‖" (U+2016, DOUBLE VERTICAL LINE) or 'q.e.d'.
      */
-    content: '\00A0\25FE';
+    content: '\00A0q.e.d.'; /* quod erat demonstrandum */
+    /* content: '\00A0‖'; (U+2016) */
     position: static;
     display: block;
     float: right;

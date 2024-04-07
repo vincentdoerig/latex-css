@@ -741,14 +741,14 @@
           1. From
           <a
             href="https://www.math.brown.edu/~res/MFS/handout8.pdf">https://www.math.brown.edu/~res/MFS/handout8.pdf</a>.
-          <a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a>
+          <a href="#ref1" title="Jump back to footnote 1 in the text.">^</a>
         </p>
         <p id="fn2">
           2. “Definition.” Merriam-Webster.com Dictionary, Merriam-Webster,
           <a
             href="https://www.merriam-webster.com/dictionary/definition">https://www.merriam-webster.com/dictionary/definition</a>.
           Accessed 18 May. 2020.
-          <a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a>
+          <a href="#ref2" title="Jump back to footnote 2 in the text.">^</a>
         </p>
         <p id="fn3">
           <span id="span1"><strong>(&#x2020;)</strong></span>
@@ -768,6 +768,15 @@
       tex: {
         inlineMath: [['$', '$'],],
       },
+      options: {
+        menuOptions: {
+          settings: {
+            // Consistent rendering: switch off assistive MathML because it doesn't
+            // use MathJax fonts.
+            assistiveMml: false,
+          }
+        }
+      }
     }
   </script>
   <script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
