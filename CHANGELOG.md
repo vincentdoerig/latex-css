@@ -76,7 +76,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [1.2.0](https://github.com/vincentdoerig/latex-css/compare/v1.1.0...v1.2.0) 2020-08-11
 
 ### Added
-- Sidenotes. See https://latex.now.sh/#sidenotes for more information
+- Sidenotes. See https://latex.vercel.app/#sidenotes for more information
 - `scroll-wrapper` class
 - Add support for the following languages
   - Simplified and Traditional Chinese

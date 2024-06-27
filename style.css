@@ -1,5 +1,5 @@
 /*!
- * LaTeX.css (https://latex.now.sh/)
+ * LaTeX.css (https://latex.vercel.app/)
  *
  * Source: https://github.com/vincentdoerig/latex-css
  * Licensed under MIT (https://github.com/vincentdoerig/latex-css/blob/master/LICENSE)
@@ -116,7 +116,7 @@
   --text-indent-size: 1.463rem; /* In 12pt [Latin Modern font] LaTeX article
   \parindent =~ 17.625pt; taking also into account the ratio
   1pt[LaTeX] = (72 / 72.27) * 1pt[HTML], with default 12pt/1rem LaTeX.css font
-  size, the identation value in rem CSS units is: 
+  size, the identation value in rem CSS units is:
   \parindent =~ 17.625 * (72 / 72.27) / 12 = 1.463rem. */
 }
 

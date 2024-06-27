@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/vincentdoerig/latex-css/issues"
   },
-  "homepage": "https://latex.now.sh",
+  "homepage": "https://latex.vercel.app",
   "devDependencies": {
     "vite": "^4.4.9"
   }

@@ -1,4 +1,4 @@
-# [LaTeX.CSS](https://latex.now.sh/)
+# [LaTeX.CSS](https://latex.vercel.app/)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![latex.css on NPM](https://img.shields.io/npm/v/latex.css.svg?color=green&label=latex.css)](https://www.npmjs.com/package/latex.css)
@@ -12,7 +12,7 @@
 Add the following code in the head of your project.
 
 ```html
-<link rel="stylesheet" href="https://latex.now.sh/style.min.css" />
+<link rel="stylesheet" href="https://latex.vercel.app/style.min.css" />
 ```
 
 or use a CDN like Unpkg:
@@ -35,14 +35,14 @@ Yarn:
 yarn add latex.css
 ```
 
-Add any optional classnames to elements with special styles (author subtitle, abstract, lemmas, theorems, etc.). A list of supported class-based elements can be found [here](https://latex.now.sh/#class-based-elements).
+Add any optional classnames to elements with special styles (author subtitle, abstract, lemmas, theorems, etc.). A list of supported class-based elements can be found [here](https://latex.vercel.app/#class-based-elements).
 
 ## Languages
 
 The labels of theorems, definitions, lemmas and proofs can be changed to other [supported languages](lang) by including the following snippet in addition to the main CSS file.
 
 ```html
-<link rel="stylesheet" href="https://latex.now.sh/lang/es.css" />
+<link rel="stylesheet" href="https://latex.vercel.app/lang/es.css" />
 ```
 
 and changing the html `lang` attribute:
@@ -51,7 +51,7 @@ and changing the html `lang` attribute:
 <html lang="es">
 ```
 
-Have a look at the [language support page](https://latex.now.sh/languages) for more info and a demo of the different languages.
+Have a look at the [language support page](https://latex.vercel.app/languages) for more info and a demo of the different languages.
 
 ## Contributing
 
@@ -63,7 +63,7 @@ This project is based on David Zollikofer's project [latexCSS](https://github.co
 
 Most of the CSS reset is based on Andy Bell's [Modern CSS Reset](https://hankchizljaw.com/wrote/a-modern-css-reset/).
 
-The sample [HTML5 markup test page](https://latex.now.sh/elements) is based on [html5-test-page](https://github.com/cbracco/html5-test-page) by @cbracco.
+The sample [HTML5 markup test page](https://latex.vercel.app/elements) is based on [html5-test-page](https://github.com/cbracco/html5-test-page) by @cbracco.
 
 The idea of sidenotes was taken and adpated from [Tufte CSS](https://edwardtufte.github.io/tufte-css/).
 
