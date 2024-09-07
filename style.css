@@ -453,7 +453,7 @@ nav ol {
 nav li {
   display: block;
 }
-nav li:before {
+nav li::before {
   content: counters(item, '.') ' ';
   counter-increment: item;
   padding-right: 0.85rem;
@@ -501,7 +501,7 @@ dl dd {
   content: 'Proof. ' attr(title);
   font-style: italic;
 }
-.proof:after {
+.proof::after {
   content: '◾️';
   filter: var(--proof-symbol-filter);
   position: absolute;
