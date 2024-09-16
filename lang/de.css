@@ -3,3 +3,4 @@
 :lang(de) .proof::before { content: 'Beweis. ' attr(title) !important; }
 :lang(de) .definition::before { content: 'Definition ' counter(definition) '. ' !important; }
 :lang(de) caption::before { content: 'Tabelle ' counter(caption) '. ' !important; }
+:lang(de) figcaption::before { content: 'Abbildung ' counter(figcaption) '. ' !important; }
