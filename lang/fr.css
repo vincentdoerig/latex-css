@@ -2,7 +2,7 @@
 :lang(fr) .lemma::before { content: 'Lemme ' counter(theorem) '. ' !important; }
 :lang(fr) .proof::before { content: 'Démonstration. ' attr(title) !important; }
 :lang(fr) .definition::before { content: 'Définition ' counter(definition) '. ' !important; }
-:lang(fr) caption::before { content: 'Tableau ' counter(caption) '. ' !important; }
+:lang(fr) caption::before { content: 'Table ' counter(caption) '. ' !important; }
 :lang(fr) figcaption::before { content: 'Figure ' counter(figcaption) '. ' !important; }
 :lang(fr) .indent-pars h2 + p,
 :lang(fr) .indent-pars h3 + p,
