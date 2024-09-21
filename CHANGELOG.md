@@ -4,7 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/vincentdoerig/latex-css/compare/v1.11.0...master)
+## [Unreleased](https://github.com/vincentdoerig/latex-css/compare/v1.12.0...master)
+
+## [1.12.0](https://github.com/vincentdoerig/latex-css/compare/v1.11.0...v1.12.0) 2024-09-21
+
+### Added
+- Figure caption counter (#72)
+
+### Fixed
+- Replace old one-colon pseudo-element syntax in source CSS file (#70) 
+- Replace unsupported image placeholder service (#71)
+- Change French table caption from Tableau to Table (#73)
 
 ## [1.11.0](https://github.com/vincentdoerig/latex-css/compare/v1.10.0...v1.11.0) 2024-02-19
 
