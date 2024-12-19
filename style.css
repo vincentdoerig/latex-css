@@ -684,6 +684,11 @@ input.sidenote-toggle {
   line-height: 1ex;
 }
 
+/* Prevent line breaks inside an element */
+.nowrap {
+  white-space: nowrap;
+}
+
 /* Heading typography */
 h1 {
   font-size: 2.5rem;
