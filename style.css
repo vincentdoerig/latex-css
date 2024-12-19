@@ -197,14 +197,16 @@ body {
   background-color: var(--body-bg-color);
 
   text-rendering: optimizeLegibility;
-}
 
-/* Justify and hyphenate all paragraphs */
-p {
-  text-align: justify;
+  /* Allow automatic hyphenation for all text in the document */
   hyphens: auto;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
+}
+
+/* Justify all paragraphs */
+p {
+  text-align: justify;
   margin-top: 1rem;
 }
 
