@@ -466,10 +466,10 @@ nav ol {
   counter-reset: item;
   padding-left: 2rem;
 }
-nav li {
+nav ol > li {
   display: block;
 }
-nav li::before {
+nav ol > li::before {
   content: counters(item, '.') ' ';
   counter-increment: item;
   padding-right: 0.85rem;
