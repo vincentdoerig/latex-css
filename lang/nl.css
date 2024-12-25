@@ -1,4 +1,6 @@
-:lang(nl) .theorem::before { content: 'Stelling' counter(theorem) '. ' !important; }
+:lang(nl) .theorem::before { content: 'Stelling ' counter(theorem) '. ' !important; }
 :lang(nl) .lemma::before { content: 'Lemma ' counter(theorem) '. ' !important; }
 :lang(nl) .proof::before { content: 'Bewijs. ' attr(title) !important; }
-:lang(nl) .definition::before { content: 'Defenitie ' counter(definition) '. ' !important; }
+:lang(nl) .definition::before { content: 'Definitie ' counter(definition) '. ' !important; }
+:lang(nl) caption::before { content: 'Tabel ' counter(caption) '. ' !important; }
+:lang(nl) figcaption::before { content: 'Figuur ' counter(figcaption) '. ' !important; }
