@@ -685,7 +685,7 @@ input.sidenote-toggle {
 }
 
 /* Prevent line breaks inside an element */
-.nowrap {
+.whitespace-nowrap {
   white-space: nowrap;
 }
 
