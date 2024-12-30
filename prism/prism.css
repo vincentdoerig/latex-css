@@ -92,6 +92,10 @@ pre[class*='language-'] {
   white-space: normal;
 }
 
+:not(pre) > code[class*='language-'].break-all {
+  word-break: break-all;
+}
+
 .token.comment,
 .token.prolog,
 .token.doctype,

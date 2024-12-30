@@ -181,6 +181,11 @@ body.libertinus {
   font-family: 'Libertinus', Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 
+/* Justify all text in the document */
+body.text-justify {
+  text-align: justify;
+}
+
 body {
   font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
   line-height: 1.8;
@@ -204,9 +209,7 @@ body {
   -moz-hyphens: auto;
 }
 
-/* Justify all paragraphs */
 p {
-  text-align: justify;
   margin-top: 1rem;
 }
 
@@ -245,6 +248,15 @@ a:visited {
 a:focus {
   outline-offset: 2px;
   outline: 2px solid var(--link-focus-outline);
+}
+
+/* Allow line breaks between any two characters */
+.break-all {
+  /*
+    NOTE: Whith `break-all` value no hyphens are shown, even if the word breaks
+    at a hyphenation point
+  */
+  word-break: break-all;
 }
 
 /* Make images easier to work with */
@@ -557,6 +569,8 @@ dl dd {
   margin-right: -20vw;
   margin-bottom: 1em;
   text-indent: 0;
+  /* Right sidenotes explicitly aligned to left for wide screens */
+  text-align: left;
 }
 
 .sidenote.left {
@@ -564,6 +578,14 @@ dl dd {
   margin-left: -20vw;
   margin-bottom: 1em;
   text-indent: 0;
+  /* Left sidenotes explicitly aligned to right for wide screens */
+  text-align: right;
+}
+
+/* Justify all sidenotes for wide screens when `text-justify` class is used */
+body.text-justify .sidenote,
+body.text-justify .sidenote.left {
+    text-align: justify;
 }
 
 /* (WIP) add border when a sidenote is clicked on */
@@ -634,6 +656,17 @@ input.sidenote-toggle {
     clear: both;
     width: 95%;
   }
+
+  /* All sidenotes explicitly aligned to left for narrow screens */
+  .sidenote-toggle:checked + .sidenote.left {
+    text-align: left;
+  }
+
+  /* Justify all sidenotes for narrow screens when `text-justify` class is used */
+  body.text-justify .sidenote-toggle:checked + .sidenote.left {
+    text-align: justify;
+  }
+
   /* tweak indentation of sidenote inside a blockquote */
   blockquote .sidenote {
     margin-right: -25vw;
@@ -641,9 +674,8 @@ input.sidenote-toggle {
   }
 }
 
-/* Make footnote text smaller and left align it (looks bad with long URLs) */
+/* Make footnote text smaller */
 .footnotes p {
-  text-align: left;
   line-height: 1.5;
   font-size: 85%;
   margin-bottom: 0.4rem;

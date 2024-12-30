@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="prism/prism.css" />
 </head>
 
-<body id="top">
+<body id="top" class="text-justify">
   <header>
     <h1><span class="latex">L<span>a</span>T<span>e</span>X</span>.css</h1>
     <p class="author">
@@ -61,6 +61,7 @@
             </ol>
           </li>
           <li><a href="#paragraphs">Paragraphs</a></li>
+          <li><a href="#text-justification">Text Justification</a></li>
           <li><a href="#table-classes">Table Classes</a>
             <ol>
               <li><a href="#table-borders">Custom Table Borders</a></li>
@@ -99,9 +100,8 @@
       <h2 id="getting-started">Getting Started</h2>
       <ul>
         <li>
-          Add
-          <code class="language-html">&lt;link rel="stylesheet"
-              href="https://latex.vercel.app/style.css"&gt;</code>
+          Add the line
+          <pre><code class="language-html break-all">&lt;link rel="stylesheet" href="https://latex.vercel.app/style.css"&gt;</code></pre>
           to the <code class="language-html">&lt;head&gt;</code> of your website or install the
           package using <code>npm install latex.css</code>.
         </li>
@@ -210,6 +210,24 @@
         To avoid first line indentation of some specific paragraph, the class <code>no-indent</code>
         can be used.</p>
       <pre><code class="language-html">&lt;p class="no-indent"&gt;...&lt;/p&gt;</code></pre>
+      <h3 id="text-justification">Text Justification</h3>
+      <p>
+        By default, text content is aligned to the left. If you want to justify the text like in
+        LaTeX documents, you can use the class <code class="language-css">text-justify</code> with
+        <code class="language-html">body</code> element.
+      </p>
+      <p>
+        It should be taken into account that some elements, like long URLs or long inline code
+        snippets can produce a quite irregular word spacing, worsening readability. It's the
+        author's responsibility to format properly this problematic elements: for example,
+        switching to a code block, moving the URLs to a separate line, inserting word break
+        opportunities or modifying the way the line breaks are inserted.
+      </p>
+      <p>
+        To address the later of these methods, the class <code class="language-css">break-all</code>
+        is provided, so the browser may insert line breaks between any two characters for every word
+        inside the element to which it is applied.
+      </p>
       <h3 id="table-classes">Table Classes</h3>
       <h4 id="table-borders">Custom Table Borders</h4>
       <p>
@@ -644,13 +662,13 @@
       <div class="footnotes">
         <p id="fn1">
           1. From
-          <a
+          <a class="break-all"
             href="https://www.math.brown.edu/~res/MFS/handout8.pdf">https://www.math.brown.edu/~res/MFS/handout8.pdf</a>.
           <a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a>
         </p>
         <p id="fn2">
           2. “Definition.” Merriam-Webster.com Dictionary, Merriam-Webster,
-          <a
+          <a class="break-all"
             href="https://www.merriam-webster.com/dictionary/definition">https://www.merriam-webster.com/dictionary/definition</a>.
           Accessed 18 May. 2020.
           <a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a>
