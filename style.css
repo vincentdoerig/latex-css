@@ -118,6 +118,19 @@
   1pt[LaTeX] = (72 / 72.27) * 1pt[HTML], with default 12pt/1rem LaTeX.css font
   size, the identation value in rem CSS units is:
   \parindent =~ 17.625 * (72 / 72.27) / 12 = 1.463rem. */
+  --h2-font-size: 1.7rem;
+  --h3-font-size: 1.4rem;
+  --h4-font-size: 1.2rem;
+  --h5-font-size: 1rem;
+  --h6-font-size: 1rem;
+  --h2-line-height: 1.4;
+  --h3-h6-line-height: 1.4;
+  --h2-margin-top: 1.75; /* `* 1em` */
+  --h3-h6-margin-top: 1.7; /* `* 1em` */
+  --h2-margin-bottom: 0.6; /* `* 1em` */
+  --h3-h6-margin-bottom: 0.6; /* `* 1em` */
+  --h3-h6-sibling-epsilon: 0.15;
+  --h3-h6-sibling-alpha: 1.8;
 }
 
 .latex-dark {
@@ -663,6 +676,12 @@ input.sidenote-toggle {
 }
 .abstract > h2 {
   font-size: 1rem;
+  /**
+   * Due to the change to `em` units for margins, it's necessary to specify the
+   * `margin-top` to keep the same dimensions, because the abstract has a custom
+   * font size for `h2`.
+   */
+  margin-top: 3rem;
   margin-bottom: -0.2rem;
 }
 
@@ -697,38 +716,36 @@ h1 {
 }
 
 h2 {
-  font-size: 1.7rem;
-  line-height: 2rem;
-  margin-top: 3rem;
+  font-size: var(--h2-font-size);
+  line-height: var(--h2-line-height);
+  margin-top: calc(var(--h2-margin-top) * 1em);
+  margin-bottom: calc(var(--h2-margin-bottom) * 1em);
 }
 
 h3 {
-  font-size: 1.4rem;
-  margin-top: 2.5rem;
+  font-size: var(--h3-font-size);
 }
 
 h4 {
-  font-size: 1.2rem;
-  margin-top: 2rem;
+  font-size: var(--h4-font-size);
 }
 
 h5 {
-  font-size: 1rem;
-  margin-top: 1.8rem;
+  font-size: var(--h5-font-size);
 }
 
 h6 {
-  font-size: 1rem;
+  font-size: var(--h6-font-size);
   font-style: italic;
   font-weight: normal;
-  margin-top: 2.5rem;
 }
 
 h3,
 h4,
 h5,
 h6 {
-  line-height: 1.625rem;
+  line-height: var(--h3-h6-line-height);
+  margin-top: calc(var(--h3-h6-margin-top) * 1em);
 }
 
 h1 + h2 {
@@ -737,18 +754,38 @@ h1 + h2 {
 
 h2 + h3,
 h3 + h4,
-h4 + h5 {
-  margin-top: 0.8rem;
-}
-
+h4 + h5,
 h5 + h6 {
-  margin-top: -0.8rem;
+  /**
+   * Linear application used to calculate the margin:
+   * `m(s) = alpha * (s - (1 - epsilon) * h6)`
+   */
+  margin-top: calc(var(--h3-h6-sibling-alpha) *  ( 1em - (1 - var(--h3-h6-sibling-epsilon)) * var(--h6-font-size)));
 }
 
-h2,
+/* Set null the top margin for paragraphs after section headings */
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p {
+  margin-top: 0;
+}
+
+/* Margin bottom for section headings, using `em` units */
 h3,
 h4,
 h5,
 h6 {
-  margin-bottom: 0.8rem;
+  margin-bottom: calc(var(--h3-h6-margin-bottom) * 1em);
+}
+/**
+ * Set a non-null value `margin-bottom` ONLY for  `h2-h5` headings without a
+ * next-sibling heading, to avoid unexpected margin collapsing side effects.
+ */
+h2:has(+ h3),
+h3:has(+ h4),
+h4:has(+ h5),
+h5:has(+ h6) {
+  margin-bottom: 0;
 }
