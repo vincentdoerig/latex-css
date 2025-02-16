@@ -213,20 +213,21 @@
       <h3 id="text-justification">Text Justification</h3>
       <p>
         By default, text content is aligned to the left. If you want to justify the text like in
-        LaTeX documents, you can use the class <code class="language-css">text-justify</code> with
-        <code class="language-html">body</code> element.
+        LaTeX documents, you can use the class <code class="language-css">text-justify</code> on
+        the <code class="language-html">body</code> element.
       </p>
       <p>
-        It should be taken into account that some elements, like long URLs or long inline code
-        snippets can produce a quite irregular word spacing, worsening readability. It's the
-        author's responsibility to format properly this problematic elements: for example,
-        switching to a code block, moving the URLs to a separate line, inserting word break
-        opportunities or modifying the way the line breaks are inserted.
+        It is important to consider that elements such as long URLs or long inline code snippets
+        can lead to irregular word spacing, which in turn degrades readability. It's the
+        author's responsibility to format problematic elements like switching to a code block,
+        moving the URLs to a separate line, inserting word break opportunities or modifying the
+        way the line breaks are inserted.
       </p>
       <p>
-        To address the later of these methods, the class <code class="language-css">break-all</code>
-        is provided, so the browser may insert line breaks between any two characters for every word
-        inside the element to which it is applied.
+        To address the latter of these methods, the class <code class="language-css">break-all</code>
+        can be used. When applied to an element, the browser is allowed to insert line breaks at any point
+        between two characters. Keep in mind that this does not preserve whole words, so it is
+        recommended to use it only when necessary.
       </p>
       <h3 id="table-classes">Table Classes</h3>
       <h4 id="table-borders">Custom Table Borders</h4>
