@@ -181,8 +181,7 @@ body.libertinus {
   font-family: 'Libertinus', Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 
-/* Justify all text in the document */
-body.text-justify {
+.text-justify {
   text-align: justify;
 }
 
