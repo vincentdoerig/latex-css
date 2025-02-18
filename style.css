@@ -195,7 +195,7 @@ body {
   margin: 0 auto;
   padding: 2rem 1.25rem;
 
-  counter-reset: theorem definition sidenote-counter;
+  counter-reset: theorem definition sidenote-counter figcaption caption;
 
   color: var(--body-color);
   background-color: var(--body-bg-color);
