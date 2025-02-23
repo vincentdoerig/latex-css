@@ -46,6 +46,16 @@
 }
 
 @font-face {
+  font-family: 'Latin Modern Mono';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./fonts/LMMono-regular.woff2') format('woff2'),
+  url('./fonts/LMMono-regular.woff') format('woff'),
+  url('./fonts/LMMono-regular.ttf') format('truetype');
+}
+
+@font-face {
   font-family: 'Libertinus';
   font-style: normal;
   font-weight: normal;
@@ -91,6 +101,14 @@
   font-weight: 600;
   font-display: swap;
   src: url('./fonts/Libertinus-semibold-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'LibertinusMono';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('./fonts/LibertinusMono-regular.woff2') format('woff2');
 }
 
 /* Box sizing rules */

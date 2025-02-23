@@ -8,11 +8,17 @@
     "fonts",
     "lang",
     "style.css",
-    "style.min.css"
+    "style.min.css",
+    "style-paged.css",
+    "style-paged.min.css",
+    "src",
+    "latexcss-paged.js"
   ],
   "scripts": {
-    "prepack": "vite build && cp dist/style.css style.min.css",
-    "build": "npm pack --dry-run"
+    "prepack": "npm run build-lib && cp dist/style.css style.min.css && cp dist/style-paged.css style-paged.min.css && cp dist/latexcss-paged.iife.js latexcss-paged.js",
+    "build": "npm pack --dry-run",
+    "build-lib": "vite build && vite build --config latexcss-js.vite.config.js",
+    "preview": "vite preview --outDir ./ --port 8000"
   },
   "repository": {
     "type": "git",

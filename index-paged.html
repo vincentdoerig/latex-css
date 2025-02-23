@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="tm5Y6ZNTf-lBqbwniGjQPv1q02o2TuUQZ9GTYa4SMLg" />
+  <title>LaTeX.css — Make your website look like a LaTeX document</title>
+
+  <meta name="description"
+    content="A minimal, almost class-less CSS library to write and print modern websites that look like LaTeX documents." />
+  <meta name="keywords" content="latex.css,css library,class-less css,latex css, paged layout" />
+  <meta property="og:title" content="LaTeX.css" />
+  <meta property="og:url" content="https://latex.now.sh" />
+  <meta property="og:description"
+    content="A minimal, almost class-less CSS library to write and print modern websites that look like LaTeX documents." />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="prism/prism.css" />
+  <link rel="stylesheet" href="style-paged.css" />
+
+  <style>
+    @page {
+      margin-top: 90pt;
+      margin-right: 125pt;
+      margin-bottom: 90pt;
+      margin-left: 80pt;
+    }
+  </style>
+</head>
+
+<body id="top" class="toc-page-numbers sidenotes-outer">
+  <header>
+    <h1><span class="latex">L<span>a</span>T<span>e</span>X</span>.css Paged Layout</h1>
+    <p class="author">
+      Vincent Dörig <br />
+      May 2020
+    </p>
+  </header>
+
+  <div class="abstract">
+    <h2>Abstract</h2>
+    <p>
+      LaTeX.css is an almost class-less CSS library that turns your HTML document into a
+      website that looks like a
+      <span class="latex">L<span>a</span>T<span>e</span>X</span>
+      document. Write semantic HTML, add
+      <code class="language-html">&lt;link rel="stylesheet"
+          href="https://latex.now.sh/style.css"&gt;</code>
+      to the <code class="language-html">&lt;head&gt;</code> of your project and you are good to go.
+      The source code can be found on GitHub at
+      <a href="https://github.com/vincentdoerig/latex-css">https://github.com/vincentdoerig/latex-css</a>.
+    </p>
+    <p>
+      This is a paged CSS layout for LaTeX.css, using <a href="https://pagedjs.org">Paged.js</a>.
+      Both together display the document paginated in the screen, and allow to export it to PDF format
+      through the browser.
+    </p>
+  </div>
+
+  <nav role="navigation" class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#getting-started">Getting Started</a></li>
+      <li>
+        <a href="#class-based-elements">Class-based Elements</a>
+        <ol>
+          <li><a href="#author-abstract">Author and Abstract</a></li>
+          <li>
+            <a href="#tdpl">Theorems, Definitions and Proofs</a>
+            <ol>
+              <li><a href="#proofs-theorems">Proofs & Theorems</a></li>
+              <li><a href="#lemmas">Lemmas</a></li>
+              <li><a href="#definitions">Definitions</a></li>
+            </ol>
+          </li>
+          <li><a href="#paragraphs">Paragraphs</a></li>
+        </ol>
+      </li>
+      <li><a href="#language-support">Language Support</a></li>
+      <li><a href="#sidenotes">Sidenotes</a></li>
+      <li><a href="#alternative-typeface">Alternative Typeface</a></li>
+      <li>
+        <a href="#html-elements">HTML Elements</a>
+        <ol>
+          <li><a href="#text-formatting">Text Formatting</a></li>
+          <li><a href="#blockquotes">Blockquotes</a></li>
+          <li><a href="#definition-lists">Definition Lists</a></li>
+          <li><a href="#tables">Tables</a></li>
+          <li><a href="#images">Images</a></li>
+        </ol>
+      </li>
+      <li>
+        <a href="#miscellaneous">Miscellaneous</a>
+        <ol>
+          <li><a href="#syntax-highlighting">Syntax Highlighting</a></li>
+        </ol>
+      </li>
+      <li>
+        <a href="#paged-layout">Paged Layout</a>
+        <ol>
+          <li><a href="#pagedjs-loading">Paged.js Loading</a></li>
+          <li><a href="#page-margins">Page Size and Margins</a></li>
+          <li><a href="#utility-classes">Utility Classes</a></li>
+          <li><a href="#pagedjs-tweaking">Paged.js Tweaking</a></li>
+        </ol>
+      </li>
+    </ol>
+  </nav>
+
+  <main>
+    <article>
+      <h2 id="getting-started">Getting Started</h2>
+      <ul>
+        <li>
+          Add
+          <code class="language-html">&lt;link rel="stylesheet"
+              href="https://latex.now.sh/style.css"&gt;</code>
+          to the <code class="language-html">&lt;head&gt;</code> of your website or install the
+          package using <code>npm install latex.css</code>.
+        </li>
+        <li>
+          (optional) Add any classes to elements described in the
+          <a href="#class-based-elements">next section</a>.
+        </li>
+        <li>
+          (optional) If you need support for
+          <span class="latex">L<span>a</span>T<span>e</span>X</span> math, add
+          the following script to include
+          <a href="https://www.mathjax.org/">MathJax</a>:
+          <pre><code class="language-html">&lt;script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"&gt;&lt;/script&gt;</code></pre>
+        </li>
+        <li>
+          (optional) If you need syntax highlighting, add
+          the following script to include
+          <a href="https://prismjs.com/">Prism</a> and the Prism LaTeX stylesheet (or use any other):
+          <pre><code class="language-html">&lt;link rel="stylesheet" href="https://latex.now.sh/prism/prism.css"&gt;
+
+&lt;script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"&gt;&lt;/script&gt;</code></pre>
+        </li>
+        <li>
+          (optional) If you want the document to be displayed in a paginated layout
+          (so you can print it to a PDF file, for example) add the
+          <a href="https://pagedjs.org">Pajed.js</a> script (see detailed section
+          about <a href="#pagedjs-loading">Pajed.js loading</a>).
+        </li>
+        <li>Done.</li>
+      </ul>
+
+      <h2 id="class-based-elements">Class-based Elements</h2>
+      <h3 id="author-abstract">Author and Abstract</h3>
+      <p>
+        Use the following code to add an author and abstract to your document.
+        It will look like <a href="#top">this</a>.
+      </p>
+      <pre><code class="language-html">&lt;p class="author"&gt;John Doe &lt;br&gt; December 7, 2020&lt;/p&gt;
+
+&lt;div class="abstract"&gt;
+  &lt;h2&gt;Abstract&lt;/h2&gt;
+  &lt;p&gt;...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3 id="tdpl">Theorems, Definitions, Lemmas and Proofs</h3>
+      <p>
+        Theorems, definitions, lemmas and proofs are supported. Just wrap your
+        content in a div and add the corresponding class to the element like
+        in the following example.
+      </p>
+
+      <pre><code class="language-html">&lt;div class="theorem"&gt;...&lt;/div&gt;
+&lt;div class="definition"&gt;...&lt;/div&gt;
+&lt;div class="lemma"&gt;...&lt;/div&gt;
+&lt;div class="proof"&gt;...&lt;/div&gt;</code></pre>
+      <p>Below are some examples.</p>
+      <h4 id="proofs-theorems">Proofs & Theorems</h4>
+      <div class="theorem">
+        The real numbers $\mathbb{R}$ are uncountable.
+      </div>
+      <div class="proof">
+        If $\mathbb{R}$ is countable, then [0, 1] is countable as well. Hence
+        there exists a map C from $\mathbb{N}$ onto [0, 1] with
+        $$C(n)=\sum_{i=1}^{\infty} c_{i}(n) 10^{-i}$$ where $c_{i}(n)
+        \in\{0,1, \ldots, 9\},$ are the digits in decimal expansion. Now
+        consider a real number $$x=\sum_{i=1}^{\infty} \bar{c}_{i} 10^{-i}
+        \in[0,1]$$ with $\bar{c}_{i} \neq c_{i}(i)$. Obviously $C(n) \neq x$
+        for all $n \in \mathbb{N} .$ Hence $C$ is not onto. A contradiction.
+      </div>
+      <div class="theorem">
+        If $S$ is both countable and infinite, then there is a bijection
+        between $S$ and $\boldsymbol{N}$ itself.<sup><a href="#fn1" id="ref1">1</a></sup>
+      </div>
+      <div class="proof">
+        For any $s \in S,$ we let $f(s)$ denote the value of $k$ such that $s$
+        is the $k$ the smallest element of $S .$ This map is well defined for
+        any $s,$ because there are only finitely many natural numbers between
+        1 and $s .$ It is impossible for two different elements of $S$ to both
+        be the $k$ the smallest element of $S$. Hence $f$ is one-to-one. Also,
+        since $S$ is infinite, $f$ is onto.
+      </div>
+      <h4 id="lemmas">Lemmas</h4>
+      <div class="lemma">
+        An even number plus an even number results in an even number.
+      </div>
+      <h4 id="definitions">Definitions</h4>
+      <div class="definition">
+        A definition is a a statement of the meaning of a word or word group
+        or a sign or symbol.<sup><a href="#fn2" id="ref2">2</a></sup>
+      </div>
+
+      <h3 id="paragraphs">Paragraphs</h3>
+      <p>
+        In order to get automatic first line indentation of paragraphs, like in
+        default <span class="latex">L<span>a</span>T<span>e</span>X</span> articles, the class
+        <code>indent-pars</code> can be used with <code>article</code> tag.
+      </p>
+      <pre><code class="language-html">&lt;article class="indent-pars"&gt;
+  ...
+&lt;/article&gt;</code></pre>
+      <p>
+        The CSS style provided follows <code>babel</code> specific language rules: by default,
+        the first paragraph after a section title is not indented in English, unlike Spanish and
+        French languages.
+      </p>
+      <p>
+        To avoid first line indentation of some specific paragraph, the class <code>no-indent</code>
+        can be used.</p>
+      <pre><code class="language-html">&lt;p class="no-indent"&gt;...&lt;/p&gt;</code></pre>
+
+      <h2 id="language-support">Language Support</h2>
+      <p>
+        The labels of theorems, definitions, lemmas and proofs can be changed
+        to other
+        <a href="https://github.com/vincentdoerig/latex-css/tree/master/lang">supported language</a>
+        by including the following snippet, linking to the desired language in
+        addition to the main CSS file.
+      </p>
+      <pre><code class="language-html">&lt;link rel="stylesheet" href="https://latex.now.sh/lang/es.css" /&gt;
+  ...
+&lt;html lang="es"&gt;</code></pre>
+      <p>
+        Take a peek at the <a href="/languages">language support demo</a> to
+        see how the labels of the different languages change.
+      </p>
+
+      <h2 id="sidenotes">Sidenotes</h2>
+      <p>
+        Sidenotes can be used as an alternative to footnotes, where the user does
+        not have to jump to the bottom of the page to read it.
+        <label for="sn-1" class="sidenote-toggle sidenote-number"></label>
+        <input type="checkbox" id="sn-1" class="sidenote-toggle" />
+        <span class="sidenote">
+          Yay, sidenotes!. The sidenote is assigned to the right margin of the
+          text (they will be finally displayed or not, depending on the sidenotes
+          CSS style used).
+        </span>.
+      </p>
+
+      <p>
+        Sidenotes do need a little bit of setup, they are made up of a label, an
+        invisible checkbox on top of the number and a span with the text inside. The
+        superscript is set automatically and incremented using CSS when the
+        checkbox has a class of <code>sidenote-number</code>.
+      </p>
+      <pre><code class="language-html">&lt;label for="sn-1" class="sidenote-toggle sidenote-number"&gt;&lt;/label&gt;
+&lt;input type="checkbox" id="sn-1" class="sidenote-toggle" /&gt;
+&lt;span class="sidenote"&gt;&lt;!-- sidenote content --&gt;&lt;/span&gt;</code></pre>
+      <p>
+        If you do not need superscripted numbers, you can opt out of the
+        <code>sidenote-number</code> class and the sidenote will not have a number
+        assigned.<label for="sn-plus" class="sidenote-toggle">⊕</label>
+        <input type="checkbox" id="sn-plus" class="sidenote-toggle" />
+        <span class="sidenote">This is a sidenote without a number.</span>
+      </p>
+      <!-- NOTE: Sidenotes with some symbol inside label tag, for mobile
+           displaying, don't need any processing for paged layout, because
+           Paged.js removes the CSS rules inside `@media (max-width: ... )`.
+           Symbols inside labels have been kept for testing purposes. -->
+      <p>The snippet for a sidenote without a number is very similar:</p>
+      <pre><code class="language-html">&lt;label for="sn-anything" class="sidenote-toggle"&gt;&lt;/label&gt;
+&lt;input type="checkbox" id="sn-anything" class="sidenote-toggle" /&gt;
+&lt;span class="sidenote"&gt;&lt;!-- sidenote content --&gt;&lt;/span&gt;</code></pre>
+      <p>
+        Add a class of <code>left</code> to the span with the <code>sidenote</code>
+        class to make the note be assigned on the left side of the page instead
+        of the right.<label for="sn-symbol" class="sidenote-toggle">📝</label>
+        <input type="checkbox" id="sn-symbol" class="sidenote-toggle" />
+        <span class="sidenote left">A sidenote on the left margin (but it will be
+          transformed into a footnote, because of the configuration used).</span>
+      </p>
+
+      <h2 id="alternative-typeface">Alternative Typeface</h2>
+      <p><span class="latex">L<span>a</span>T<span>e</span>X</span>.css uses Latin Modern by default. If you don't like this typeface (hard to read, too thin, etc.), you can switch to the <a href="https://github.com/alerque/libertinus"><code>Libertinus</code></a> font family by adding a class of <code>libertinus</code> to the <code class="language-html">&lt;body&gt;</code> tag.
+
+      <h2 id="html-elements">HTML Elements</h2>
+      <p>
+        For a preview of all HTML elements with LaTeX.css, check out the
+        <a href="/elements">HTML5 elements test page</a>.
+      </p>
+
+      <h3 id="text-formatting">Text Formatting</h3>
+      <p>
+        This sentence is <b>bold</b>. If you like semantics, you might go with
+        <strong>strong</strong> or <em>emphasized</em> text. If not,
+        <i>italic</i> is still around. <small>Small</small> text is for fine
+        print. Your copy can also be <sub>subscripted</sub> and
+        <sup>superscripted</sup>, <ins>inserted</ins>, <del>deleted</del>, or
+        <mark>highlighted</mark>. You would use a
+        <a href="#!">hyperlink</a> to go to a new page. Keyboard input
+        elements like <kbd>Cmd</kbd> + <kbd>Shift</kbd>
+        are used to display textual user input.
+      </p>
+
+      <h3 id="blockquotes">Blockquotes</h3>
+      <blockquote>
+        Give me six hours to chop down a tree and I will spend the first four
+        sharpening the axe.
+        <cite>— Abraham Lincoln</cite>
+      </blockquote>
+
+      <h3 id="definition-lists">Definition Lists</h3>
+      <dl>
+        <dt>Definition Title One</dt>
+        <dd>First definition description</dd>
+        <dt>Binomial theorem</dt>
+        <dd>
+          $$(x+y)^{n}=\sum_{k=0}^{n}\left(\begin{array}{l}n \\
+          k\end{array}\right) x^{n-k}
+          y^{k}=\sum_{k=0}^{n}\left(\begin{array}{l}n \\ k\end{array}\right)
+          x^{k} y^{n-k}$$
+        </dd>
+      </dl>
+
+      <h3 id="tables">Tables</h3>
+      <table>
+        <caption>A sample table with a descriptive caption.</caption>
+        <thead>
+          <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+            <th>Header 3</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Footer 1</th>
+            <th>Footer 2</th>
+            <th>Footer 3</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          <tr>
+            <td>Description 1</td>
+            <td>Description 2</td>
+            <td>Description 3</td>
+          </tr>
+          <tr>
+            <td>Description 1</td>
+            <td>Description 2</td>
+            <td>Description 3</td>
+          </tr>
+          <tr>
+            <td>Description 1</td>
+            <td>Description 2</td>
+            <td>Description 3</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table>
+        <caption>
+          Example table taken from <a href="https://texdoc.net/texmf-dist/doc/latex/booktabs/booktabs.pdf">this
+            paper</a> on how to produce quality tables with LaTeX.
+        </caption>
+        <thead>
+          <tr>
+            <th colspan="2" scope="col">Item</th>
+          </tr>
+          <tr>
+            <th>Animal</th>
+            <th>Description</th>
+            <th>Price ($)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gnat</td>
+            <td>per gram</td>
+            <td>13.65</td>
+          </tr>
+          <tr>
+            <td>Gnu</td>
+            <td>stuffed</td>
+            <td>92.50</td>
+          </tr>
+          <tr>
+            <td>Emu</td>
+            <td>stuffed</td>
+            <td>33.33</td>
+          </tr>
+          <tr>
+            <td>Armadillo</td>
+            <td>frozen</td>
+            <td>8.99</td>
+          </tr>
+        </tbody>
+      </table>
+
+        <table>
+          <caption>Color names and values.</caption>
+          <tbody>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">HEX</th>
+              <th scope="col">HSL</th>
+              <th scope="col">RGB</th>
+            </tr>
+            <tr>
+              <th scope="row" style="color: teal;">Teal</th>
+              <td><code>#008080</code></td>
+              <td><code>hsl(180, 100%, 25%)</code></td>
+              <td><code>rgb(0, 128, 128)</code></td>
+            </tr>
+            <tr>
+              <th scope="row" style="color: goldenrod;">Goldenrod</th>
+              <td><code>#daa520</code></td>
+              <td><code>hsl(43, 74%, 49%)</code></td>
+              <td><code>rgb(218, 165, 32)</code></td>
+            </tr>
+            <tr>
+              <th scope="row" style="color: cornflowerblue;">Cornflowerblue</th>
+              <td><code>#6495ed</code></td>
+              <td><code>hsl(219, 79%, 66%)</code></td>
+              <td><code>rgb(100, 149, 237)</code></td>
+            </tr>
+            <tr>
+              <th scope="row" style="color: lightcoral;">Lightcoral</th>
+              <td><code>#f08080</code></td>
+              <td><code>hsl(0, 79%, 72%)</code></td>
+              <td><code>rgb(240, 128, 128)</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+      <h3 id="images">Images</h3>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&w=1000&q=80"
+          loading="lazy" alt="Mountain landscape" width="600" height="400" />
+        <figcaption>
+          Mountain landscape by
+          <a href="https://unsplash.com/@heytowner">John Towner</a>.
+        </figcaption>
+      </figure>
+
+      <h2 id="miscellaneous">Miscellaneous</h2>
+
+      <h3 id="syntax-highlighting">Syntax Highlighting</h3>
+      <p>If you need syntax highlighting for code, LaTeX.css provides a <a href="https://prismjs.com/">PrismJS</a> theme
+        that immitates the <a href="https://github.com/gpoore/minted">minted</a> package for LaTeX. Add the following
+        stylesheet and script:</p>
+      <pre><code class="language-html">&lt;link rel="stylesheet" href="https://latex.now.sh/prism/prism.css"&gt;
+
+&lt;script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"&gt;&lt;/script&gt;</code></pre>
+      <p>And use it like this:</p>
+      <pre><code class="language-html">&lt;pre&gt;
+  &lt;code class="language-html"&gt;
+    &lt;!-- your HTML code snippet --&gt;
+  &lt;/code&gt;
+&lt;/pre&gt;</code></pre>
+      <p>Change which languages Prism highlights by customising the script <a href="https://prismjs.com/download.html">here</a>.</p>
+
+      <h2 id="paged-layout">Paged Layout</h2>
+      <h3 id="pagedjs-loading">Paged.js Loading</h3>
+      <p>
+        If you want to paginate the document with Paged.js, you only need to add
+        some links to <code>latexcss-paged.js</code> and <code>paged.polyfill.js</code>
+        scripts, add a link to the CSS paginated style file, <code>style-paged.css</code>
+        (together with <code>style.css</code>), and load the HTML file in a web
+        server.
+      </p>
+      <p>
+        In order to work properly, Paged.js must be the last one of the scripts
+        that processes the document content. <code>latexcss-paged.js</code> provides
+        a custom configuration to easily load Paged.js together with MathJax and
+        Prism.js if they are found. Specifically, you must be careful that
+        <code>latexcss-paged.js</code> is executed before Paged.js starts, so
+        the later can use the provided configuration. For this reason
+        <code>async</code> attribute should not be used with script links. Also,
+        <code>style-paged.css</code> should be added after <code>style.css</code>
+        and <code>prism.css</code> files. You can follow a scheme like this:
+      </p>
+      <pre><code class="language-html">&lt;head&gt;
+  [...]
+  &lt;link rel="stylesheet" href="https://latex.now.sh/style.css" /&gt;
+  &lt;!--add optionally prism.css if you are going to use it--&gt;
+  &lt;!-- &lt;link rel="stylesheet" href="https://latex.now.sh/prism/prism.css" /&gt; --&gt;
+  &lt;link rel="stylesheet" href="https://latex.now.sh/style-paged.css" /&gt;
+&lt;/head&gt;
+[...]
+&lt;!--add optionally MathJax or Prism.js if you need them--&gt;
+&lt;!--
+&lt;script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"&gt;&lt;/script&gt;
+--&gt;
+&lt;script src="https://latex.now.sh/latexcss-paged.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"&gt;&lt;/script&gt;</code></pre>
+      <p>
+        If you need to configure a more complex <code>PagedConfig</code> settings
+        (for example, to load some other javascript libraries), <code>LatexCss</code>
+        provides a startup promise, <code>LatexCss.startupPromise</code>, so you
+        still can use it as follows:
+      </p>
+      <pre><code class="language-html">&lt;script scr="url/to/someScript.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+[...]
+  window.PagedConfig = {
+    before: function () {
+      return Promise.all([someScriptStartupPromise, window.LatexCss.startupPromise()]);
+    },
+  };
+&lt;/script&gt;
+&lt;script src="https://latex.now.sh/latexcss-paged.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"&gt;&lt;/script&gt;</code></pre>
+      <p>However, you must be very careful with the scripts you load and the &ldquo;lazy
+        loading&rdquo; HTML elements you use, or you can easily break the document
+        display.
+      </p>
+      <p>
+        <strong>Fallback loading method.</strong> If you still have problems loading
+        other scripts, you can disable automatic Paged.js previewer and call
+        <code>window.PagedPolyfill.preview()</code> after setting a sufficient
+        delay time:
+      </p>
+      <pre><code class="language-html">&lt;script&gt;
+  window.PagedConfig = {
+    auto: false,
+  };
+  setTimeout(() => {
+    window.PagedPolyfill.preview();
+  }, 1500);
+&lt;/script&gt;
+&lt;!-- Add optionally latexcss-paged.js (if you want some of the features it provides) --&gt;
+&lt;!-- &lt;script src="https://latex.now.sh/latexcss-paged.js"&gt;&lt;/script&gt; --&gt;
+&lt;script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"&gt;&lt;/script&gt;</code></pre>
+      <p>
+        Finally, if you want to print the document: click &ldquo;Print...&rdquo;
+        entry in your browser main menu and then select &ldquo;Save as PDF&rdquo;,
+        making sure &ldquo;Margins&rdquo; and &ldquo;Headers and Footers&rdquo;
+        options are set to &ldquo;none&rdquo;.
+      </p>
+      <h3 id="page-margins">Page Size and Margins</h3>
+      <p>
+        By default, an A4 page size is used for paged layout and side notes are
+        not displayed. Because web browser's incomplete CSS Paged Media
+        implementation, some CSS must be wrote if you want change the size of
+        the page or the width of margins. For example, you can use the following
+        CSS code (after <code>style-paged.css</code> link)
+      </p>
+      <pre><code class="language-html">[...]
+&lt;link rel="stylesheet" href="https://latex.now.sh/style-paged.css" /&gt;
+&lt;style&gt;
+  @page {
+    size: letter portrait;
+    margin-top: 100pt;
+    margin-left: 100pt;
+    margin-bottom: 100pt;
+    margin-left: 100pt;
+  }
+&lt;/style&gt;</code></pre>
+      <p>
+        if you want to change the document size to <strong>US letter</strong>
+        and increase the width of the margins.
+      </p>
+      <h3 id="utility-classes">Utility Classes</h3>
+      <h4>Page Numbers in ToC</h4>
+      <p>
+        The class <code>toc-page-numbers</code> can be used with <code>body</code>
+        tag to display the page numbers corresponding to the different entries of
+        the table of contents.
+      </p>
+      <h4>Sidenotes</h4>
+      <p>
+        Side notes are not displayed by default. To show the side notes, only on
+        one of the margins, the following classes can be used with
+        <code>body</code> element:
+      </p>
+      <ul>
+        <li>
+          <code>sidenotes-outer</code>. Show the side notes on the outer margin,
+          hide those on the inner margin (because only single-sided documents
+          are supported at this moment, <emph>inner margin</emph> is the left
+          margin and <emph>outer margin</emph> is the right one);
+        </li>
+        <li>
+          <code>sidenotes-inner</code>. Show the side notes on the inner margin
+          and hide the side notes on the outer margin.
+        </li>
+      </ul>
+      <p>
+        By default, side notes automatically adjust to the size of the margin.
+        However, the width of the side notes can be set manually using the CSS
+        variable <code>--sidenote-width</code>, in the same way as for margin
+        width:
+      </p>
+      <pre><code class="language-html">[...]
+&lt;style&gt;
+  :root {
+    --sidenote-width: 80pt;
+  }
+
+  @page {
+    margin-top: 100pt;
+    margin-right: 80pt;
+    margin-bottom: 100pt;
+    margin-left: 160pt;
+  }
+&lt;/style&gt;</code></pre>
+      <h4>Text Properties</h4>
+      <p>
+        Three classes to adjust the font size of the document are provided:
+        <code>font-size-10</code>, <code>font-size-11</code> and
+        <code>font-size-12</code>, for <code>10pt</code>, <code>11pt</code> and
+        <code>12pt</code> font size respectively.
+      </p>
+      <p>
+        There are also three classes available to change the line spacing:
+        <code>line-height-single</code>, <code>line-height-onehalf</code>
+        and <code>line-height-double</code>, if you want single, one and half
+        or double line spacing respectively.
+      </p>
+      <h4>Page Break Control</h4>
+      <p>
+        Two CSS classes are provided to <em>suggest</em> Paged.js make a page
+        break: <code>break-before-page</code>, <code>break-after-page</code>.
+        You should keep in mind that Paged.js follows its own rules and sometimes
+        refuses to obey.
+      </p>
+      <p>
+        There are also other three CSS classes to try to prevent page breaks:
+        <code>break-before-avoid</code>, <code>break-inside-avoid</code>,
+        <code>break-after-avoid</code>.
+      </p>
+      <p>
+        If you use many CSS page breaks/avoids in a row, Paged.js usually fails
+        to comply with instructions.
+      </p>
+
+      <h3 id="pagedjs-tweaking">Paged.js Tweaking</h3>
+      <p>
+        There are two different points to discuss: how the document is displayed
+        in the screen and how the document is printed, corresponding to
+        <code class="language-css">@media screen { ... }</code> and
+        <code class="language-css">@media print { ... }</code> respectively.
+      </p>
+      <p>
+        Starting from version 0.4.1 Paged.js removes any CSS rule inside
+        <code class="language-css">@media screen { ... }</code>, both for screen
+        display and print; you must add <code>pagedjs-ignore</code> so Paged.js skips
+        this media block, passing it to the screen display:
+      </p>
+      <pre><code class="language-css">@media screen, pagedjs-ignore {
+  /* CSS rules that will affect only the display on the screen */
+}</code></pre>
+      <p>
+        Paged.js includes a <code>style</code> element in the header of the html
+        file whith its default CSS styles (see
+        <a href="https://gitlab.coko.foundation/pagedjs/pagedjs/-/blob/main/src/polisher/base.js?ref_type=heads">here</a>).
+        Also, reads and processes all your CSS styles and files and inserts them
+        in the same way.
+      <p>
+
+      <h4>Paged.js design</h4>
+      <p>Paged content design is organized following this scheme:</p>
+      <pre><code>div.pagedjs_pages &gt; div.pagedjs_page &gt; div.pagedjs_sheet &gt; div.pagedjs_pagebox</code></pre>
+      <p>
+        <code>div.pagedjs_sheet</code> is arranged as a grid including sheet bleeds;
+        <code>div.pagedjs_pagebox</code> is arranged as a grid, containing page
+        margins. And <code>div.pagedjs_pagebox</code> is page box from
+        <a href="https://www.w3.org/TR/css-page-3/#page-model">CSS page model</a>
+      </p>
+      <p>
+        The design of <code>pagedjs_pagebox</code> consist of four corner margins,
+        and four group of margins distributed on a grid with three columns and rows.
+      </p>
+      <figure>
+        <img src="https://www.w3.org/TR/css-page-3/images/RightMarginBoxes.png"
+             alt="CSS Page Model" width="200pt" height="150pt"/>
+        <figcaption>
+          Grid design for <code>div.pagedjs_pagebox</code><br /> (from
+          <a href="https://www.w3.org/TR/css-page-3/#margin-boxes">W3C CSS Paged
+            Media Module </a> docs)
+        </figcaption>
+      </figure>
+      <p>
+        You can learn more about Paged.js page layout
+        <a href="https://pagedjs.org/documentation/7-generated-content-in-margin-boxes/">here</a>
+      </p>
+
+      <h4>Some Paged.js Variables</h4>
+      <p>
+        You can assign values for some of the following variables, but they also
+        can be automatically populated by Paged.js. For example if you use a CSS
+        style like
+      </p>
+      <pre><code class="language-css">@media print {
+  @page {
+    size: A4 portrait;
+  ...
+  }
+...
+}</code></pre>
+      <p>the values for <code>--pagedjs-width</code> and <code>--pagedjs-height</code>
+        (among others) will be populated with the right A4 size paper dimensions.
+        Here is a list of some of Paged.js variables, their names are autodescriptive:
+      </p>
+      <ul>
+        <li><code>--pagedjs-width</code>, <code>--pagedjs-height</code>.</li>
+        <li>
+          <code>--pagedjs-margin-top</code>, <code>--pagedjs-margin-right</code>,
+          <code>--pagedjs-margin-bottom</code>, <code>--pagedjs-margin-left</code>.
+        </li>
+        <li>
+          <code>--pagedjs-width-right</code>, <code>--pagedjs-height-right</code>,
+          <code>--pagedjs-width-left</code>, <code>--pagedjs-height-left</code>.
+        </li>
+        <li>
+          <code>--pagedjs-pagebox-width</code>, <code>--pagedjs-pagebox-height</code>.
+        </li>
+        <li><code>--pagedjs-page-count</code>.</li>
+        <li><code>--pagedjs-page-counter-increment</code>.</li>
+        <li><code>--pagedjs-footnotes-height</code>.</li>
+        <li><code>--pagedjs-footnotes-count</code>.</li>
+      </ul>
+      <p>
+        You must also be careful where the variables are populated/updated, in order
+        to get the right values<sup><a href="#fn3">&#x2020;</a></sup>.
+      </p>
+
+      <div class="footnotes">
+        <p id="fn1">
+          1. From
+          <a
+            href="https://www.math.brown.edu/~res/MFS/handout8.pdf">https://www.math.brown.edu/~res/MFS/handout8.pdf</a>.
+          <a href="#ref1" title="Jump back to footnote 1 in the text.">^</a>
+        </p>
+        <p id="fn2">
+          2. “Definition.” Merriam-Webster.com Dictionary, Merriam-Webster,
+          <a
+            href="https://www.merriam-webster.com/dictionary/definition">https://www.merriam-webster.com/dictionary/definition</a>.
+          Accessed 18 May. 2020.
+          <a href="#ref2" title="Jump back to footnote 2 in the text.">^</a>
+        </p>
+        <p id="fn3">
+          <span id="span1"><strong>(&#x2020;)</strong></span>
+          <span id="span2">
+            This is another footnote, with a more complex structure, using the
+            dagger symbol (&#x2020;) as footnote mark (you can't see the dagger
+            in the footnote mark because all the footnotes are automatically
+            numbered after being processed by Paged.js).
+          </span>
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'],],
+      },
+      options: {
+        menuOptions: {
+          settings: {
+            // Consistent rendering: switch off assistive MathML because it doesn't
+            // use MathJax fonts.
+            assistiveMml: false,
+          }
+        }
+      }
+    }
+  </script>
+  <script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script defer src="prism/prism.js"></script>
+  <script src="src/index.js" type="module"></script>
+  <script defer src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+
+  <script async defer data-domain="latex.now.sh" src="https://plausible.io/js/plausible.js"></script>
+</body>
+
+</html>

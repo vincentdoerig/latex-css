@@ -1,0 +1,513 @@
+/*!
+ * LaTeX.css Paged Layout using Paged.js
+ *
+ * Source: https://github.com/vincentdoerig/latex-css
+ * Licensed under MIT (https://github.com/vincentdoerig/latex-css/blob/master/LICENSE)
+ */
+
+:root {
+  --body-background-color: hsl(0, 0%, 91%);
+  --page-shadow-color: hsl(0, 0%, 81%);
+  --body-color: black;
+  --body-bg-color: white;
+  --banner-background-color: hsla(0, 100%, 5.88%, 0.4);
+  --banner-color: hsl(50.14, 94.81%, 84.9%);
+  --banner-border-color: hsl(38.62, 95.6%, 82.16%);
+}
+
+/**
+ * Overwrite always `latex-dark` colors with the light ones.
+ * There is no need to overwrite `prefers-color-scheme: dark` media query,
+ * because Paged.js removes it from CSS applied styles.
+ */
+.latex-dark {
+  /* LaTeX.css colors (`style.css`) */
+  --body-color: black;
+  --body-bg-color: white;
+  --link-visited: hsl(0, 100%, 33%);
+  --link-focus-outline: hsl(220, 90%, 52%);
+  --pre-bg-color: hsl(210, 28%, 93%);
+  --kbd-bg-color: hsl(210, 5%, 100%);
+  --kbd-border-color: hsl(210, 5%, 70%);
+  --table-border-color: black;
+  --sidenote-target-border-color: hsl(55, 55%, 70%);
+  --footnotes-border-color: hsl(0, 0%, 39%);
+  --proof-symbol-filter: none;
+  /* Prism.js colors (`prism/prism.css`) */
+  --bg-color: #F0F0F0;
+  --color: black;
+  --token-teal: #407f80;
+  --token-black: #000000;
+  --token-grey: #666666;
+  --token-green: #007f00;
+  --token-lime: #7d8f29;
+  --token-brown: #9a6e3a;
+  --token-red: #ba2121;
+  --token-fuchsia: #dd4a68;
+  --token-orange: #e90;
+  --token-pink: #BA6687;
+}
+
+/* Styles for document printing (also screen display) */
+@media print {
+  /**
+   * NOTE: It seems variables don't work inside `@page` because browser's
+   * implementation of custom properties is still incomplete.
+   * Ref: https://stackoverflow.com/a/44738574
+   */
+  @page {
+    /* Default LaTeX.css (A4) page margins */
+    size: A4 portrait;
+    background-color: var(--body-bg-color);
+    color: var(--body-color);
+    margin-top: 85pt;
+    margin-right: 85pt;
+    margin-bottom: 85pt;
+    margin-left: 85pt;
+    @bottom-center{
+      content: counter(page);
+      /* Adjust div.pagedjs_margin-bottom-center for page numbers */
+      flex-direction: column;
+      padding-top: 20pt; /* Separation from the main text */
+    }
+    @footnote {
+      /* Yes, you can use CSS variables inside @footnotes */
+      border-top: solid var(--footnotes-border-color) 1px;
+      margin-top: 1em;
+      font-size: 85%;
+      /**
+       * This adjustment is necessary because Paged.js falls a little short with
+       * `--pagedjs-footnotes-height`.
+       */
+      padding-bottom: 2pt;
+    }
+  }
+
+  html {
+    /**
+     * Consistent rendering: Use 11pt font-size, to override user agent default
+     * font size. It's important to use an absolute unit base font, so the document
+     * is going to be rendered across different environments (OS, desktops with
+     * different settings, ...) just as the developer designed it.
+     */
+    font-size: 11pt;
+  }
+
+  body {
+    /* One and half line spacing */
+    line-height: 1.5;
+    /* Reset LaTeX.css style properties */
+    max-width: none;
+    min-height: 0px;
+    padding: 0px;
+  }
+
+  /**
+   * By default, sidenote width automatically adapts to margin width (using
+   * Paged.js variables `--pagedjs-margin-left` and `--pagedjs-margin-right`).
+   * The width of left and right margins must be greater than 30pt:
+   * 10pt separation from the document text and 20pt inner-outer blank margin.
+   */
+  .sidenote {
+    display: none;
+  }
+  body.sidenotes-outer .sidenote {
+    --sidenote-width-default: calc(var(--pagedjs-margin-right) - 30pt);
+    --sidenote-margin-default: calc(20pt - var(--pagedjs-margin-right));
+    --sidenote-width-custom: min(var(--sidenote-width), var(--sidenote-width-default));
+    --sidenote-margin: calc(0pt - var(--sidenote-width-custom) - 10pt);
+    display: block;
+    width: var(--sidenote-width-custom, var(--sidenote-width-default));
+    margin-right: var(--sidenote-margin, var(--sidenote-margin-default));
+  }
+  body.sidenotes-outer .sidenote.left {
+    display: none;
+  }
+  body.sidenotes-inner .sidenote.left {
+    --sidenote-width-default: calc(var(--pagedjs-margin-left) - 30pt);
+    --sidenote-margin-default: calc(20pt - var(--pagedjs-margin-left));
+    --sidenote-width-custom: min(var(--sidenote-width), var(--sidenote-width-default));
+    --sidenote-margin: calc(0pt - var(--sidenote-width-custom) - 10pt);
+    display: block;
+    width: var(--sidenote-width-custom, var(--sidenote-width-default));
+    margin-left: var(--sidenote-margin, var(--sidenote-margin-default));
+  }
+
+  /* Paged footnotes style */
+  span.footnote {
+    float: footnote;
+    margin-top: 1rem;
+  }
+  .footnote::footnote-call {
+    vertical-align: super;
+    font-size: smaller;
+    color: var(--link-visited);
+    cursor: pointer;
+  }
+
+  /**
+   * It seems Paged.js still doesn't support `counters()` or there is some bug
+   * when the ToC is split during pagination.
+   * Here `counters()` is replaced with with a complex `counter()` construction,
+   * with 3 levels of sectioning, like in LaTeX documents (excluding paragraphs):
+   * `sec-level-1`, `sec-level-2`, `sec-level-3`.
+   */
+
+  /* ToC Level-1 */
+  nav > ol {
+    counter-reset: sec-level-1;
+    /* No padding for ToC first-level sections in LaTeX default articles */
+    padding-left: 0;
+  }
+  nav > ol > li {
+    /* ToC first-level sections are in boldface type in LaTeX default articles */
+    counter-increment: sec-level-1;
+  }
+  nav > ol > li::before {
+    content: counter(sec-level-1);
+    font-weight: bold;
+  }
+  nav > ol > li > a {
+    font-weight: bold;
+  }
+  /* ToC Level-2 */
+  nav > ol > li > ol {
+    counter-reset: sec-level-2;
+  }
+  nav > ol > li > ol > li {
+    counter-increment: sec-level-2;
+  }
+  nav > ol > li > ol > li::before {
+    content: counter(sec-level-1) '.' counter(sec-level-2);
+  }
+  /* ToC Level-3 */
+  nav > ol > li > ol > li > ol {
+    counter-reset: sec-level-3;
+  }
+  nav > ol > li > ol > li > ol > li {
+    counter-increment: sec-level-3;
+  }
+  nav > ol > li > ol > li > ol > li::before {
+    content: counter(sec-level-1) '.' counter(sec-level-2) '.' counter(sec-level-3);
+  }
+
+  /**
+   * Add page numbers to the ToC.
+   * `latexcss-paged.js` must be loaded if `toc-page-numbers` class is used.
+   */
+  .toc-page-numbers nav > ol li::before {
+    float: left;
+  }
+  .toc-page-numbers nav li > a {
+    display: flex;
+    text-decoration-line: none;
+  }
+  /* Page numbers */
+  .toc-page-numbers nav li > a::after {
+    content: target-counter(attr(href), page);
+    flex: 0 0 5%;
+    align-self: flex-end;
+    text-align: right;
+    text-decoration-line: underline;
+    padding-left: 0.85rem;
+    background-color: var(--body-bg-color);
+  }
+  /* Add an extra gap between the ToC entry text and the page number container. */
+  .toc-page-numbers nav div.toc-item-container {
+    flex: 0 1 95%;
+    padding-right: 1rem;
+  }
+  .toc-page-numbers nav > ol > li > ol span.dotted-line {
+    background-color: var(--body-bg-color);
+  }
+  .toc-page-numbers nav > ol > li > ol span.dotted-line::after {
+    content: ".............................................................................................................................";
+    float: left;
+    width: 0;
+    letter-spacing: 5pt;
+    color: var(--body-color);
+  }
+  /* Hide the fragment of dotted line outside the navigation container */
+  .toc-page-numbers nav > ol > li > ol li {
+    overflow: hidden;
+  }
+  .toc-page-numbers nav span.toc-item-content {
+    background-color: var(--body-bg-color);
+    text-decoration-line: underline;
+  }
+  /**
+   * Make an "inline gap" before dotted line. It has been used this solution
+   * instead of [a more natural] `padding-right` to `.toc-item-content`
+   * because of rendering differences between browsers. Also, tries to avoid
+   * line breaks just before the dotted line.
+   */
+  .toc-page-numbers nav > ol > li > ol span.dotted-line::before {
+    content: "\00A0"; /* non-breaking space */
+    margin-left: 0.2em;
+  }
+
+  /**
+   * Overwrite Prism.css styles to allow text wrapping inside `pre`, `code`
+   * elements, and avoid scroll bars
+   */
+  code,
+  pre,
+  code[class*='language-'],
+  pre[class*='language-'] {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    overflow: visible; /* just in case the text wrapping fails */
+  }
+  :not(pre) > code[class*='language-'] {
+    white-space: pre-wrap;
+  }
+
+  /* Consistent rendering: use Latin Modern and Libertinus fonts for code snippets */
+  body.libertinus code,
+  body.libertinus pre,
+  body.libertinus kbd {
+    font-family: LibertinusMono, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+    font-size: 90%;
+  }
+  code,
+  pre,
+  kbd {
+    font-family: 'Latin Modern Mono', Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+    font-size: 95%;
+  }
+
+  /* Allow text wrapping for long url's in the link text */
+  a {
+    overflow-wrap: break-word;
+  }
+  .toc a {
+    overflow-wrap: normal;
+  }
+
+  .proof::before {
+    /**
+     * Consistent rendering: temprorarily replace U+2003 (EM SPACE) with two U+00A0
+     * (NO-BREAK SPACE) because the former is not supported by the fonts provided.
+     */
+    content: 'Proof.\00A0\00A0' attr(title);
+  }
+  /* Adjust end-of-proof symbol for paged layout */
+  .proof::after {
+    /**
+     * This particular implementation has been chosen for three reasons:
+     * 1. The sidenotes separation space has been decreased for the paged layout,
+     * so end-of-proof symbol may overlap sidenotes.
+     * 2. With this method, demonstration end sign behaviour is more similar to
+     * `proof` environment style from `amsthm` package.
+     * 3. Firefox has problems (like in ToC, but not exactly the same) with
+     * paddings/margins for floating block elements inside paragraphs
+     * (specifically, here the print layout is different from the screen layout
+     * when using paddings/margins).
+     *
+     * Consistent rendering: the unicode symbol U+25FE (BLACK MEDIUM SMALL SQUARE)
+     * is not a supported character by any of the fonts provided. It's replaced
+     * temporarily with "‖" (U+2016, DOUBLE VERTICAL LINE) or 'q.e.d'.
+     */
+    content: '\00A0q.e.d.'; /* quod erat demonstrandum */
+    /* content: '\00A0‖'; (U+2016) */
+    position: static;
+    display: block;
+    float: right;
+    padding-top: 1pt;
+  }
+  .proof {
+    /* Avoid the e-o-p sign vertical overflow because the `float` property */
+    overflow: hidden;
+  }
+
+  /**
+   * Avoid hyphenation: it seems Paged.js has some problems with hyphenation
+   * while paginating the document.
+   * Ref: https://gitlab.coko.foundation/pagedjs/pagedjs/-/issues/266
+   */
+  body,
+  p {
+    hyphens: none;
+  }
+
+  /* Document font size */
+  /**
+   * These are the corresponding values in absolute units, if you set
+   * `<html style="font-size: 10pt">`
+   */
+  .font-size-10 {
+    font-size: 10pt;
+  }
+  .font-size-10 h1 {
+    font-size: 25pt;
+    line-height: 33pt;
+  }
+  .font-size-10 h2 {
+    font-size: 17pt;
+    line-height: 30pt;
+  }
+  .font-size-10 h3 {
+    font-size: 14pt;
+  }
+  .font-size-10 h4 {
+    font-size: 12pt;
+  }
+  .font-size-10 h5,
+  .font-size-10 h6 {
+    font-size: 10pt;
+  }
+  .font-size-10 .sidenote {
+    font-size: 8pt;
+  }
+  .font-size-10 .sidenote-number::after {
+    font-size: 7pt;
+  }
+  .font-size-10 .sidenote-number ~ .sidenote::before {
+    font-size: 7pt;
+  }
+  .font-size-10 .abstract > h2 {
+    font-size: 10pt;
+  }
+
+  .font-size-11 {
+    font-size: 11pt;
+  }
+
+  /**
+   * These are the corresponding values in absolute units, if you set
+   * `<html style="font-size: 12pt">`
+   */
+  .font-size-12 {
+    font-size: 12pt;
+  }
+  .font-size-12 h1 {
+    font-size: 30pt;
+    line-height: 39pt;
+  }
+  .font-size-12 h2 {
+    font-size: 20pt;
+    line-height: 24pt;
+  }
+  .font-size-12 h3 {
+    font-size: 17pt;
+  }
+  .font-size-12 h4 {
+    font-size: 14pt;
+  }
+  .font-size-12 h5,
+  .font-size-12 h6 {
+    font-size: 12pt;
+  }
+  .font-size-12 .sidenote {
+    font-size: 10pt;
+  }
+  .font-size-12 .sidenote-number::after {
+    font-size: 8pt;
+  }
+  .font-size-12 .sidenote-number ~ .sidenote::before {
+    font-size: 8pt;
+  }
+  .font-size-12 .abstract > h2 {
+    font-size: 12pt;
+  }
+
+  /* Document line spacing */
+  .line-height-single {
+    line-height: normal;
+  }
+  .line-height-onehalf {
+    line-height: 1.5;
+  }
+  .line-height-double {
+    line-height: 2;
+  }
+
+  /* Page break control (hopefully) */
+  /* Manually avoid breaks */
+  .break-before-avoid {
+    break-before: avoid;
+  }
+  .break-inside-avoid {
+    break-inside: avoid;
+  }
+  .break-after-avoid {
+    break-after: avoid;
+  }
+  /* Manually force page breaks */
+  .break-before-page {
+    break-before: page;
+  }
+  .break-after-page {
+    break-after: page;
+  }
+}
+
+/* Styles for screen document display */
+@media screen, pagedjs-ignore {
+  body {
+    background-color: var(--body-background-color);
+  }
+
+  .pagedjs_page {
+    box-shadow: 0 0 3px 1px var(--page-shadow-color);
+    margin-top: 35px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pagedjs_page:last-of-type {
+    margin-bottom: 35px;
+  }
+
+  /* Banner styles */
+  /**
+   * Note: The reason to use `class` but not `id` is because Paged.js will transform
+   * `#paged-banner` into `[data-id="paged-banner"]` but the HTML code used for
+   * the banner is included when Paged.js has finished the document processing.
+   */
+  div.paged-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: var(--banner-background-color);
+  }
+  div.paged-banner > div.paged-banner-content {
+    display: flex;
+    align-items: center;
+    background-color: var(--banner-color);
+    padding: 2rem 2vw 2rem 2vw;
+    margin: 3rem 3vw 0 3vw;
+    border: 1px solid var(--banner-border-color);
+    border-radius: 2px;
+  }
+  div.paged-banner > div.paged-banner-content > div.paged-banner-text {
+    flex: 100%;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  div.paged-banner > div.paged-banner-content button.paged-banner-close {
+    font-size: 2rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+    opacity: 0.5;
+  }
+  div.paged-banner > div.paged-banner-content button.paged-banner-close:after {
+    content: '\00D7'; /* times */
+    font-weight: bold;
+    position: relative;
+    bottom: 5px;
+  }
+  div.paged-banner > div.paged-banner-content button.paged-banner-close:hover {
+    opacity: 1;
+  }
+  /* Do not allow scrolling when the banner is displayed */
+  body.banner-displayed {
+    overflow: hidden;
+  }
+}
