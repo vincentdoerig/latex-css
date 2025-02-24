@@ -125,10 +125,10 @@
   --h6-font-size: 1rem;
   --h2-line-height: 1.4;
   --h3-h6-line-height: 1.4;
-  --h2-margin-top: 1.75; /* `* 1em` */
-  --h3-h6-margin-top: 1.7; /* `* 1em` */
-  --h2-margin-bottom: 0.6; /* `* 1em` */
-  --h3-h6-margin-bottom: 0.6; /* `* 1em` */
+  --h2-margin-top: 1.75em;
+  --h3-h6-margin-top: 1.7em;
+  --h2-margin-bottom: 0.6em;
+  --h3-h6-margin-bottom: 0.6em;
   --h3-h6-sibling-epsilon: 0.15;
   --h3-h6-sibling-alpha: 1.8;
 }
@@ -718,8 +718,8 @@ h1 {
 h2 {
   font-size: var(--h2-font-size);
   line-height: var(--h2-line-height);
-  margin-top: calc(var(--h2-margin-top) * 1em);
-  margin-bottom: calc(var(--h2-margin-bottom) * 1em);
+  margin-top: var(--h2-margin-top);
+  margin-bottom: var(--h2-margin-bottom);
 }
 
 h3 {
@@ -745,7 +745,7 @@ h4,
 h5,
 h6 {
   line-height: var(--h3-h6-line-height);
-  margin-top: calc(var(--h3-h6-margin-top) * 1em);
+  margin-top: var(--h3-h6-margin-top);
 }
 
 h1 + h2 {
@@ -777,7 +777,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin-bottom: calc(var(--h3-h6-margin-bottom) * 1em);
+  margin-bottom: var(--h3-h6-margin-bottom);
 }
 /**
  * Set a non-null value `margin-bottom` ONLY for  `h2-h5` headings without a
