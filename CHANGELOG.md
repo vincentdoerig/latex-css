@@ -10,7 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 - Polish translations (#84)
-- 
+
 ### Fixed
 - Fix Dutch translations (#74)
 - Use more specific selector for numbered table of contents (#75)
