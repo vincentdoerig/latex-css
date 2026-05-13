@@ -1,5 +1,7 @@
-# Don't accidentally commit the build artifact to the repo
+# Don't accidentally commit the build artifacts to the repo
 style.min.css
+style-paged.min.css
+latexcss-paged.js
 
 #region https://github.com/github/gitignore/blob/main/Node.gitignore
 # Logs
