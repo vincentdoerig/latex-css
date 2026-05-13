@@ -1,0 +1,6 @@
+:lang(ko) .theorem::before { content: '정리 ' counter(theorem) '. ' !important; }
+:lang(ko) .lemma::before { content: '보조정리 ' counter(theorem) '. ' !important; }
+:lang(ko) .proof::before { content: '증명. ' attr(title) !important; }
+:lang(ko) .definition::before { content: '정의 ' counter(definition) '. ' !important; }
+:lang(ko) caption::before { content: '표 ' counter(caption) '. ' !important; }
+:lang(ko) figcaption::before { content: '그림 ' counter(figcaption) '. ' !important; }
